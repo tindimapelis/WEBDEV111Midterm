@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Artists | VibeStream Pro</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Griffy&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --panel: rgba(10, 10, 10, 0.82);
+    --panel-soft: rgba(255, 255, 255, 0.06);
+    --text: #f5f0f7;
+    --muted: #c8b8c8;
+    --accent: #a10032;
+    --accent-bright: #ff3a74;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--text);
+    font-family: "Outfit", sans-serif;
+    background:
+      linear-gradient(rgba(3, 3, 3, 0.72), rgba(3, 3, 3, 0.88)),
+      url("lightning.gif") center/cover no-repeat fixed;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .top-header {
+    width: min(1400px, calc(100% - 32px));
+    margin: 24px auto 0;
+    display: grid;
+    grid-template-columns: 120px minmax(0, 1fr) 120px;
+    gap: 18px;
+  }
+
+  .header-eye,
+  .header-banner,
+  .sidebar,
+  .panel,
+  .artist-card,
+  .artist-details {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  }
+
+  .header-eye {
+    min-height: 170px;
+    border-radius: 24px;
+    background:
+      linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+      url("movingeye.gif") center/cover no-repeat;
+  }
+
+  .header-banner {
+    min-height: 170px;
+    border-radius: 28px;
+    background:
+      linear-gradient(rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.18)),
+      url("quote1.png") center/cover no-repeat;
+  }
+
+  .page-shell {
+    width: min(1400px, calc(100% - 32px));
+    margin: 18px auto 24px;
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .sidebar,
+  .panel,
+  .artist-card,
+  .artist-details {
+    backdrop-filter: blur(10px);
+    background: var(--panel);
+  }
+
+  .sidebar {
+    border-radius: 28px;
+    padding: 24px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+  }
+
+  .brand {
+    text-align: center;
+    padding: 18px 14px;
+    border-radius: 22px;
+    background: linear-gradient(180deg, rgba(161, 0, 50, 0.35), rgba(255, 58, 116, 0.1));
+  }
+
+  .brand h1 {
+    margin: 0;
+    font-family: "Griffy", cursive;
+    letter-spacing: 2px;
+  }
+
+  .brand p {
+    margin: 10px 0 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px;
+    border-radius: 18px;
+    background: var(--panel-soft);
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-link img {
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+  }
+
+  .nav-link strong {
+    display: block;
+    font-size: 1rem;
+  }
+
+  .nav-link span {
+    display: block;
+    color: var(--muted);
+    font-size: 0.86rem;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    min-width: 0;
+  }
+
+  .panel {
+    border-radius: 30px;
+    padding: 28px;
+  }
+
+  .intro {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, rgba(161, 0, 50, 0.2), rgba(12, 12, 12, 0.84));
+  }
+
+  .intro h2 {
+    margin: 0 0 8px;
+    font-size: 1.6rem;
+  }
+
+  .intro p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.6;
+    max-width: 680px;
+  }
+
+  .artist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 18px;
+  }
+
+  .artist-card {
+    border-radius: 24px;
+    padding: 18px;
+    cursor: pointer;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(161, 0, 50, 0.18));
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .artist-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
+  }
+
+  .artist-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 20px;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 14px;
+  }
+
+  .artist-name {
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .artist-genre {
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+
+  .artist-details {
+    display: none;
+    border-radius: 30px;
+    padding: 28px;
+    gap: 22px;
+  }
+
+  .artist-details.show {
+    display: grid;
+    grid-template-columns: 180px minmax(0, 1fr);
+  }
+
+  .artist-details img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 24px;
+    object-fit: cover;
+  }
+
+  .artist-details h3 {
+    margin: 0 0 10px;
+    font-size: 1.7rem;
+  }
+
+  .artist-details p {
+    margin: 0 0 10px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .artist-details ul {
+    margin: 14px 0 0;
+    padding-left: 20px;
+    color: var(--text);
+  }
+
+  .artist-details li {
+    margin-bottom: 8px;
+  }
+
+  @media (max-width: 980px) {
+    .top-header {
+      grid-template-columns: 1fr;
+    }
+
+    .header-eye {
+      display: none;
+    }
+
+    .page-shell {
+      grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+      position: static;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .artist-details.show {
+      grid-template-columns: 1fr;
+    }
+
+    .artist-details img {
+      max-width: 220px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .top-header,
+    .page-shell {
+      width: min(100% - 20px, 1400px);
+    }
+
+    .top-header {
+      margin-top: 10px;
+    }
+
+    .header-banner {
+      min-height: 120px;
+      border-radius: 20px;
+    }
+
+    .sidebar,
+    .panel,
+    .artist-details {
+      border-radius: 22px;
+      padding: 20px;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="top-header">
+    <div class="header-eye"></div>
+    <div class="header-banner"></div>
+    <div class="header-eye"></div>
+  </div>
+
+  <div class="page-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <h1>VibeStream</h1>
+        <p>Meet the artists behind the late-night playlist energy.</p>
+      </div>
+
+      <a class="nav-link" href="index.html">
+        <img src="house.png" alt="Home">
+        <div>
+          <strong>Home</strong>
+          <span>Featured songs</span>
+        </div>
+      </a>
+
+      <a class="nav-link active" href="artist.html">
+        <img src="artist.png" alt="Artists">
+        <div>
+          <strong>Artists</strong>
+          <span>Discover the lineup</span>
+        </div>
+      </a>
+
+      <a class="nav-link" href="vip.html">
+        <img src="vip.png" alt="Join VIP">
+        <div>
+          <strong>Join VIP</strong>
+          <span>Unlock more vibes</span>
+        </div>
+      </a>
+    </aside>
+
+    <main class="content">
+      <section class="panel intro">
+        <div>
+          <h2>Discover Artists</h2>
+          <p>Tap any artist card to see a short intro and a few popular songs, all in the same VibeStream look as the rest of your site.</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="artist-grid">
+          <div class="artist-card" onclick="showArtist('Evanescence', 'Gothic Metal / Alternative Metal / Hard Rock', 'A Grammy-winning rock band known for emotional and powerful music.', ['Bring Me To Life', 'My Immortal', 'Call Me When You\\'re Sober'], 'evanescence.jpg')">
+            <img src="evanescence.jpg" alt="Evanescence">
+            <div class="artist-name">Evanescence</div>
+            <div class="artist-genre">Gothic Metal / Alternative Metal / Hard Rock</div>
+          </div>
+
+          <div class="artist-card" onclick="showArtist('Mitski', 'Indie / Alternative', 'Indie artist known for emotional storytelling and a unique sound.', ['Nobody', 'Washing Machine Heart', 'Abbey'], 'mitski.png')">
+            <img src="mitski.png" alt="Mitski">
+            <div class="artist-name">Mitski</div>
+            <div class="artist-genre">Indie / Alternative</div>
+          </div>
+
+          <div class="artist-card" onclick="showArtist('Chappell Roan', 'Synth-pop / Indie-pop / Dance-pop', 'Pop artist known for bold visuals and theatrical music style.', ['Pink Pony Club', 'Casual', 'Red Wine Supernova'], 'chappell.jpg')">
+            <img src="chappell.jpg" alt="Chappell Roan">
+            <div class="artist-name">Chappell Roan</div>
+            <div class="artist-genre">Synth-pop / Indie-pop / Dance-pop</div>
+          </div>
+
+          <div class="artist-card" onclick="showArtist('Tubero', 'Grindcore / Hardcore Punk', 'A Filipino alternative band known for humor and bold lyrics.', ['Guard Tang Ina Mo', 'Hindi Ako Nagbi-Brip', 'Kabet'], 'tubero.jpg')">
+            <img src="tubero.jpg" alt="Tubero">
+            <div class="artist-name">Tubero</div>
+            <div class="artist-genre">Grindcore / Hardcore Punk</div>
+          </div>
+
+          <div class="artist-card" onclick="showArtist('Carlos Agassi', 'Hip-Hop / Rap', 'Actor and performer known for viral OPM hits.', ['Problema', 'Milk Tea', 'Para Sa Streets'], 'carlos.jpg')">
+            <img src="carlos.jpg" alt="Carlos Agassi">
+            <div class="artist-name">Carlos Agassi</div>
+            <div class="artist-genre">Hip-Hop / Rap</div>
+          </div>
+
+          <div class="artist-card" onclick="showArtist('Princess Rica', 'Viral Pop', 'Internet viral personality turned pop performer.', ['Sulutera', 'Boyfriend Kong Baduy', 'TikTok Love'], 'princessrica.jpg')">
+            <img src="princessrica.jpg" alt="Princess Rica">
+            <div class="artist-name">Princess Rica</div>
+            <div class="artist-genre">Viral Pop</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="artistDetails" class="artist-details">
+        <img id="detailImg" alt="Artist image">
+        <div>
+          <h3 id="detailName"></h3>
+          <p id="detailGenre"></p>
+          <p id="detailBio"></p>
+          <strong>Popular Songs</strong>
+          <ul id="detailSongs"></ul>
+        </div>
+      </section>
+    </main>
+  </div>
+
+<script>
+  function showArtist(name, genre, bio, songs, img) {
+    const details = document.getElementById("artistDetails");
+    document.getElementById("detailName").innerText = name;
+    document.getElementById("detailGenre").innerText = genre;
+    document.getElementById("detailBio").innerText = bio;
+    document.getElementById("detailImg").src = img;
+
+    const list = document.getElementById("detailSongs");
+    list.innerHTML = "";
+
+    songs.forEach(function (song) {
+      const li = document.createElement("li");
+      li.textContent = song;
+      list.appendChild(li);
+    });
+
+    details.classList.add("show");
+    details.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+</script>
+</body>
+</html>
