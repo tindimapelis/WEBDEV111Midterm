@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VIP Access | VibeStream Pro</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Griffy&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --panel: rgba(10, 10, 10, 0.82);
+    --panel-soft: rgba(255, 255, 255, 0.06);
+    --text: #f5f0f7;
+    --muted: #c8b8c8;
+    --accent: #a10032;
+    --accent-bright: #ff3a74;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--text);
+    font-family: "Outfit", sans-serif;
+    background:
+      linear-gradient(rgba(3, 3, 3, 0.72), rgba(3, 3, 3, 0.88)),
+      url("background.gif") center/cover no-repeat fixed;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .top-header {
+    width: min(1400px, calc(100% - 32px));
+    margin: 24px auto 0;
+    display: grid;
+    grid-template-columns: 120px minmax(0, 1fr) 120px;
+    gap: 18px;
+  }
+
+  .header-eye,
+  .header-banner,
+  .sidebar,
+  .panel,
+  .vip-form {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  }
+
+  .header-eye {
+    min-height: 170px;
+    border-radius: 24px;
+    background:
+      linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+      url("movingeye.gif") center/cover no-repeat;
+  }
+
+  .header-banner {
+    min-height: 170px;
+    border-radius: 28px;
+    background:
+      linear-gradient(rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.18)),
+      url("quote1.png") center/cover no-repeat;
+  }
+
+  .page-shell {
+    width: min(1400px, calc(100% - 32px));
+    margin: 18px auto 24px;
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .sidebar,
+  .panel,
+  .vip-form {
+    backdrop-filter: blur(10px);
+    background: var(--panel);
+  }
+
+  .sidebar {
+    border-radius: 28px;
+    padding: 24px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+  }
+
+  .brand {
+    text-align: center;
+    padding: 18px 14px;
+    border-radius: 22px;
+    background: linear-gradient(180deg, rgba(161, 0, 50, 0.35), rgba(255, 58, 116, 0.1));
+  }
+
+  .brand h1 {
+    margin: 0;
+    font-family: "Griffy", cursive;
+    letter-spacing: 2px;
+  }
+
+  .brand p {
+    margin: 10px 0 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px;
+    border-radius: 18px;
+    background: var(--panel-soft);
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-link img {
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+  }
+
+  .nav-link strong {
+    display: block;
+    font-size: 1rem;
+  }
+
+  .nav-link span {
+    display: block;
+    color: var(--muted);
+    font-size: 0.86rem;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    min-width: 0;
+  }
+
+  .panel,
+  .vip-form {
+    border-radius: 30px;
+    padding: 28px;
+  }
+
+  .panel {
+    background: linear-gradient(135deg, rgba(161, 0, 50, 0.2), rgba(12, 12, 12, 0.84));
+  }
+
+  .panel h2 {
+    margin: 0 0 8px;
+    font-size: 1.7rem;
+  }
+
+  .panel p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.6;
+    max-width: 720px;
+  }
+
+  .vip-form {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 380px);
+    gap: 24px;
+  }
+
+  .vip-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .vip-copy img {
+    width: 88px;
+    height: 88px;
+    object-fit: cover;
+  }
+
+  .vip-copy h3 {
+    margin: 0 0 12px;
+    font-family: "Griffy", cursive;
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+  }
+
+  .vip-copy p,
+  .vip-copy li {
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .vip-copy ul {
+    margin: 0;
+    padding-left: 20px;
+  }
+
+  form {
+    display: grid;
+    gap: 14px;
+  }
+
+  .name-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+    color: #f3d9e3;
+    font-size: 0.95rem;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 16px;
+    border: none;
+    background: rgba(255, 255, 255, 0.07);
+    color: white;
+    font: inherit;
+  }
+
+  textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  input:focus,
+  textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(255, 79, 135, 0.15);
+  }
+
+  button {
+    margin-top: 4px;
+    padding: 14px 18px;
+    border: none;
+    border-radius: 16px;
+    color: white;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    background: linear-gradient(90deg, var(--accent), var(--accent-bright));
+  }
+
+  @media (max-width: 980px) {
+    .top-header {
+      grid-template-columns: 1fr;
+    }
+
+    .header-eye {
+      display: none;
+    }
+
+    .page-shell,
+    .vip-form {
+      grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+      position: static;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .top-header,
+    .page-shell {
+      width: min(100% - 20px, 1400px);
+    }
+
+    .top-header {
+      margin-top: 10px;
+    }
+
+    .header-banner {
+      min-height: 120px;
+      border-radius: 20px;
+    }
+
+    .sidebar,
+    .panel,
+    .vip-form {
+      border-radius: 22px;
+      padding: 20px;
+    }
+
+    .name-row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="top-header">
+    <div class="header-eye"></div>
+    <div class="header-banner"></div>
+    <div class="header-eye"></div>
+  </div>
+
+  <div class="page-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <h1>VibeStream</h1>
+        <p>Join the VIP side for more access, more perks, and more drama.</p>
+      </div>
+
+      <a class="nav-link" href="index.html">
+        <img src="house.png" alt="Home">
+        <div>
+          <strong>Home</strong>
+          <span>Featured songs</span>
+        </div>
+      </a>
+
+      <a class="nav-link" href="artist.html">
+        <img src="artist.png" alt="Artists">
+        <div>
+          <strong>Artists</strong>
+          <span>Discover the lineup</span>
+        </div>
+      </a>
+
+      <a class="nav-link active" href="vip.html">
+        <img src="vip.png" alt="Join VIP">
+        <div>
+          <strong>Join VIP</strong>
+          <span>Unlock more vibes</span>
+        </div>
+      </a>
+    </aside>
+
+    <main class="content">
+      <section class="panel">
+        <h2>VIP Access</h2>
+        <p>Share your details below if you want the premium VibeStream experience. The layout now matches the homepage and artist page, with the same softer glassy mood and no visible borders.</p>
+      </section>
+
+      <section class="vip-form">
+        <div class="vip-copy">
+          <div>
+            <img src="guy.png" alt="VIP illustration">
+            <h3>Join the Inner Circle</h3>
+            <p>Get closer to the music, early features, and special member-only extras designed for your most dramatic playlists.</p>
+          </div>
+
+          <ul>
+            <li>Priority access to special updates</li>
+            <li>More personalized music features</li>
+            <li>A cleaner premium experience inside the site</li>
+          </ul>
+        </div>
+
+        <form>
+          <div>
+            <label for="first-name">Name</label>
+            <div class="name-row">
+              <input id="first-name" type="text" placeholder="First">
+              <input id="last-name" type="text" placeholder="Last">
+            </div>
+          </div>
+
+          <div>
+            <label for="birthday">Birthday</label>
+            <input id="birthday" type="date">
+          </div>
+
+          <div>
+            <label for="phone">Phone Number</label>
+            <input id="phone" type="tel" placeholder="09XXXXXXXXX">
+          </div>
+
+          <div>
+            <label for="email">Email Address</label>
+            <input id="email" type="email" placeholder="you@email.com">
+          </div>
+
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="Tell us why you want VIP access..."></textarea>
+          </div>
+
+          <button type="submit">Submit Form</button>
+        </form>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Log In | VibeStream Pro</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Griffy&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --panel: rgba(8, 8, 8, 0.83);
+    --line: rgba(255, 255, 255, 0.06);
+    --text: #f6f1f5;
+    --muted: #d4bcc9;
+    --accent: #a10032;
+    --accent-bright: #ff4f87;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Outfit", sans-serif;
+    color: var(--text);
+    background:
+      linear-gradient(rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.82)),
+      url('bg.gif') center/cover no-repeat fixed;
+  }
+
+  .page {
+    width: min(1120px, calc(100% - 32px));
+    margin: 26px auto;
+    display: grid;
+    gap: 24px;
+  }
+
+  .banner {
+    overflow: hidden;
+    border-radius: 28px;
+    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+  }
+
+  .banner img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .login-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(360px, 460px);
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  .feature,
+  .login-box {
+    border-radius: 30px;
+    background: var(--panel);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+  }
+
+  .feature {
+    padding: 34px;
+    background:
+      linear-gradient(145deg, rgba(161, 0, 50, 0.45), rgba(7, 7, 7, 0.88)),
+      url('movingeye.gif') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 520px;
+  }
+
+  .feature h1 {
+    margin: 0 0 14px;
+    font-family: "Griffy", cursive;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    letter-spacing: 2px;
+  }
+
+  .feature p {
+    max-width: 420px;
+    margin: 0 0 20px;
+    line-height: 1.7;
+    color: #f7d7e2;
+  }
+
+  .feature a {
+    width: fit-content;
+    padding: 12px 18px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .login-box {
+    padding: 34px;
+    text-align: center;
+  }
+
+  .avatar {
+    width: min(180px, 52%);
+    margin-bottom: 14px;
+  }
+
+  .login-box h2 {
+    margin: 0;
+    font-family: "Griffy", cursive;
+    font-size: 3rem;
+    color: white;
+    letter-spacing: 2px;
+  }
+
+  .subtitle {
+    margin: 10px 0 28px;
+    color: var(--muted);
+  }
+
+  .input-group {
+    text-align: left;
+    margin-bottom: 18px;
+  }
+
+  .input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #f3d9e3;
+    font-size: 0.95rem;
+  }
+
+  .input-group input {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 16px;
+    border: none;
+    background: rgba(255, 255, 255, 0.07);
+    color: white;
+    font: inherit;
+  }
+
+  .input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .input-group input:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(255, 79, 135, 0.15);
+  }
+
+  .login-btn,
+  .secondary-link {
+    width: 100%;
+    padding: 14px 18px;
+    border-radius: 16px;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .login-btn {
+    border: none;
+    color: white;
+    background: linear-gradient(90deg, var(--accent), var(--accent-bright));
+    margin-top: 8px;
+  }
+
+  .secondary-link {
+    display: inline-block;
+    margin-top: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    text-decoration: none;
+  }
+
+  .mini-note {
+    margin-top: 20px;
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 900px) {
+    .login-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .feature {
+      min-height: 300px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .page {
+      width: min(100% - 20px, 1120px);
+      margin: 10px auto 24px;
+    }
+
+    .banner,
+    .feature,
+    .login-box {
+      border-radius: 22px;
+    }
+
+    .banner img {
+      height: 150px;
+    }
+
+    .feature,
+    .login-box {
+      padding: 22px;
+    }
+
+    .login-box h2 {
+      font-size: 2.3rem;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <div class="banner">
+      <img src="banner.png" alt="VibeStream banner">
+    </div>
+
+    <div class="login-layout">
+      <section class="feature">
+        <h1>Welcome back.</h1>
+        <p>
+          Step back into your playlist, queue up the mood, and head straight to the songs that match your energy.
+        </p>
+        <a href="index.html">Back to Home</a>
+      </section>
+
+      <section class="login-box">
+        <img class="avatar" src="guy.png" alt="Login illustration">
+        <h2>Log In</h2>
+        <p class="subtitle">Sign in to enter your VibeStream space.</p>
+
+        <form onsubmit="return loginUser()">
+          <div class="input-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="Enter your email">
+          </div>
+
+          <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter your password">
+          </div>
+
+          <button type="submit" class="login-btn">Sign In</button>
+        </form>
+
+        <a class="secondary-link" href="#">Forgot Password?</a>
+        <p class="mini-note">Demo login is still the same: any email with an "@" and any non-empty password will enter the homepage.</p>
+      </section>
+    </div>
+  </div>
+
+<script>
+  function loginUser() {
+    var email = document.getElementById("email").value.trim();
+    var password = document.getElementById("password").value.trim();
+
+    if (email.includes("@") && password !== "") {
+      window.location.href = "index.html";
+    } else {
+      alert("Please enter a valid email and password.");
+    }
+
+    return false;
+  }
+</script>
+</body>
+</html>
