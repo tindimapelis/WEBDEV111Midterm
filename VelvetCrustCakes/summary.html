@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Velvet Crust Cakes | Cart</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <a href="index.html" aria-label="Velvet Crust Cakes home">
+            <img class="site-header-img" src="header.png" alt="Velvet Crust Cakes header">
+        </a>
+    </header>
+
+    <div class="app-shell">
+        <aside class="sidebar">
+            <nav class="sidebar-nav" aria-label="Primary navigation">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="shop.html" class="nav-link">Shop</a>
+                <a href="summary.html" class="nav-link is-active">Cart <span class="cart-pill">(<span id="cart-count">0</span>)</span></a>
+                <a href="login.html" class="nav-link nav-link-ghost">Login</a>
+            </nav>
+
+            <div class="sidebar-note">
+                Review quantities, then checkout.
+            </div>
+        </aside>
+
+        <main class="main">
+
+
+    <div id="cart-modal" class="modal-overlay">
+        <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <h2 id="modal-title">Confirm Selection</h2>
+            <div id="modal-msg" class="modal-msg"></div>
+            <div id="qty-box" class="qty-box" style="display:none;">
+                <label for="item-qty">Quantity</label>
+                <input type="number" id="item-qty" value="1" min="1">
+            </div>
+            <div class="modal-actions">
+                <button id="modal-yes" class="btn btn-primary">Yes</button>
+                <button id="modal-no" class="btn btn-secondary">No</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <section id="summary" class="page">
+            <h2 class="section-title">Order summary</h2>
+            <table class="summary-table">
+                <thead>
+                    <tr><th></th><th>Item</th><th>Qty</th><th>Subtotal</th><th></th></tr>
+                </thead>
+                <tbody id="cart-items"></tbody>
+            </table>
+            <div class="summary-footer">
+                <div class="total-line">Grand total <span class="total-amt"><span id="total-price">₱0.00</span></span></div>
+                <button class="btn btn-primary" id="checkout-btn">Checkout</button>
+            </div>
+        </section>
+    </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
