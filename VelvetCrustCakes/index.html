@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Velvet Crust Cakes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <a href="index.html" aria-label="Velvet Crust Cakes home">
+            <img class="site-header-img" src="header.png" alt="Velvet Crust Cakes header">
+        </a>
+    </header>
+
+    <div class="app-shell">
+        <aside class="sidebar">
+            <nav class="sidebar-nav" aria-label="Primary navigation">
+                <a href="index.html" class="nav-link is-active">Home</a>
+                <a href="shop.html" class="nav-link">Shop</a>
+                <a href="summary.html" class="nav-link">Cart <span class="cart-pill">(<span id="cart-count">0</span>)</span></a>
+                <a href="login.html" class="nav-link nav-link-ghost">Login</a>
+            </nav>
+
+            <div class="sidebar-note">
+                Fresh baked red velvet treats, made daily.
+            </div>
+        </aside>
+
+        <main class="main">
+            <div class="container">
+                <section id="home" class="page active">
+                    <div class="hero">
+                        <img id="carousel-img" class="carousel-img" src="cake.jpg" alt="Assorted cakes">
+                        <div class="carousel-overlay">
+                            <a class="btn btn-primary" href="shop.html">Browse the shop</a>
+                        </div>
+                    </div>
+                    <h2 class="section-title">Trending this week</h2>
+                    <div class="grid" id="trending-grid"></div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+
+    <div id="cart-modal" class="modal-overlay">
+        <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <h2 id="modal-title">Confirm Selection</h2>
+            <div id="modal-msg" class="modal-msg"></div>
+            <div id="qty-box" class="qty-box" style="display:none;">
+                <label for="item-qty">Quantity</label>
+                <input type="number" id="item-qty" value="1" min="1">
+            </div>
+            <div class="modal-actions">
+                <button id="modal-yes" class="btn btn-primary">Yes</button>
+                <button id="modal-no" class="btn btn-secondary">No</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
