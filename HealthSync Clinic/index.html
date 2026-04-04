@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HealthSync Clinic</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="topbar shell">
+      <a class="brand-block" href="index.html" aria-label="HealthSync Clinic home">
+        <img class="brand-logo" src="LOGO.png" alt="HealthSync Clinic logo">
+        <div class="brand-copy">
+          <p class="brand-kicker">Clinic Management System</p>
+          <h1>HealthSync Clinic</h1>
+          <p class="brand-tagline">Trusted scheduling for patients, staff, and administrators.</p>
+        </div>
+      </a>
+
+      <label class="search-shell" aria-label="Search clinic services">
+        <span class="search-icon" aria-hidden="true">Q</span>
+        <input type="search" placeholder="Search specialties, doctors, or services">
+      </label>
+
+      <div class="utility-actions">
+        <div class="contact-pill success">
+          <span class="contact-label">Trunk Line</span>
+          <strong>+(632) 8-771-9000</strong>
+        </div>
+        <div class="contact-pill danger">
+          <span class="contact-label">Emergency</span>
+          <strong>+(632) 8-876-57-55</strong>
+        </div>
+        <div class="auth-actions">
+          <a class="login-link secondary-auth" href="user-login.html">Patient Login</a>
+          <a class="login-link" href="login.html">Admin Login</a>
+          <a class="register-link" href="login.html">
+            Register
+            <span class="verified-badge">Verified</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <nav class="site-nav shell" aria-label="Primary">
+      <a href="#about-us">About Us</a>
+      <a href="#wizard">Book Appointment</a>
+      <a href="#specialties">Find a Doctor</a>
+      <a href="#specialties">Expertise</a>
+      <a href="#patient-guide">Patient Guide</a>
+      <a href="login.html">Online Services</a>
+      <a href="#contact-us">Contact Us</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="about-us" class="about-band shell">
+      <article class="about-card about-lead">
+        <p class="eyebrow">About Us</p>
+        <h2>HealthSync Clinic blends trusted scheduling with a character-rich care experience.</h2>
+        <p>
+          Built as a guided clinic-booking concept, HealthSync focuses on clarity, availability, and ease of use. Patients move through a calm step-by-step flow, while staff and admins stay aligned through role-based dashboards and appointment history.
+        </p>
+      </article>
+
+      <article class="about-card">
+        <p class="eyebrow">Our Focus</p>
+        <h3>Simple booking, clear doctor profiles, and fast appointment access.</h3>
+        <p>We designed the homepage to feel polished and welcoming, then kept the wizard intentionally light so booking never turns into form fatigue.</p>
+      </article>
+
+      <article class="about-card">
+        <p class="eyebrow">Patient Promise</p>
+        <h3>Availability first, progress saved, and details easy to review.</h3>
+        <p>Whether someone is choosing a specialty, comparing doctors, or checking appointments from the patient portal, the experience stays clean and readable.</p>
+      </article>
+    </section>
+
+    <section class="hero-stage shell">
+      <div class="hero-backdrop">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <div class="hero-copy">
+            <p class="eyebrow">Availability-first booking experience</p>
+            <h2>Book care with one clear question per screen.</h2>
+            <p class="hero-text">
+              HealthSync keeps the process simple: select a specialty, pick a doctor, choose an available time, and confirm. Patients avoid form fatigue while staff stay synced on schedules and history.
+            </p>
+
+            <div class="hero-actions">
+              <a class="primary-link" href="#wizard">Start Booking</a>
+              <a class="secondary-link" href="user-login.html">View My Appointments</a>
+              <a class="secondary-link" href="login.html">Open Admin Portal</a>
+            </div>
+
+            <div class="trust-row">
+              <div class="trust-pill">
+                <strong>Availability</strong>
+                <span>Only open schedule slots are shown.</span>
+              </div>
+              <div class="trust-pill">
+                <strong>Verified Profiles</strong>
+                <span>Doctors and branches stay easy to review.</span>
+              </div>
+              <div class="trust-pill">
+                <strong>Local Progress Save</strong>
+                <span>Patients can pause and safely return later.</span>
+              </div>
+            </div>
+          </div>
+
+          <aside class="hero-aside">
+            <div class="hero-logo-card">
+              <img src="LOGO.png" alt="HealthSync Clinic">
+            </div>
+
+            <div class="hero-process-card">
+              <p class="process-kicker">Step-by-Step Wizard</p>
+              <h3>Select Specialty &rarr; Pick Doctor &rarr; Choose Time &rarr; Confirm Appointment</h3>
+              <p>One screen at a time keeps the booking journey calm, readable, and mobile-friendly.</p>
+            </div>
+          </aside>
+        </div>
+
+        <div class="hero-metrics">
+          <div class="metric-card">
+            <span>Active Doctors</span>
+            <strong id="heroDoctorCount">0</strong>
+          </div>
+          <div class="metric-card">
+            <span>Pending Requests</span>
+            <strong id="heroPendingCount">0</strong>
+          </div>
+          <div class="metric-card">
+            <span>Booking Flow</span>
+            <strong>4 Guided Steps</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="specialties" class="feature-strip shell">
+      <article class="feature-card">
+        <p class="eyebrow">What Patients Need</p>
+        <h3>Book, staff, and history in one connected experience.</h3>
+        <p>Each booking can feed role-based dashboards so users, staff, and admins stay aligned without cluttering the public-facing flow.</p>
+      </article>
+      <article class="feature-card">
+        <p class="eyebrow">Why It Feels Lighter</p>
+        <h3>One question per screen reduces friction.</h3>
+        <p>The wizard focuses attention on a single decision at a time instead of dropping patients into a long, exhausting form.</p>
+      </article>
+      <article class="feature-card">
+        <p class="eyebrow">Trust Signal</p>
+        <h3>Clean, professional, and easy to verify.</h3>
+        <p>White layouts, calm overlays, clear availability, and a verified registration cue reinforce a credible clinic feel.</p>
+      </article>
+    </section>
+
+    <section class="doctor-showcase shell" aria-labelledby="doctorShowcaseTitle">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Choose Your Doctor</p>
+          <h2 id="doctorShowcaseTitle">Meet the available specialists before you book.</h2>
+        </div>
+        <p class="section-copy">Select a doctor by profile, visual style, and open schedule, then continue into the guided appointment wizard.</p>
+      </div>
+
+      <div id="doctorShowcaseGrid" class="doctor-showcase-grid"></div>
+    </section>
+
+    <section id="wizard" class="booking-layout shell">
+      <article class="wizard-card">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Appointment Wizard</p>
+            <h2>Book an appointment</h2>
+          </div>
+          <button id="resetWizard" class="ghost-button" type="button">Reset Wizard</button>
+        </div>
+
+        <div class="progress-row">
+          <div>
+            <p class="progress-title" id="stepLabel">Step 1 of 4</p>
+            <p class="progress-subtitle" id="stepSubtitle">Select the type of care you need.</p>
+          </div>
+          <span class="autosave-chip">Autosave Active</span>
+        </div>
+
+        <div class="progress-track" aria-hidden="true">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <div class="wizard-panel">
+          <div class="wizard-intro">
+            <p class="wizard-intro-label">One question per screen</p>
+            <p class="wizard-question" id="wizardQuestion"></p>
+          </div>
+          <div id="wizardScreen" class="wizard-screen"></div>
+        </div>
+
+        <div class="wizard-nav">
+          <button id="backButton" class="nav-button muted" type="button">Back</button>
+          <button id="nextButton" class="nav-button primary" type="button">Continue</button>
+        </div>
+      </article>
+
+      <aside id="patient-guide" class="side-card">
+        <div class="section-head compact">
+          <div>
+            <p class="eyebrow">Booking Snapshot</p>
+            <h2>Your visit plan</h2>
+          </div>
+        </div>
+
+        <div class="summary-list">
+          <div class="summary-item">
+            <span>Specialty</span>
+            <strong id="summarySpecialty">Not selected</strong>
+          </div>
+          <div class="summary-item">
+            <span>Doctor</span>
+            <strong id="summaryDoctor">Not selected</strong>
+          </div>
+          <div class="summary-item">
+            <span>Date</span>
+            <strong id="summaryDate">Not selected</strong>
+          </div>
+          <div class="summary-item">
+            <span>Time</span>
+            <strong id="summaryTime">Not selected</strong>
+          </div>
+        </div>
+
+        <div class="side-note" id="resumeNotice">
+          Your progress is stored locally in this browser so patients can safely resume later.
+        </div>
+
+        <div class="trust-card">
+          <p class="state-title">Patient guide</p>
+          <ul class="plain-list">
+            <li>Choose the specialty that best matches the care you need.</li>
+            <li>Review the doctor profile and branch before moving ahead.</li>
+            <li>Pick from visible availability only, then confirm your visit.</li>
+          </ul>
+        </div>
+
+        <div class="state-card">
+          <p class="state-title">Clinic-ready behavior</p>
+          <ul class="plain-list">
+            <li>Wizard progress is saved locally between refreshes.</li>
+            <li>Confirmed bookings are stored as pending requests for dashboard use.</li>
+            <li>Selections reset automatically when a patient changes specialty or doctor.</li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+
+    <section id="contact-us" class="contact-section shell">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Contact Us</p>
+          <h2>Reach the clinic for appointments, follow-ups, and urgent concerns.</h2>
+        </div>
+        <p class="section-copy">Use the main trunk line for general scheduling, contact the patient portal for account issues, or use the emergency line for urgent medical concerns.</p>
+      </div>
+
+      <div class="contact-grid">
+        <article class="contact-card">
+          <p class="contact-kicker">Main Clinic</p>
+          <h3>+(632) 8-771-9000</h3>
+          <p>General appointments, doctor availability, and front-desk support.</p>
+        </article>
+        <article class="contact-card">
+          <p class="contact-kicker">Emergency</p>
+          <h3>+(632) 8-876-57-55</h3>
+          <p>Immediate care concerns and urgent hotline assistance.</p>
+        </article>
+        <article class="contact-card">
+          <p class="contact-kicker">Email Support</p>
+          <h3>care@healthsyncclinic.demo</h3>
+          <p>Patient portal questions, follow-up requests, and account support.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="wizard.js"></script>
+</body>
+</html>

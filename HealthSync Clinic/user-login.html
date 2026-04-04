@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Login | HealthSync Clinic</title>
+  <link rel="stylesheet" href="portal.css">
+</head>
+<body data-page="user-login">
+  <div class="page-bg" aria-hidden="true">
+    <div class="glow glow-one"></div>
+    <div class="glow glow-two"></div>
+  </div>
+
+  <header class="portal-header">
+    <div class="brand-block">
+      <div class="brand-mark">HS</div>
+      <div>
+        <p class="eyebrow">Patient Login</p>
+        <h1>HealthSync Clinic</h1>
+      </div>
+    </div>
+    <nav class="header-nav">
+      <a class="nav-link" href="index.html">Back to Website</a>
+      <a class="nav-link" href="login.html">Staff Portal</a>
+      <button class="logout-button" type="button" data-logout>Clear Session</button>
+    </nav>
+  </header>
+
+  <main class="portal-shell">
+    <section class="login-stack">
+      <article class="login-panel">
+        <p class="eyebrow">Sign In</p>
+        <h2>Enter your patient account details.</h2>
+        <p class="helper-text">Use the demo patient account below or type the credentials manually.</p>
+
+        <form id="loginForm">
+          <div class="field-group">
+            <label for="username">Username</label>
+            <input id="username" name="username" type="text" placeholder="Enter username" autocomplete="username">
+          </div>
+
+          <div class="field-group">
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" placeholder="Enter password" autocomplete="current-password">
+          </div>
+
+          <button class="submit-button" type="submit">Open User Dashboard</button>
+          <p id="loginStatus" class="status-note" data-state="idle"></p>
+        </form>
+
+        <div class="helper-row">
+          <p id="currentSession" class="helper-text" hidden></p>
+          <button id="continueSession" class="ghost-link" type="button" hidden>Continue Current Session</button>
+        </div>
+      </article>
+
+      <section class="demo-block">
+        <p class="eyebrow">Patient Demo Account</p>
+        <article class="account-card patient-card">
+          <div class="card-head">
+            <span class="role-chip">User</span>
+            <button type="button" class="fill-button" id="fillPatientDemo">Use</button>
+          </div>
+          <h3>Patient Account</h3>
+          <p>Patient access for appointments, reminders, and quick booking actions.</p>
+          <div class="credential-line"><span>Username</span><strong>user</strong></div>
+          <div class="credential-line"><span>Password</span><strong>user123</strong></div>
+        </article>
+      </section>
+    </section>
+  </main>
+
+  <script src="auth.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const fillButton = document.getElementById("fillPatientDemo");
+      const username = document.getElementById("username");
+      const password = document.getElementById("password");
+
+      if (!fillButton || !username || !password) {
+        return;
+      }
+
+      fillButton.addEventListener("click", () => {
+        username.value = "user";
+        password.value = "user123";
+      });
+    });
+  </script>
+</body>
+</html>

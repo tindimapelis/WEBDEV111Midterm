@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | HealthSync Clinic</title>
+  <link rel="stylesheet" href="portal.css">
+</head>
+<body data-protected-role="admin">
+  <div class="page-bg" aria-hidden="true">
+    <div class="glow glow-one"></div>
+    <div class="glow glow-two"></div>
+  </div>
+
+  <header class="portal-header">
+    <div class="brand-block">
+      <div class="brand-mark">HS</div>
+      <div>
+        <p class="eyebrow">Admin Dashboard</p>
+        <h1>HealthSync Clinic</h1>
+      </div>
+    </div>
+    <nav class="header-nav">
+      <a class="nav-link" href="index.html">Public Website</a>
+      <a class="nav-link" href="login.html">Switch Account</a>
+      <button class="notification-button" type="button" aria-label="Admin notifications">
+        Notifications
+        <span class="notification-badge">4</span>
+      </button>
+      <button class="logout-button" type="button" data-logout>Log Out</button>
+    </nav>
+  </header>
+
+  <main class="portal-shell">
+    <section class="portal-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Branch Operations</p>
+        <h2>Hello, <span data-auth-name></span>.</h2>
+        <p>
+          You are logged in as <strong><span data-auth-role></span></strong>. This admin view focuses on branch operations, doctor schedule visibility, and appointment approvals.
+        </p>
+      </div>
+
+      <div class="hero-side">
+        <div class="mini-stat">
+          <span>Primary Branch</span>
+          <strong>Central</strong>
+        </div>
+        <div class="mini-stat">
+          <span>Pending Reviews</span>
+          <strong>8</strong>
+        </div>
+        <div class="mini-stat">
+          <span>Staff Online</span>
+          <strong>12</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="metric-grid">
+      <article class="metric-card">
+        <span>Schedule Changes</span>
+        <strong>5</strong>
+        <p>Doctor time blocks updated today and ready to be published to staff.</p>
+      </article>
+      <article class="metric-card">
+        <span>Approval Queue</span>
+        <strong>8</strong>
+        <p>Appointment requests still need review before they become fully confirmed.</p>
+      </article>
+      <article class="metric-card">
+        <span>Records Updated</span>
+        <strong>14</strong>
+        <p>Patient files and internal notes changed during the current shift.</p>
+      </article>
+    </section>
+
+    <section class="panel notification-center">
+      <p class="eyebrow">Notification Center</p>
+      <div class="notification-header">
+        <h3>Admin alerts requiring attention</h3>
+        <span class="notification-summary">4 unread</span>
+      </div>
+      <div class="notification-list">
+        <div class="notification-item unread">
+          <div class="notification-dot" aria-hidden="true"></div>
+          <div>
+            <strong>8 appointment approvals are still pending.</strong>
+            <p>Three same-day bookings are waiting for branch approval before noon.</p>
+          </div>
+          <span class="notification-time">5 min ago</span>
+        </div>
+        <div class="notification-item unread">
+          <div class="notification-dot" aria-hidden="true"></div>
+          <div>
+            <strong>Dr. Mendoza updated cardiology availability.</strong>
+            <p>Friday afternoon slots were added and are ready to publish to staff.</p>
+          </div>
+          <span class="notification-time">18 min ago</span>
+        </div>
+        <div class="notification-item unread">
+          <div class="notification-dot" aria-hidden="true"></div>
+          <div>
+            <strong>Insurance mismatch flagged at the front desk.</strong>
+            <p>One patient record needs manual verification before check-in completes.</p>
+          </div>
+          <span class="notification-time">42 min ago</span>
+        </div>
+        <div class="notification-item">
+          <div class="notification-dot" aria-hidden="true"></div>
+          <div>
+            <strong>Two new staff permission requests were submitted.</strong>
+            <p>Review role assignments before end of shift to avoid delayed access.</p>
+          </div>
+          <span class="notification-time">1 hr ago</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel-grid">
+      <article class="panel">
+        <p class="eyebrow">Priority Actions</p>
+        <h3>Admin focus list</h3>
+        <div class="task-list">
+          <div class="task-item">
+            <strong>Approve walk-in overflow requests</strong>
+            <p>Three same-day requests need doctor reassignment before noon.</p>
+          </div>
+          <div class="task-item">
+            <strong>Publish Friday availability</strong>
+            <p>Cardiology and Pediatrics slots are waiting for final branch review.</p>
+          </div>
+          <div class="task-item">
+            <strong>Verify new staff permissions</strong>
+            <p>Two onboarding accounts still need role validation.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel">
+        <p class="eyebrow">Latest Wizard Booking</p>
+        <h3>Newest patient request</h3>
+        <div data-latest-booking></div>
+      </article>
+
+      <article class="panel">
+        <p class="eyebrow">Daily Snapshot</p>
+        <h3>Operational notes</h3>
+        <div class="info-list">
+          <div class="list-item">
+            <strong>Doctor Coverage</strong>
+            <small>North and West branches</small>
+            <p>Orthopedics is fully covered. Dermatology needs one extra afternoon slot.</p>
+          </div>
+          <div class="list-item">
+            <strong>Front Desk Escalations</strong>
+            <small>2 active items</small>
+            <p>One insurance mismatch and one duplicate booking require manual review.</p>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script src="auth.js"></script>
+</body>
+</html>

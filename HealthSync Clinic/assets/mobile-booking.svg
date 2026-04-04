@@ -1,0 +1,80 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg3" x1="174" y1="72" x2="1032" y2="822" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EAF8FD"/>
+      <stop offset="1" stop-color="#FCFEFF"/>
+    </linearGradient>
+    <linearGradient id="phone" x1="488" y1="130" x2="740" y2="796" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#143648"/>
+      <stop offset="1" stop-color="#0A4E66"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="518" y1="164" x2="706" y2="752" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F9FEFF"/>
+      <stop offset="1" stop-color="#E3F3FA"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="566" y1="582" x2="732" y2="708" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2AB5B0"/>
+      <stop offset="1" stop-color="#0B86A8"/>
+    </linearGradient>
+    <filter id="shadow3" x="268" y="106" width="664" height="704" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="28" stdDeviation="28" flood-color="#0F4C66" flood-opacity="0.14"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="900" rx="48" fill="url(#bg3)"/>
+  <circle cx="214" cy="170" r="148" fill="#D6F0F4" fill-opacity="0.86"/>
+  <circle cx="1024" cy="206" r="122" fill="#E0F2FF" fill-opacity="0.88"/>
+  <circle cx="980" cy="728" r="118" fill="#DFF7F1" fill-opacity="0.82"/>
+
+  <g filter="url(#shadow3)">
+    <rect x="420" y="124" width="360" height="640" rx="54" fill="url(#phone)"/>
+    <rect x="446" y="152" width="308" height="584" rx="38" fill="url(#screen)"/>
+  </g>
+
+  <rect x="542" y="172" width="116" height="18" rx="9" fill="#D5EDF4"/>
+  <rect x="468" y="214" width="110" height="34" rx="17" fill="#EAF8FB"/>
+  <rect x="486" y="224" width="74" height="14" rx="7" fill="#92C7D6"/>
+  <rect x="468" y="266" width="264" height="118" rx="24" fill="#F8FDFF"/>
+  <rect x="490" y="292" width="112" height="16" rx="8" fill="#BFE5EC"/>
+  <rect x="490" y="322" width="192" height="12" rx="6" fill="#D8EFF6"/>
+  <rect x="490" y="346" width="154" height="12" rx="6" fill="#E3F4F9"/>
+
+  <rect x="468" y="402" width="264" height="138" rx="26" fill="#F7FDFF"/>
+  <rect x="490" y="426" width="86" height="66" rx="18" fill="#E0F4F9"/>
+  <rect x="590" y="426" width="120" height="18" rx="9" fill="#CBE9F1"/>
+  <rect x="590" y="456" width="88" height="12" rx="6" fill="#DDF3F8"/>
+  <rect x="590" y="480" width="100" height="12" rx="6" fill="#E8F7FB"/>
+  <rect x="490" y="508" width="220" height="12" rx="6" fill="#D5F0F5"/>
+
+  <rect x="468" y="560" width="264" height="122" rx="28" fill="url(#accent)"/>
+  <rect x="494" y="588" width="124" height="18" rx="9" fill="#D8FFFB" fill-opacity="0.72"/>
+  <rect x="494" y="620" width="206" height="14" rx="7" fill="#EBFFFF" fill-opacity="0.72"/>
+  <rect x="494" y="648" width="164" height="14" rx="7" fill="#EBFFFF" fill-opacity="0.62"/>
+
+  <g>
+    <rect x="246" y="248" width="174" height="102" rx="28" fill="#F8FDFF"/>
+    <rect x="270" y="274" width="62" height="14" rx="7" fill="#C7E7EF"/>
+    <rect x="270" y="302" width="118" height="12" rx="6" fill="#DBF1F7"/>
+    <circle cx="372" cy="298" r="18" fill="#2AB5B0"/>
+  </g>
+
+  <g>
+    <rect x="816" y="318" width="170" height="96" rx="28" fill="#F7FDFF"/>
+    <rect x="838" y="344" width="72" height="14" rx="7" fill="#C5E8F0"/>
+    <rect x="838" y="370" width="116" height="12" rx="6" fill="#D9F0F6"/>
+    <rect x="916" y="338" width="42" height="42" rx="16" fill="#0B86A8"/>
+  </g>
+
+  <g>
+    <rect x="214" y="548" width="196" height="120" rx="30" fill="#F9FDFF"/>
+    <rect x="238" y="574" width="82" height="16" rx="8" fill="#CBE8F1"/>
+    <rect x="238" y="604" width="144" height="12" rx="6" fill="#DDF1F7"/>
+    <rect x="238" y="628" width="114" height="12" rx="6" fill="#E7F6FB"/>
+  </g>
+
+  <g>
+    <rect x="830" y="578" width="174" height="110" rx="30" fill="#F8FDFF"/>
+    <rect x="854" y="604" width="92" height="16" rx="8" fill="#C8E9F1"/>
+    <rect x="854" y="634" width="118" height="12" rx="6" fill="#DAF1F7"/>
+  </g>
+</svg>

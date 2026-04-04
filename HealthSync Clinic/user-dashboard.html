@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard | HealthSync Clinic</title>
+  <link rel="stylesheet" href="portal.css">
+</head>
+<body data-protected-role="user">
+  <div class="page-bg" aria-hidden="true">
+    <div class="glow glow-one"></div>
+    <div class="glow glow-two"></div>
+  </div>
+
+  <header class="portal-header">
+    <div class="brand-block">
+      <div class="brand-mark">HS</div>
+      <div>
+        <p class="eyebrow">User Dashboard</p>
+        <h1>HealthSync Clinic</h1>
+      </div>
+    </div>
+    <nav class="header-nav">
+      <a class="nav-link" href="index.html">Public Website</a>
+      <a class="nav-link" href="login.html">Switch Account</a>
+      <button class="logout-button" type="button" data-logout>Log Out</button>
+    </nav>
+  </header>
+
+  <main class="portal-shell">
+    <section class="portal-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Patient Access</p>
+        <h2>Welcome back, <span data-auth-name></span>.</h2>
+        <p>
+          You are logged in as <strong><span data-auth-role></span></strong>. This user dashboard is meant for profile review, upcoming appointments, and quick access back to the booking wizard.
+        </p>
+      </div>
+
+      <div class="hero-side">
+        <div class="mini-stat">
+          <span>Profile Completion</span>
+          <strong>96%</strong>
+        </div>
+        <div class="mini-stat">
+          <span>Upcoming Visits</span>
+          <strong>2</strong>
+        </div>
+        <div class="mini-stat">
+          <span>Unread Messages</span>
+          <strong>1</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="metric-grid">
+      <article class="metric-card">
+        <span>Next Appointment</span>
+        <strong>Mar 28</strong>
+        <p>Your current mock schedule includes an afternoon pediatric follow-up.</p>
+      </article>
+      <article class="metric-card">
+        <span>Medical Notes</span>
+        <strong>4</strong>
+        <p>Recent visit summaries are ready to review from your history section.</p>
+      </article>
+      <article class="metric-card">
+        <span>Booking Status</span>
+        <strong>Ready</strong>
+        <p>You can start a new appointment request any time from the public wizard.</p>
+      </article>
+    </section>
+
+    <section class="panel-grid">
+      <article class="panel">
+        <p class="eyebrow">Latest Booking</p>
+        <h3>Your most recent wizard request</h3>
+        <div data-latest-booking></div>
+      </article>
+
+      <article class="panel">
+        <p class="eyebrow">Profile Summary</p>
+        <h3>Personal account details</h3>
+        <div class="info-list">
+          <div class="list-item">
+            <strong>Signed in user</strong>
+            <small><span data-auth-username></span></small>
+            <p>Profile verified with active contact details and insurance on file.</p>
+          </div>
+          <div class="list-item">
+            <strong>Preferred branch</strong>
+            <small>Central Branch</small>
+            <p>Most appointments are currently routed to your preferred location.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel">
+        <p class="eyebrow">Quick Actions</p>
+        <h3>What you can do next</h3>
+        <div class="task-list">
+          <div class="task-item">
+            <strong>Book another appointment</strong>
+            <p>Use the step-by-step wizard to choose a new specialty, doctor, and time.</p>
+          </div>
+          <div class="task-item">
+            <strong>Review visit notes</strong>
+            <p>Check your mock medical history and upcoming reminders from this dashboard.</p>
+          </div>
+          <div class="task-item">
+            <a class="action-link" href="index.html#wizard">Open Appointment Wizard</a>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script src="auth.js"></script>
+</body>
+</html>
