@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Log | Nexus Events</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-admin-protected="true">
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html">
+        <strong>Nexus</strong>
+        <span>Event Systems Online</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a class="nav-link" href="admin.html">Admin</a>
+        <a class="nav-link" href="user-log.html">User Login</a>
+        <a class="nav-link" href="ticket.html">Tickets</a>
+      </nav>
+      <div class="topbar-actions">
+        <a class="admin-entry is-current" href="admin-login.html">Admin Login</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <span class="section-label">Admin Log</span>
+            <h2>Operational Changes And Notes</h2>
+          </div>
+        </div>
+        <div class="grid-2">
+          <article class="admin-card">
+            <div class="card-kicker">08:15 / Theme</div>
+            <h3>Site Refresh Applied</h3>
+            <p>All primary pages now use the three-color neubrutalist system with oversized buttons.</p>
+          </article>
+          <article class="admin-card">
+            <div class="card-kicker">08:42 / Ticketing</div>
+            <h3>QR Flow Enabled</h3>
+            <p>Guests can now move from event selection to attendee details and QR output on one page.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      Nexus Events <span data-year></span> / Internal notes presented in the same brand system.
+    </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
