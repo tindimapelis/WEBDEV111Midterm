@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login | Nexus Events</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-admin-login-page="true">
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html">
+        <strong>Nexus</strong>
+        <span>Event Systems Online</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="events.html">Events</a>
+        <a class="nav-link" href="ticket.html">Tickets</a>
+        <a class="nav-link" href="venue.html">Venue</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+      </nav>
+      <div class="topbar-actions">
+        <a class="user-entry" href="user-log.html">User Login</a>
+        <a class="admin-entry is-current" href="admin-login.html">Admin Login</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="login-shell">
+        <article class="login-card">
+          <div class="login-copy">
+            <span class="eyebrow">Restricted Access</span>
+            <h1>Admin control room login.</h1>
+            <p class="hero-copy">
+              Sign in to open the internal queue, ticket activity, and operational logs inside the Nexus back office.
+            </p>
+            <div class="signal-list">
+              <div>
+                <strong>Access Layer</strong>
+                <span>Credential check required</span>
+              </div>
+              <div>
+                <strong>Destination</strong>
+                <span>Admin dashboard and logs</span>
+              </div>
+            </div>
+          </div>
+
+          <form class="login-panel" data-admin-login-form>
+            <span class="section-label">Authenticate</span>
+            <h2>Enter admin credentials</h2>
+            <label class="field-group">
+              <span>Email Address</span>
+              <input type="email" name="admin_email" placeholder="dimapelis@gmail.com" required>
+            </label>
+            <label class="field-group">
+              <span>Password</span>
+              <input type="password" name="admin_password" placeholder="Enter password" required>
+            </label>
+            <button class="cta" type="submit">Log In</button>
+            <p class="form-status" data-admin-login-status aria-live="polite"></p>
+          </form>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer">
+      Nexus Events <span data-year></span> / Admin access routed through a dedicated login portal.
+    </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

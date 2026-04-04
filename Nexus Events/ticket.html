@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tickets | Nexus Events</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html">
+        <strong>Nexus</strong>
+        <span>Event Systems Online</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="events.html">Events</a>
+        <a class="nav-link" href="venue.html">Venue</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+      </nav>
+      <div class="topbar-actions">
+        <a class="user-entry" href="user-log.html">User Login</a>
+        <a class="admin-entry" href="admin-login.html">Admin Login</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <article class="hero-card">
+          <span class="eyebrow">Ticket Builder</span>
+          <h1>From Event Pick To QR Pass</h1>
+          <p class="hero-copy">
+            This page is the new booking center: select your event, choose a tier, enter attendee info, and get a QR code instantly.
+          </p>
+        </article>
+        <aside class="hero-side">
+          <section class="panel">
+            <span class="section-label">Flow</span>
+            <div class="stepper">
+              <div class="step-pill is-current" data-step="1">1. Select Event</div>
+              <div class="step-pill" data-step="2">2. Choose Ticket Tier</div>
+              <div class="step-pill" data-step="3">3. Enter Attendee Info</div>
+              <div class="step-pill" data-step="4">4. Get QR Code</div>
+            </div>
+          </section>
+        </aside>
+      </section>
+
+      <section class="section ticket-grid" data-ticket-builder>
+        <article class="ticket-card">
+          <span class="section-label">Step 1</span>
+          <h2>Select Event</h2>
+          <div class="ticket-choices" data-event-choices></div>
+        </article>
+
+        <article class="ticket-card">
+          <span class="section-label">Step 2</span>
+          <h2>Choose Ticket Tier</h2>
+          <div class="tier-choices" data-tier-choices></div>
+        </article>
+
+        <article class="ticket-card">
+          <span class="section-label">Step 3</span>
+          <h2>Enter Attendee Info</h2>
+          <form class="ticket-form hide" data-attendee-form>
+            <input type="hidden" name="event_id">
+            <input type="hidden" name="tier_id">
+            <label class="field-group">
+              <span>Full Name</span>
+              <input type="text" name="attendee_name" placeholder="Jamie Rivera" required>
+            </label>
+            <label class="field-group">
+              <span>Email Address</span>
+              <input type="email" name="attendee_email" placeholder="jamie@email.com" required>
+            </label>
+            <label class="field-group">
+              <span>Phone Number</span>
+              <input type="tel" name="attendee_phone" placeholder="+63 912 345 6789" required>
+            </label>
+            <button class="cta" type="submit">Generate QR Ticket</button>
+          </form>
+          <p id="ticket-form-note">Pick a ticket tier to unlock the attendee form.</p>
+        </article>
+
+        <article class="qr-card hide" data-qr-panel>
+          <span class="section-label">Step 4</span>
+          <h2>Your QR Pass</h2>
+          <div class="ticket-summary">
+            <div class="summary-line"><strong>Event</strong><span data-summary-event></span></div>
+            <div class="summary-line"><strong>Tier</strong><span data-summary-tier></span></div>
+            <div class="summary-line"><strong>Attendee</strong><span data-summary-name></span></div>
+            <div class="summary-line"><strong>Ticket Code</strong><span data-ticket-code></span></div>
+          </div>
+          <div class="qr-box">
+            <img data-qr-image src="" alt="Generated ticket QR code">
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer">
+      Nexus Events <span data-year></span> / Select, tier, confirm, scan.
+    </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
