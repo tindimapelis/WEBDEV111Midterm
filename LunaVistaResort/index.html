@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Luna Vista Resort</title>
+  <link href="https://fonts.googleapis.com/css?family=Cinzel%20Decorative" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <section class="hero-shell" aria-label="Welcome to Luna Vista Resort">
+    <div class="hero">
+      <img class="hero__logo" src="logo.jpg" alt="Luna Vista Resort logo">
+      <p class="hero__eyebrow">Quiet Arrival</p>
+      <h1 class="hero__title">Luna Vista Resort</h1>
+      <p class="hero__subtitle">A calm place that feels almost familiar. Warm water, dim corners, and a stillness that is comforting before it turns strange.</p>
+    </div>
+  </section>
+
+  <nav class="nav-bar" aria-label="Primary">
+    <button type="button" onclick="goToPage('login.html')">Sign In</button>
+    <button type="button" onclick="scrollToSection('about-story')">About Us</button>
+    <button type="button" onclick="scrollToSection('rooms')">Rooms</button>
+    <button type="button" onclick="goToPage('reservation.html', '#dates')">Dates</button>
+    <button type="button" onclick="goToPage('reservation.html', '#booking')">Booking</button>
+  </nav>
+
+  <main>
+    <section id="about" class="carousel-card" aria-label="Resort gallery">
+      <div class="carousel">
+        <div class="slide active">
+          <img src="resort.jpg" alt="Resort view 1">
+        </div>
+        <div class="slide">
+          <img src="resort1.jpg" alt="Resort view 2">
+        </div>
+        <div class="slide">
+          <img src="resort2.jpg" alt="Resort view 3">
+        </div>
+        <div class="slide">
+          <img src="resort3.jpg" alt="Resort view 4">
+        </div>
+        <div class="slide">
+          <img src="resort4.jpg" alt="Resort view 5">
+        </div>
+        <div class="slide">
+          <img src="resort5.jpg" alt="Resort view 6">
+        </div>
+
+        <button class="carousel-btn prev" type="button" aria-label="Previous image">&#10094;</button>
+        <button class="carousel-btn next" type="button" aria-label="Next image">&#10095;</button>
+      </div>
+
+      <div class="dots" aria-label="Gallery dots">
+        <button class="dot active" type="button" aria-label="Show image 1"></button>
+        <button class="dot" type="button" aria-label="Show image 2"></button>
+        <button class="dot" type="button" aria-label="Show image 3"></button>
+        <button class="dot" type="button" aria-label="Show image 4"></button>
+        <button class="dot" type="button" aria-label="Show image 5"></button>
+        <button class="dot" type="button" aria-label="Show image 6"></button>
+      </div>
+    </section>
+
+    <section id="about-story" class="section about-liminal" aria-label="About Luna Vista Resort">
+      <p class="section-tag">Threshold Atmosphere</p>
+      <h2>About Us</h2>
+      <p>Luna Vista Private Resort is a place where warm pool light, empty corridors, and late-night stillness make the whole place feel suspended between a getaway and a dream you almost remember.</p>
+      <div class="about-grid">
+        <article class="about-card">
+          <h3>Quiet Architecture</h3>
+          <p>Soft amber walls, reflective water, and long sightlines create that liminal feeling of arriving somewhere peaceful, familiar, and just a little uncanny.</p>
+        </article>
+        <article class="about-card">
+          <h3>Private Full-Place Stays</h3>
+          <p>The resort can be reserved as one private property for birthdays, reunions, overnight celebrations, and slow weekends where your group keeps the entire space to itself.</p>
+        </article>
+        <article class="about-card">
+          <h3>After-Hours Mood</h3>
+          <p>By evening, the water glows, the hallways go quiet, and the resort settles into the strange calm that makes Luna Vista feel memorable long after checkout.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="rooms" class="section" aria-label="Rooms">
+      <h2>Our Rooms</h2>
+      <p>Choose from rooms framed by warm brown light, quiet corners, and a strangely comforting atmosphere that lingers after you walk in.</p>
+
+      <div id="roomList">
+        <div class="room" role="button" tabindex="0" onclick="showRoom('Amber Hall Suite','Warm corridor glow','A narrow, softly lit room with a still atmosphere that feels private, polished, and quietly unforgettable.',['Air-conditioned','Private bathroom','Hot shower','Wi-Fi','Fresh linens','Ambient lighting'],'room1.jpg')">
+          <img src="room1.jpg" alt="Amber Hall Suite">
+          <div class="room-title">Amber Hall Suite</div>
+          <p class="room-type">Warm corridor glow</p>
+        </div>
+
+        <div class="room" role="button" tabindex="0" onclick="showRoom('Stillwater Deluxe','Quiet luxury by the pool','Rich tones, reflective surfaces, and a layout that makes evening swims and late conversations feel cinematic.',['Air-conditioned','Poolside access','Hot shower','Wi-Fi','Dining nook','Parking'],'room2.jpg')">
+          <img src="room2.jpg" alt="Stillwater Deluxe">
+          <div class="room-title">Stillwater Deluxe</div>
+          <p class="room-type">Quiet luxury by the pool</p>
+        </div>
+
+        <div class="room" role="button" tabindex="0" onclick="showRoom('Velvet Corner Room','Low light comfort','Designed for guests who love softer shadows, warm walls, and a room that feels restful with just a hint of mystery.',['Air-conditioned','Hot shower','Wi-Fi','Plush bedding','Coffee corner','Blackout curtains'],'room3.jpg')">
+          <img src="room3.jpg" alt="Velvet Corner Room">
+          <div class="room-title">Velvet Corner Room</div>
+          <p class="room-type">Low light comfort</p>
+        </div>
+
+        <div class="room" role="button" tabindex="0" onclick="showRoom('Pool Echo Suite','Dim reflections and calm water','This room pairs warm interiors with a nearby pool view, creating a stay that feels intimate, moody, and deeply relaxing.',['Air-conditioned','Pool view','Wi-Fi','Outdoor seating','Hot shower','Private lounge area'],'room4.jpg')">
+          <img src="room4.jpg" alt="Pool Echo Suite">
+          <div class="room-title">Pool Echo Suite</div>
+          <p class="room-type">Dim reflections and calm water</p>
+        </div>
+
+        <div class="room" role="button" tabindex="0" onclick="showRoom('Afterglow Chamber','Comforting and uncanny','A promotional favorite for guests who want a room that feels luxurious, secluded, and memorably eerie in the best possible way.',['Air-conditioned','Private bathroom','Wi-Fi','Mood lighting','Late checkout subject to availability','Premium toiletries'],'rooom.jpg')">
+          <img src="rooom.jpg" alt="Afterglow Chamber">
+          <div class="room-title">Afterglow Chamber</div>
+          <p class="room-type">Comforting and uncanny</p>
+        </div>
+      </div>
+
+      <div id="roomDetails" class="room-details" aria-live="polite">
+        <div class="room-details__head">
+          <img id="detailImg" src="room1.jpg" alt="Selected room">
+          <div>
+            <h3 id="detailName">Room</h3>
+            <p id="detailType" class="meta"></p>
+            <p id="detailBio" class="meta"></p>
+          </div>
+        </div>
+        <ul id="detailAmenities"></ul>
+        <div class="room-details__actions">
+          <button class="ghost-btn" type="button" onclick="hideRoomDetails()">Close</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Copyright &copy; 2026 Luna Vista Resort. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Luna Vista Resort - Sign In</title>
+  <link href="https://fonts.googleapis.com/css?family=Cinzel%20Decorative" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="login-page">
+  <main class="login-box" aria-label="Sign in">
+    <div class="page-mark">
+      <img src="logo.jpg" alt="Luna Vista Resort logo">
+    </div>
+
+    <h1 class="login-title">Sign In</h1>
+    <p class="login-subtitle">Step back into the warm quiet. The lights are dim, the air is still, and your room is waiting.</p>
+
+    <form id="loginForm">
+      <div class="input-group">
+        <label for="email">Enter Email Address</label>
+        <input type="email" id="email" placeholder="name@example.com" autocomplete="email">
+      </div>
+
+      <div class="input-group">
+        <label for="password">Enter Password</label>
+        <input type="password" id="password" placeholder="Password" autocomplete="current-password">
+      </div>
+
+      <div class="login-actions">
+        <button class="ghost-btn" type="submit">Sign In</button>
+        <button class="ghost-btn" type="button" onclick="goToPage('index.html')">Back to Home</button>
+      </div>
+    </form>
+
+    <div class="helper-row">
+      <span>Having trouble?</span>
+      <a href="index.html">Return to the home page</a>
+    </div>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
