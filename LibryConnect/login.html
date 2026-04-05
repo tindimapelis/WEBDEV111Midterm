@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Portal</title>
+<style>
+
+body{
+	background-image: url('paperlines.jpg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	display:flex;
+	flex-direction:column; 
+	align-items:center;
+	justify-content:center;
+	min-height:100vh;
+	margin:0;
+	font-family:'Trebuchet MS', sans-serif;
+}
+
+.spring{
+	width:100%;
+	height:180px;
+	background-image:url('header.png');
+	background-position:center;
+	background-repeat:no-repeat;
+	background-size:contain;
+	margin-bottom:0px;
+}
+
+.header{
+	text-align:center;
+	margin-bottom:25px;
+}
+
+.header h1{
+	margin:0;
+	font-size:32px;
+	letter-spacing:1px;
+}
+
+.header p{
+	margin-top:8px;
+	font-size:14px;
+	color:#444;
+}
+
+.container{
+	width:81%;
+	height:480px;
+	padding:40px;
+	border:2px solid black;
+	box-sizing:border-box;
+	display:flex;
+	flex-direction:column;
+	border-radius:14px;
+	box-shadow:0 20px 50px rgba(0,0,0,0.12);
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
+.tabs{
+	display:flex;
+	justify-content:center;
+	margin-bottom:30px;
+	gap:10px;
+}
+
+.tabs button{
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+	background-color:#ededed;
+	border-radius:15px;
+	border:1px solid black;
+	padding:10px 30px;
+	cursor:pointer;
+	font-family:inherit;
+	font-size:14px;
+	transition:0.3s ease;
+}
+
+.tabs button.active{
+	background:black;
+	color:white;
+}
+
+.form-section{
+	display:none;
+	width:100%;
+	flex:1;
+	flex-direction:column;
+}
+
+.form-section.active{
+	display:flex;
+}
+
+.form-content{
+	flex:1;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+}
+
+.form-row{
+	display:flex;
+	gap:30px;
+	margin-bottom:25px;
+}
+
+.form-group{
+	flex:1;
+	display:flex;
+	flex-direction:column;
+}
+
+label{
+	font-size:14px;
+	margin-bottom:5px;
+}
+
+input{
+	border:none;
+	border-bottom:1px solid black;
+	padding:8px 5px;
+	font-family:inherit;
+	font-size:14px;
+	background:transparent;
+	color:#222;
+	transition:0.3s;
+}
+
+input:focus{
+	outline:none;
+	border-bottom:2px solid black;
+	color:#000;
+}
+
+.submit-btn{
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+	background-color:#bedff1;
+	border-radius:15px;
+	display:inline-block;
+	cursor:pointer;
+	color:#505739;
+	font-family:Trebuchet MS;
+	font-size:14px;
+	font-weight:bold;
+	padding:12px 16px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+	margin-top:auto;
+	transition:0.3s ease;
+}	
+
+.submit-btn:hover{
+	background:black;
+	color:white;
+	text-decoration:none;
+	text-shadow:0px 0px 0px #ffffff;
+}
+
+</style>
+</head>
+<body>
+
+<div class="spring"></div>
+
+<div class="header">
+	<h1>LibryConnect Portal</h1>
+	<p>Official Registration & Borrower's Access</p>
+</div>
+	
+<div class="container">
+
+	<div class="tabs">
+		<button class="active" onclick="showLogin()">LOGIN</button>
+		<button onclick="showRegister()">REGISTER</button>
+	</div>
+
+	<div id="loginForm" class="form-section active">
+		<div class="form-content">
+			<div class="form-row">
+				<div class="form-group">
+					<label>Borrower’s ID No.</label>
+					<input type="text" required>
+				</div>
+				<div class="form-group">
+					<label>Password</label>
+					<input type="password" required>
+				</div>
+			</div>
+		</div>
+		<button class="submit-btn" onclick="goHome()">ACCESS RECORD</button>
+	</div>
+
+	<div id="registerForm" class="form-section">
+		<div class="form-content">
+			<div class="form-row">
+				<div class="form-group">
+					<label>Student Name</label>
+					<input type="text" required>
+				</div>
+				<div class="form-group">
+					<label>Student No.</label>
+					<input type="text" required>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group">
+					<label>Email Address</label>
+					<input type="text" required>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group">
+					<label>Password</label>
+					<input type="password" required>
+				</div>
+			</div>
+		</div>
+		<button class="submit-btn" onclick="goHome()">REGISTER ACCOUNT</button>
+	</div>
+
+</div>
+
+<script>
+function showLogin(){
+	document.getElementById("loginForm").classList.add("active");
+	document.getElementById("registerForm").classList.remove("active");
+	document.querySelectorAll(".tabs button")[0].classList.add("active");
+	document.querySelectorAll(".tabs button")[1].classList.remove("active");
+}
+
+function showRegister(){
+	document.getElementById("registerForm").classList.add("active");
+	document.getElementById("loginForm").classList.remove("active");
+	document.querySelectorAll(".tabs button")[1].classList.add("active");
+	document.querySelectorAll(".tabs button")[0].classList.remove("active");
+}
+
+function goHome(){
+	window.location.href = "index.html"; 
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>LibryConnect - Library</title>
+
+<style>
+body{
+	margin:0;
+	height:100vh;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	background:url('paper.jpg') center/cover no-repeat;
+	font-family:'Trebuchet MS', sans-serif;
+}
+
+.book{
+	width:1240px;
+	height:720px;
+	background:#fdf8e4;
+	border-radius:10px;
+	box-shadow:0 20px 40px rgba(0,0,0,0.4);
+	display:flex;
+	position:relative;
+	overflow:hidden;
+}
+
+.book::before{
+	content:"";
+	position:absolute;
+	width:4px;
+	height:100%;
+	background:#c2b280;
+	left:50%;
+	transform:translateX(-50%);
+}
+
+.page{
+	width:50%;
+	height:720px;
+	padding:40px;
+	box-sizing:border-box;
+	background-image:url('page.jpg');
+	background-size:cover;
+	background-position:center;
+	overflow:auto;
+}
+
+.left{ border-right:1px solid #d6caa5; }
+.right{ border-left:1px solid #d6caa5; }
+
+.navbar{
+	display:flex;
+	flex-direction:column;
+	gap:15px;
+}
+
+.navbar button{
+	background:#fff8dc;
+	border:2px solid #000;
+	padding:10px;
+	cursor:pointer;
+	box-shadow:3px 3px 0 #000;
+}
+
+.section{ display:none; }
+.section.active{ display:block; }
+
+	#bookList {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+		gap: 30px;
+		justify-items: center;
+		margin-top: 40px;
+	}
+
+		.title{
+			width:220px;
+			padding:20px;
+			border-radius:15px;
+			background:rgba(255,255,255,0.85);
+			text-align:center;
+			box-shadow:0 10px 20px rgba(0,0,0,0.2);
+		}
+
+		.title img {
+			width: 100px;
+			height: 140px;
+			border-radius: 10px;
+			display: block;
+			margin: 0 auto 10px auto;
+		}
+
+		.title-genre{
+			font-size:12px;
+			color:#ddd;
+		}
+
+.borrow-btn, .hold-btn{
+	padding:8px 15px;
+	margin:5px;
+	border:none;
+	border-radius:5px;
+	cursor:pointer;
+	font-weight:bold;
+}
+
+.borrow-btn{ background:#2e8b57; color:white; }
+.hold-btn{ background:#d4a017; color:white; }
+
+</style>
+</head>
+
+<body>
+
+<div class="book">
+
+<div class="page left">
+<a href="index.html"> <img src="back.png" width="140" height="50" > </a> 
+<p> Back to Cover Page </p>
+<h2>Explore</h2>
+<div class="navbar">
+<button onclick="showSection('search')">Search</button>
+<button onclick="showSection('loans')">Loans</button>
+<button onclick="showSection('overdue')">Overdue</button>
+</div>
+</div>
+
+<div class="page right">
+
+<div id="search" class="section active">
+<h2>Book Search</h2>
+<p>Search available books here.</p>
+
+<input type="text" id="searchInput" placeholder="Enter book title..." onkeyup="searchBooks()">
+		<select id="genreFilter" onchange="filterBooks()">
+		<option value="all">All Genres</option>
+		<option value="fiction">Fiction</option>
+		<option value="nonfiction">Non Fiction</option>
+		</select>
+
+<div id="bookList">
+	<div class="title" data-genre="fiction">
+	<img src="laura.jpg">
+	<div class="book-name"><strong>Florante at Laura</strong></div>
+	<div>Francisco Balagtas</div>
+	<div class="title-genre">Fiction || Epic Poetry</div>
+	<p>Status: <span class="status">Available</span></p>
+	<button class="borrow-btn" onclick="borrowBook(this)">Borrow</button>
+	<button class="hold-btn" onclick="holdBook(this)" style="display:none;">Place Hold</button>
+	</div>
+	
+	<div class="title" data-genre="nonfiction">
+	<img src="mml.jpg">
+	<div class="book-name"><strong>Marcos Martial Law—Never Again</strong></div>
+	<div>Raissa Robles</div>
+	<div class="title-genre">History || Investigative Journalism</div>
+	<div class="title-genre"> Political Non-fiction </div>
+	<p>Status: <span class="status">Available</span></p>
+	<button class="borrow-btn" onclick="borrowBook(this)">Borrow</button>
+	<button class="hold-btn" onclick="holdBook(this)" style="display:none;">Place Hold</button>
+	</div>
+
+	<div class="title" data-genre="fiction">
+	<img src="noli.jpg">
+	<div class="book-name"><strong>Noli Me Tangere</strong></div>
+	<div>Jose Rizal</div>
+	<div class="title-genre">Historical Fiction || Novel</div>
+	<div class="title-genre">Satire</div>
+	<p>Status: <span class="status">Available</span></p>
+	<button class="borrow-btn" onclick="borrowBook(this)">Borrow</button>
+	<button class="hold-btn" onclick="holdBook(this)" style="display:none;">Place Hold</button>
+	</div>
+
+	<div class="title" data-genre="nonfiction">
+	<img src="ph.jpg">
+	<div class="book-name"><strong>The Philippines is Not a Small Country</strong></div>
+	<div>Gideon Lasco</div>
+	<div class="title-genre">Non-fiction || Essays Sociology</div>
+	<div class="title-genre">Sociology || Anthropology.</div>
+	<p>Status: <span class="status">Available</span></p>
+	<button class="borrow-btn" onclick="borrowBook(this)">Borrow</button>
+	<button class="hold-btn" onclick="holdBook(this)" style="display:none;">Place Hold</button>
+	</div>
+
+</div>
+</div>
+
+<div id="loans" class="section">
+<h2>Borrowed Books</h2>
+<div id="loanList">
+<p>No books borrowed yet.</p>
+</div>
+</div>
+
+<div id="overdue" class="section">
+<h2>Overdue Records</h2>
+<div id="overdueList">
+<p>No overdue books.</p>
+</div>
+</div>
+
+</div>
+</div>
+
+<script>
+function showSection(id){
+	document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
+	document.getElementById(id).classList.add("active");
+}
+
+function filterBooks(){
+	let genre=document.getElementById("genreFilter").value;
+	document.querySelectorAll("#bookList .title").forEach(book=>{
+		book.style.display=(genre==="all"||book.dataset.genre===genre)?"block":"none";
+	});
+}
+
+function searchBooks(){
+	let input=document.getElementById("searchInput").value.toLowerCase();
+	document.querySelectorAll("#bookList .title").forEach(book=>{
+		let text=book.innerText.toLowerCase();
+		book.style.display=text.includes(input)?"block":"none";
+	});
+}
+
+function borrowBook(btn){
+	let card=btn.parentElement;
+	let title=card.querySelector(".book-name").innerText;
+	let status=card.querySelector(".status");
+
+	status.textContent="Checked Out";
+	status.style.color="red";
+
+	btn.style.display="none";
+	card.querySelector(".hold-btn").style.display="inline-block";
+
+	let due=new Date();
+	due.setDate(due.getDate()+7);
+	let dueDate=due.toLocaleDateString();
+
+	let loanList=document.getElementById("loanList");
+	if(loanList.innerHTML.trim().includes("No books borrowed yet")) loanList.innerHTML="";
+
+	let loanItem=document.createElement("div");
+	loanItem.setAttribute("data-title", title);
+	loanItem.innerHTML=`
+	<strong>${title}</strong><br>
+	Due Date: ${dueDate}<br>
+	Status: Active<br>
+	<button onclick="returnBook(this)">Return Book</button>
+	<hr>
+	`;
+
+	loanList.appendChild(loanItem);
+}
+
+function returnBook(btn){
+	let loanItem=btn.parentElement;
+	let title=loanItem.getAttribute("data-title");
+
+	loanItem.remove();
+
+	let loanList=document.getElementById("loanList");
+	if(loanList.innerHTML.trim()===""){
+		loanList.innerHTML="<p>No books borrowed yet.</p>";
+	}
+
+	document.querySelectorAll("#bookList .title").forEach(book=>{
+		let bookTitle=book.querySelector(".book-name").innerText;
+		if(bookTitle===title){
+			let status=book.querySelector(".status");
+			status.textContent="Available";
+			status.style.color="black";
+
+			book.querySelector(".borrow-btn").style.display="inline-block";
+
+			let holdBtn=book.querySelector(".hold-btn");
+			holdBtn.style.display="none";
+			holdBtn.textContent="Place Hold";
+			holdBtn.disabled=false;
+		}
+	});
+}
+
+function holdBook(btn){
+	btn.textContent="On Hold";
+	btn.disabled=true;
+}
+
+
+</script>
+
+</body>
+</html>
