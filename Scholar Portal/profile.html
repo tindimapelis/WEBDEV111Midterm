@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ScholarPortal - Editable Profile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Libre+Baskerville&display=swap" rel="stylesheet">
+  <style>
+    body{
+      margin:0;
+      font-family:'Libre Baskerville', serif;
+      background-color:#1a0e36;
+      color:#e6dcff;
+      min-height:100vh;
+      background-image:url('home.gif');
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+    }
+    body::before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:rgba(25,10,45,0.85);
+      z-index:0;
+    }
+
+    /* Header - original layout preserved */
+    .header{
+      width:100%;
+      display:flex;
+      flex-direction:column;
+      padding:20px 40px;
+      box-sizing:border-box;
+      position:relative;
+      background-color:#342b63;
+      background-image:url('head.png');
+      background-size:cover;
+      background-position:center;
+      min-height:180px;
+    }
+    .header-overlay{
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:rgba(25,10,45,0.7);
+      z-index:1;
+      border-bottom:1px solid rgba(200,160,255,0.3);
+    }
+    .header-content{
+      display:flex;
+      align-items:center;
+      z-index:2;
+      position:relative;
+      gap:20px;
+    }
+    .header img{
+      max-height:140px;
+      border-radius:10px;
+    }
+    .header-title{
+      font-family:'Cinzel',serif;
+      font-size:32px;
+      letter-spacing:3px;
+      color:#e8ddff;
+    }
+    .subtitle{
+      font-size:14px;
+      color:#cbb6ff;
+      margin-top:5px;
+      letter-spacing:1px;
+    }
+    .back-button{
+      margin-top:10px;
+      background-color:#c394d4;
+      color:#1a0e36;
+      padding:10px 20px;
+      border-radius:8px;
+      text-decoration:none;
+      font-family:'Cinzel',serif;
+      font-weight:600;
+      transition:0.3s;
+      display:inline-block;
+    }
+    .back-button:hover{
+      background-color:#e8ddff;
+      color:#342b63;
+    }
+
+    main{
+      position:relative;
+      z-index:1;
+      max-width:900px;
+      margin:40px auto;
+      padding:0 20px;
+    }
+    h2{
+      font-family:'Cinzel',serif;
+      font-size:32px;
+      color:#d8b4ff;
+      margin-bottom:20px;
+    }
+
+    /* Profile section */
+    .profile-section{
+      background:rgba(50,25,80,0.9);
+      padding:25px;
+      border-radius:12px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.5);
+      margin-bottom:20px;
+    }
+    .profile-section h3{
+      margin-top:0;
+      color:#cbb6ff;
+    }
+
+    /* Profile photo */
+    .profile-pic{
+      display:flex;
+      align-items:center;
+      gap:20px;
+      margin-bottom:20px;
+    }
+    .profile-pic img{
+      width:120px;
+      height:120px;
+      border-radius:50%;
+      object-fit:cover;
+      border:3px solid #cbb6ff;
+      transition:0.3s;
+    }
+    .profile-pic img:hover{
+      transform: scale(1.05);
+      box-shadow:0 0 10px #985eff;
+    }
+    .profile-pic input[type="file"]{
+      padding:6px;
+      background-color:#3b2b70;
+      border-radius:6px;
+      border:none;
+      color:#e6dcff;
+      cursor:pointer;
+    }
+
+    label{
+      font-weight:bold;
+      display:block;
+      margin-top:10px;
+    }
+    input[type="text"], input[type="email"]{
+      width:100%;
+      padding:10px;
+      border-radius:6px;
+      border:none;
+      margin-top:5px;
+      background-color:#3b2b70;
+      color:#e6dcff;
+      font-family:'Libre Baskerville', serif;
+      font-size:14px;
+      transition:0.3s;
+    }
+    input[type="text"]:focus,
+    input[type="email"]:focus{
+      outline:none;
+      background-color:#4a397f;
+      box-shadow:0 0 8px #985eff;
+    }
+
+    input[type="submit"]{
+      margin-top:20px;
+      padding:12px;
+      border-radius:6px;
+      border:none;
+      background-color:#7c4dff;
+      color:#fff;
+      font-weight:bold;
+      cursor:pointer;
+      transition:0.3s;
+      font-size:16px;
+    }
+    input[type="submit"]:hover{
+      background-color:#985eff;
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-overlay"></div>
+  <div class="header-content">
+    <img src="splogo.png" alt="Logo">
+    <div>
+      <div class="header-title">Profile</div>
+      <div class="subtitle">Check your Personal Information</div>
+      <a href="index.html" class="back-button">Back to Homepage</a>
+    </div>
+  </div>
+</div>
+
+<main>
+<h2>Editable Profile</h2>
+
+<div class="profile-section">
+<h3>Personal Information</h3>
+
+<div class="profile-pic">
+<img id="profileImage" src="splogo.png" alt="Profile Photo">
+<input type="file" accept="image/*" onchange="previewImage(event)">
+</div>
+
+<label>Full Name</label>
+<input type="text" value="Ma. Crisytin">
+
+<label>Email</label>
+<input type="email" value="maria.twit@example.com">
+
+<label>Phone Number</label>
+<input type="text" value="+63 912 345 6789">
+
+<input type="submit" value="Update Profile">
+</div>
+
+</main>
+
+<script>
+function previewImage(event){
+  const reader = new FileReader();
+  reader.onload = function(){
+    document.getElementById('profileImage').src = reader.result;
+  }
+  reader.readAsDataURL(event.target.files[0]);
+}
+</script>
+
+</body>
+</html>

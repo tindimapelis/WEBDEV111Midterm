@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ScholarPortal - Register</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Libre+Baskerville&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  font-family: 'Libre Baskerville', serif;
+  background-color: #1a0e36;
+  background-image: url('home.gif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 1;
+  color: #e6dcff;
+}
+
+body::before {
+  content: "";
+  position: fixed; 
+  top:0; left:0;
+  width:100%; height:100%;
+  background: rgba(25,10,45,0.7); 
+  z-index: -1; 
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 40px;
+  box-sizing: border-box;
+  position: relative;
+  background-color: #342b63;
+  background-image: url('head.png');
+  background-size: cover;
+  background-position: center;
+  min-height: 180px;
+}
+
+.header-overlay {
+  position: absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: rgba(25,10,45,0.7);
+  z-index: 1;
+  border-bottom: 1px solid rgba(200,160,255,0.3);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  z-index: 2;
+  position: relative;
+  gap: 20px;
+}
+
+.header img {
+  max-height: 140px;
+  border-radius: 10px;
+}
+
+.header-title {
+  font-family: 'Cinzel', serif;
+  font-size: 32px;
+  letter-spacing: 3px;
+  color: #e8ddff;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #cbb6ff;
+  margin-top: 5px;
+  letter-spacing: 1px;
+}
+
+.back-button {
+  margin-top: 10px;
+  background-color: #c394d4;
+  color: #1a0e36;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  transition: 0.3s;
+  display: inline-block;
+}
+
+.back-button:hover {
+  background-color: #e8ddff;
+  color: #342b63;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 32px;
+  color: #d8b4ff;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: rgba(50,25,80,0.95);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  color: #e6dcff;
+}
+
+.selection-group {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.selection-box {
+  flex: 1;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+label {
+  font-weight: bold;
+  color: #e6dcff;
+}
+
+select, input[type="text"], input[type="submit"], button {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 16px;
+}
+
+select, input[type="text"] {
+  background-color: #3b2b70;
+  color: #e6dcff;
+}
+
+input[type="submit"], button {
+  background-color: #7c4dff;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+input[type="submit"]:hover, button:hover {
+  background-color: #985eff;
+}
+
+#selected-courses, #selected-subjects {
+  background-color: #2a1f55;
+  padding: 15px;
+  border-radius: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+  color: #e6dcff;
+}
+
+#selected-courses ul, #selected-subjects ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#selected-courses li, #selected-subjects li {
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #e6dcff;
+}
+
+#selected-courses strong, #selected-subjects strong {
+  color: #d8b4ff;
+}
+
+#total-units {
+  font-size: 18px;
+  font-weight: bold;
+  color: #d8b4ff;
+}
+</style>
+
+</head>
+<body>
+<div class="header">
+<div class="header-overlay"></div>
+<div class="header-content">
+<img src="splogo.png">
+<div>
+<div class="header-title">Register</div>
+<div class="subtitle">Select courses to register</div>
+<a href="index.html" class="back-button">Back to Homepage</a>
+</div>
+</div>
+</div>
+<main>
+<h2>Course Registration Form</h2>
+<form id="registration-form">
+<label>Student ID</label>
+<input type="text" id="student-id" required>
+<label>Semester</label>
+<select id="semester" required>
+<option value="">Select Semester</option>
+<option value="1st">1st Semester</option>
+<option value="2nd">2nd Semester</option>
+</select>
+<div class="selection-group">
+<div class="selection-box">
+<label>Available Courses</label>
+<select id="courses" size="10">
+<optgroup label="College of Computer Studies">
+<option value="bsit">BS Information Technology</option>
+<option value="bscs">BS Computer Science</option>
+<option value="bsemc">BS Entertainment and Multimedia Computing</option>
+</optgroup>
+<optgroup label="College of Business">
+<option value="bsacc">BS Accountancy</option>
+<option value="bstm">BS Tourism Management</option>
+<option value="bsent">BS Entrepreneurship</option>
+</optgroup>
+<optgroup label="College of Education">
+<option value="bse">Bachelor of Secondary Education</option>
+<option value="bee">Bachelor of Elementary Education</option>
+<option value="bece">Bachelor of Early Childhood Education</option>
+</optgroup>
+<optgroup label="College of Science">
+<option value="bsbio">BS Biology</option>
+<option value="bschem">BS Chemistry</option>
+<option value="bsmath">BS Mathematics</option>
+</optgroup>
+</select>
+<button type="button" id="add-course">Add Selected Course</button>
+<div id="selected-courses">
+<strong>Selected Courses:</strong>
+<ul id="course-list"></ul>
+</div>
+</div>
+<div class="selection-box">
+<label>Available Subjects</label>
+<select id="subjects" size="10"></select>
+<button type="button" id="add-subject">Add Selected Subject</button>
+<div id="selected-subjects">
+<strong>Selected Subjects:</strong>
+<ul id="subject-list"></ul>
+</div>
+<div id="total-units">Total Units: 0</div>
+</div>
+</div>
+<input type="submit" value="Register">
+</form>
+</main>
+<script>
+const courseSelect=document.getElementById('courses')
+const semesterSelect=document.getElementById('semester')
+const addCourseBtn=document.getElementById('add-course')
+const addSubjectBtn=document.getElementById('add-subject')
+const courseList=document.getElementById('course-list')
+const subjectList=document.getElementById('subject-list')
+const subjectSelect=document.getElementById('subjects')
+const totalUnitsDisplay=document.getElementById('total-units')
+let selectedCourses=new Set()
+let selectedSubjects=new Map()
+let totalUnits=0
+const subjectsByCourse={
+bsit:{"1st":[{name:"Introduction to IT",units:3},{name:"Programming 1",units:3},{name:"Discrete Mathematics",units:3}],"2nd":[{name:"Web Development",units:3},{name:"Database Systems",units:3},{name:"Networking",units:3}]},
+bscs:{"1st":[{name:"Programming Fundamentals",units:3},{name:"Discrete Structures",units:3},{name:"Computer Organization",units:3}],"2nd":[{name:"Data Structures",units:3},{name:"Algorithms",units:3},{name:"Operating Systems",units:3}]},
+bsemc:{"1st":[{name:"Digital Graphics",units:3},{name:"Multimedia Fundamentals",units:3},{name:"Drawing for Animation",units:3}],"2nd":[{name:"3D Animation",units:3},{name:"Game Design",units:3},{name:"Interactive Media",units:3}]},
+bsacc:{"1st":[{name:"Financial Accounting",units:3},{name:"Business Law",units:3},{name:"Business Mathematics",units:3}],"2nd":[{name:"Cost Accounting",units:3},{name:"Taxation",units:3},{name:"Auditing",units:3}]},
+bstm:{"1st":[{name:"Introduction to Tourism",units:3},{name:"Tourism Geography",units:3},{name:"Hospitality Management",units:3}],"2nd":[{name:"Tourism Planning",units:3},{name:"Travel Agency Operations",units:3},{name:"Event Management",units:3}]},
+bsent:{"1st":[{name:"Entrepreneurship Basics",units:3},{name:"Business Planning",units:3},{name:"Principles of Marketing",units:3}],"2nd":[{name:"Startup Management",units:3},{name:"Business Innovation",units:3},{name:"E-Commerce",units:3}]},
+bse:{"1st":[{name:"Foundations of Education",units:3},{name:"Child and Adolescent Development",units:3},{name:"Teaching Profession",units:3}],"2nd":[{name:"Teaching Methods",units:3},{name:"Educational Psychology",units:3},{name:"Curriculum Development",units:3}]},
+bee:{"1st":[{name:"Child Development",units:3},{name:"Teaching Reading",units:3},{name:"Math for Teachers",units:3}],"2nd":[{name:"Classroom Management",units:3},{name:"Assessment of Learning",units:3},{name:"Language Education",units:3}]},
+bece:{"1st":[{name:"Early Childhood Development",units:3},{name:"Play-Based Learning",units:3},{name:"Child Psychology",units:3}],"2nd":[{name:"Creative Activities for Children",units:3},{name:"Family and Community Relations",units:3},{name:"Assessment in Early Education",units:3}]},
+bsbio:{"1st":[{name:"General Biology",units:3},{name:"Cell Biology",units:3},{name:"Biostatistics",units:3}],"2nd":[{name:"Genetics",units:3},{name:"Microbiology",units:3},{name:"Ecology",units:3}]},
+bschem:{"1st":[{name:"General Chemistry",units:3},{name:"Analytical Chemistry",units:3},{name:"Laboratory Techniques",units:3}],"2nd":[{name:"Organic Chemistry",units:3},{name:"Biochemistry",units:3},{name:"Instrumental Analysis",units:3}]},
+bsmath:{"1st":[{name:"Calculus 1",units:3},{name:"Linear Algebra",units:3},{name:"Mathematical Logic",units:3}],"2nd":[{name:"Calculus 2",units:3},{name:"Probability",units:3},{name:"Statistics",units:3}]}
+}
+function loadSubjects(){
+const course=courseSelect.value
+const semester=semesterSelect.value
+subjectSelect.innerHTML=""
+selectedSubjects.clear()
+subjectList.innerHTML=""
+totalUnits=0
+totalUnitsDisplay.textContent="Total Units: 0"
+if(!course||!semester) return
+const subjects=subjectsByCourse[course][semester]||[]
+subjects.forEach(s=>{
+const option=document.createElement("option")
+option.value=s.name
+option.textContent=s.name+" ("+s.units+" units)"
+option.dataset.units=s.units
+subjectSelect.appendChild(option)
+})
+}
+courseSelect.addEventListener("change",loadSubjects)
+semesterSelect.addEventListener("change",loadSubjects)
+addCourseBtn.addEventListener("click",()=>{
+const course=courseSelect.value
+if(!course||selectedCourses.has(course)) return
+selectedCourses.add(course)
+const li=document.createElement("li")
+li.textContent=courseSelect.options[courseSelect.selectedIndex].text
+const btn=document.createElement("button")
+btn.textContent="Remove"
+btn.onclick=()=>{selectedCourses.delete(course); li.remove(); subjectSelect.innerHTML=""; subjectList.innerHTML=""; totalUnits=0; totalUnitsDisplay.textContent="Total Units: 0";}
+li.appendChild(btn)
+courseList.appendChild(li)
+loadSubjects()
+})
+addSubjectBtn.addEventListener("click",()=>{
+const selected=Array.from(subjectSelect.selectedOptions)
+selected.forEach(option=>{
+const name=option.value
+const units=parseInt(option.dataset.units)
+if(selectedSubjects.has(name)) return
+selectedSubjects.set(name,units)
+totalUnits+=units
+const li=document.createElement("li")
+li.textContent=option.textContent
+const btn=document.createElement("button")
+btn.textContent="Remove"
+btn.onclick=()=>{totalUnits-=units; selectedSubjects.delete(name); li.remove(); totalUnitsDisplay.textContent="Total Units: "+totalUnits;}
+li.appendChild(btn)
+subjectList.appendChild(li)
+totalUnitsDisplay.textContent="Total Units: "+totalUnits
+})
+})
+document.getElementById("registration-form").addEventListener("submit",e=>{
+e.preventDefault()
+if(selectedCourses.size===0){alert("Add at least one course"); return}
+if(selectedSubjects.size===0){alert("Select subjects"); return}
+alert("Student ID: "+document.getElementById("student-id").value+
+"\nSemester: "+semesterSelect.value+
+"\nCourses: "+Array.from(selectedCourses).join(", ")+
+"\nSubjects: "+Array.from(selectedSubjects.keys()).join(", ")+
+"\nTotal Units: "+totalUnits)
+})
+</script>
+</body>
+</html>

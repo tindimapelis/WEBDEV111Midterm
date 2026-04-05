@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ScholarPortal - Home</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Libre+Baskerville&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin:0;
+  font-family:'Libre Baskerville', serif;
+  background-color:#1a0e36;
+  color:#e6dcff;
+  min-height:100vh;
+  background-image: url('home.gif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+body::before {
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(25,10,45,0.85);
+  z-index:0;
+}
+
+.header {
+  width: 100%;
+  display:flex;
+  align-items:center;
+  padding:20px 0;
+  box-sizing:border-box;
+  position:relative;
+  background-color:#342b63;
+  background-image: url('head.png');
+  background-size: cover;
+  background-position: center;
+  min-height:180px;
+}
+
+.header-overlay {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: rgba(25,10,45,0.7);
+  z-index:1;
+  border-bottom:1px solid rgba(200,160,255,0.3);
+}
+
+.header-content {
+  display:flex;
+  align-items:center;
+  z-index:2;
+  position: relative;
+  gap:20px;
+  width:100%;
+  padding-left:40px;
+}
+
+.header img {
+  max-height:140px;
+  width:auto;
+  border-radius:10px;
+}
+
+.header-text {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header-title {
+  font-family:'Cinzel', serif;
+  font-size:32px;
+  letter-spacing:3px;
+  color:#e8ddff;
+}
+
+.subtitle {
+  font-size:14px;
+  color:#cbb6ff;
+  margin-top:5px;
+  letter-spacing:1px;
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: #f3ecff;
+  background: rgba(123, 76, 201, 0.9);
+  border: 1px solid rgba(232, 221, 255, 0.35);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+  transition: 0.3s ease;
+  letter-spacing: 1px;
+  font-size: 13px;
+  margin-top: 16px;
+  width: fit-content;
+}
+
+.back-button:hover {
+  background: rgba(154, 109, 240, 0.95);
+  transform: translateY(-2px);
+}
+
+.container {
+  position:relative;
+  z-index:1;
+  width:90%;
+  max-width:1200px;
+  margin:40px auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.module-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:30px;
+  width:100%;
+  justify-items:center;
+}
+
+.module-card {
+  display:flex;
+  flex-direction: column;
+  text-decoration: none;
+  background: rgba(40,20,70,0.85);
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid rgba(200,160,255,0.4);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+  transition: 0.3s;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  width: 100%;
+  max-width: 250px;
+  color: inherit;
+}
+
+.module-card:hover {
+  transform:translateY(-5px);
+  box-shadow:0 15px 35px rgba(0,0,0,0.8);
+}
+
+.module-card h3 {
+  font-family:'Cinzel', serif;
+  color:#e8ddff;
+  margin-bottom:10px;
+}
+
+.module-card p {
+  font-size:14px;
+  color:#d7c6ff;
+  line-height:1.6;
+}
+
+.module-card::after {
+  content:"→";
+  display:block;
+  margin-top:15px;
+  font-size:20px;
+  color:#9a8ac7;
+  transition:0.3s;
+}
+
+.module-card:hover::after {
+  color:#fff;
+  transform:translateX(5px);
+}
+
+.background-flower {
+  position:absolute;
+  z-index:0;
+  opacity:0.15;
+}
+
+.background-flower.left {
+  top:60%;
+  left:5%;
+  width:120px;
+  height:120px;
+  background: url('flower-left.png') no-repeat center/contain;
+}
+
+.background-flower.right {
+  bottom:30%;
+  right:5%;
+  width:100px;
+  height:100px;
+  background: url('flower-right.png') no-repeat center/contain;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+  <div class="header-overlay"></div>
+  <div class="header-content">
+    <img src="splogo.png" alt="Logo">
+    <div class="header-text">
+      <div class="header-title">ScholarPortal</div>
+      <div class="subtitle">Academic Information Management System</div>
+      <a href="login.html" class="back-button">Back to Login</a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="module-grid">
+    <a href="courses.html" class="module-card">
+      <h3>Courses</h3>
+      <p>View Available Courses</p>
+    </a>
+    <a href="register.html" class="module-card">
+      <h3>Register</h3>
+      <p>Selection of Course & Subjects.</p>
+    </a>
+    <a href="profile.html" class="module-card">
+      <h3>Profile</h3>
+      <p>Edit your Personal Information.</p>
+    </a>
+  </div>
+</div>
+
+<div class="background-flower left"></div>
+<div class="background-flower right"></div>
+
+</body>
+</html>

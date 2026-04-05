@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Courses - ScholarPortal</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Libre+Baskerville&display=swap" rel="stylesheet">
+<style>
+body {
+  margin:0;
+  font-family:'Libre Baskerville', serif;
+  background-color:#1a0e36;
+  color:#e6dcff;
+  min-height:100vh;
+  background-image:url('home.gif');
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+body::before {
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(25,10,45,0.85);
+  z-index:0;
+}
+.header {
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  padding:20px 40px;
+  box-sizing:border-box;
+  position:relative;
+  background-color:#342b63;
+  background-image:url('head.png');
+  background-size:cover;
+  background-position:center;
+  min-height:180px;
+}
+.header-overlay {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(25,10,45,0.7);
+  z-index:1;
+  border-bottom:1px solid rgba(200,160,255,0.3);
+}
+.header-content {
+  display:flex;
+  align-items:center;
+  z-index:2;
+  position:relative;
+  gap:20px;
+}
+.header img {
+  max-height:140px;
+  width:auto;
+  border-radius:10px;
+}
+.header-title {
+  font-family:'Cinzel', serif;
+  font-size:32px;
+  letter-spacing:3px;
+  color:#e8ddff;
+}
+.subtitle {
+  font-size:14px;
+  color:#cbb6ff;
+  margin-top:5px;
+  letter-spacing:1px;
+}
+.back-button {
+  margin-top:10px;
+  background-color:#c394d4;
+  color:#1a0e36;
+  padding:10px 20px;
+  border-radius:8px;
+  text-decoration:none;
+  font-family:'Cinzel', serif;
+  font-weight:600;
+  transition:0.3s;
+  display:inline-block;
+}
+.back-button:hover {
+  background-color:#e8ddff;
+  color:#342b63;
+}
+.container {
+  position:relative;
+  z-index:1;
+  width:95%;
+  max-width:1400px;
+  margin:40px auto;
+}
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 25px;
+  align-items: start;
+}
+.course-folder {
+  background: rgba(50,25,80,0.9);
+  border-radius: 10px 10px 0 0; 
+  border: 1px solid rgba(200,160,255,0.4);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  transition: 0.3s;
+  height: 200px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+}
+.course-folder:hover {
+  transform:translateY(-5px);
+  box-shadow:0 15px 35px rgba(0,0,0,0.7);
+}
+.folder-header {
+  padding:20px;
+  cursor:pointer;
+  z-index:2;
+}
+.folder-icon {
+  width:60px;
+  margin-bottom:10px;
+}
+.folder-header h3 {
+  font-family:'Cinzel', serif;
+  margin:0;
+  font-size:18px;
+  color:#e8ddff;
+}
+.folder-header p {
+  margin:5px 0 0 0;
+  font-size:14px;
+  color:#d7c6ff;
+}
+.folder-content {
+  position:absolute;
+  top:100%;
+  left:0;
+  width:100%;
+  background:rgba(30,10,60,0.95);
+  background-color:#c394d4;
+  max-height:0;
+  overflow:hidden;
+  transition:max-height 0.35s ease;
+  border-radius:0 0 10px 10px;
+  z-index:1;
+  color:rgba(50,25,80);
+  box-shadow:0 8px 20px rgba(0,0,0,0.5);
+}
+.folder-content ul {
+  list-style:none;
+  padding:15px 20px;
+  margin:0;
+}
+.folder-content li {
+  padding:6px 0;
+  border-bottom:1px solid rgba(200,160,255,0.2);
+}
+.folder-content li:last-child {
+  border-bottom:none;
+}
+input[type="checkbox"] {
+  display:none;
+}
+.course-folder input:checked ~ .folder-content {
+  max-height:500px;
+}
+@media (max-width:1200px) {
+  .course-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width:800px) {
+  .course-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width:500px) {
+  .course-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-overlay"></div>
+  <div class="header-content">
+    <img src="splogo.png">
+    <div>
+      <div class="header-title">Courses</div>
+      <div class="subtitle">Select a college</div>
+      <a href="index.html" class="back-button">Back to Homepage</a>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="course-grid">
+    <div class="course-folder">
+      <input type="checkbox" id="cs">
+      <label for="cs" class="folder-header">
+        <img src="folder.png" class="folder-icon">
+        <h3>College of Computer Studies</h3>
+        <p>Technology and computing programs</p>
+      </label>
+      <div class="folder-content">
+        <ul>
+          <li>BS Information Technology</li>
+          <li>BS Computer Science</li>
+          <li>BS Entertainment and Multimedia Computing</li>
+        </ul>
+      </div>
+    </div>
+    <div class="course-folder">
+      <input type="checkbox" id="business">
+      <label for="business" class="folder-header">
+        <img src="folder.png" class="folder-icon">
+        <h3>College of Business</h3>
+        <p>Management and business programs</p>
+      </label>
+      <div class="folder-content">
+        <ul>
+          <li>BS Accountancy</li>
+          <li>BS Tourism Management</li>
+          <li>BS Entrepreneurship</li>
+        </ul>
+      </div>
+    </div>
+    <div class="course-folder">
+      <input type="checkbox" id="education">
+      <label for="education" class="folder-header">
+        <img src="folder.png" class="folder-icon">
+        <h3>College of Education</h3>
+        <p>Teaching and education programs</p>
+      </label>
+      <div class="folder-content">
+        <ul>
+          <li>Bachelor of Secondary Education</li>
+          <li>Bachelor of Elementary Education</li>
+          <li>Bachelor of Early Childhood Education</li>
+        </ul>
+      </div>
+    </div>
+    <div class="course-folder">
+      <input type="checkbox" id="science">
+      <label for="science" class="folder-header">
+        <img src="folder.png" class="folder-icon">
+        <h3>College of Science</h3>
+        <p>Natural and physical sciences</p>
+      </label>
+      <div class="folder-content">
+        <ul>
+          <li>BS Biology</li>
+          <li>BS Chemistry</li>
+          <li>BS Mathematics</li>
+ 
+        </ul>
+      </div>
+    </div>
+    <div class="course-folder">
+      <input type="checkbox" id="arts">
+      <label for="arts" class="folder-header">
+        <img src="folder.png" class="folder-icon">
+        <h3>College of Arts & Humanities</h3>
+        <p>Arts, literature, and human culture programs</p>
+      </label>
+      <div class="folder-content">
+        <ul>
+          <li>BA Literature</li>
+          <li>BA Philosophy</li>
+          <li>BA Fine Arts</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

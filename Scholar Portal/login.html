@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ScholarPortal</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Libre+Baskerville&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+	margin:0;
+	height:100vh;
+	font-family:'Libre Baskerville', serif;
+	background-image:url('login.gif');
+	background-size:cover;
+	background-position:center;
+	background-repeat:no-repeat;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	color:#e6dcff;
+}
+
+body::before{
+	content:"";
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background:rgba(25,10,45,0.8);
+	z-index:0;
+}
+
+.login-box{
+	position:relative;
+	z-index:1;
+	width:360px;
+	padding:45px;
+	border-radius:12px;
+	background:rgba(40,20,70,0.85);
+	border:1px solid rgba(200,160,255,0.4);
+	box-shadow:0 15px 35px rgba(0,0,0,0.8);
+	text-align:center;
+	backdrop-filter:blur(6px);
+}
+
+.logo{
+	width:110px;
+	margin-bottom:10px;
+}
+
+.portal-title{
+	font-family:'Cinzel', serif;
+	font-size:26px;
+	letter-spacing:3px;
+	margin-bottom:5px;
+	color:#e8ddff;
+}
+
+.subtitle{
+	font-size:12px;
+	margin-bottom:25px;
+	color:#cbb6ff;
+	letter-spacing:2px;
+}
+
+.form-group{
+	margin-bottom:18px;
+	text-align:left;
+}
+
+label{
+	font-size:12px;
+	letter-spacing:1px;
+	color:#d7c6ff;
+}
+
+input{
+	width:340px;
+	padding:10px;
+	margin-top:6px;
+	background:#1b0f30;
+	border:1px solid #6e52a3;
+	border-radius:5px;
+	color:#eee6ff;
+	font-family:Arial;
+}
+
+input::placeholder{
+	color:#9a8ac7;
+}
+
+button{
+	width:100%;
+	padding:10px;
+	margin-top:10px;
+	border:none;
+	border-radius:5px;
+	background:#7b4cc9;
+	color:white;
+	font-size:15px;
+	cursor:pointer;
+	font-family:'Cinzel', serif;
+	letter-spacing:1px;
+}
+
+button:hover{
+	background:#9a6df0;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="login-box">
+
+<img src="splogo.png" class="logo">
+
+	<div class="portal-title">
+	ScholarPortal
+	</div>
+
+		<div class="subtitle">
+		Academic Information Management System
+		</div>
+
+		<form id="loginForm">
+			<div class="form-group">
+				<label for="student-id">Student ID</label>
+				<input type="text" id="student-id" placeholder="Enter Student ID">
+			</div>
+
+			<div class="form-group">
+				<label for="password">Password</label>
+				<input type="password" id="password" placeholder="Enter Password">
+			</div>
+
+			<button type="submit">LOGIN</button>
+		</form>
+
+		</div>
+<script>
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  window.location.href = "index.html";
+});
+</script>
+
+</body>
+</html>
