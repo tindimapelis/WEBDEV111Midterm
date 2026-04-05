@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StockMaster Admin Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="page-shell">
+    <nav class="top-nav">
+      <div class="brand-inline">
+        <img class="brand-logo" src="../Logo.png" alt="StockMaster logo">
+        <span class="nav-title">StockMaster Admin</span>
+      </div>
+      <div class="nav-actions">
+        <a class="ghost-action nav-link" href="../invoice-tracker.html">Invoice Tracker</a>
+        <a class="ghost-action nav-link" href="login.html">Admin Login</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="brand-block admin-brand">
+        <div>
+          <p class="eyebrow">Admin / Platform Overview</p>
+          <h1>Centered operations dashboard for invoice performance and company activity.</h1>
+        </div>
+      </div>
+
+      <div class="hero-grid admin-hero-grid">
+        <section class="hero-card emphasis">
+          <p class="section-label">Admin Description</p>
+          <p class="tracker-description" id="adminDescription">
+            Invoice and company statistics will appear here after users begin adding records.
+          </p>
+        </section>
+
+        <section class="hero-card stats-card admin-stat-grid">
+          <div class="admin-stat">
+            <span>Total Invoices</span>
+            <strong id="adminTotalInvoices">0</strong>
+          </div>
+          <div class="admin-stat">
+            <span>Total Companies</span>
+            <strong id="adminTotalCompanies">0</strong>
+          </div>
+          <div class="admin-stat">
+            <span>Open Invoices</span>
+            <strong id="adminOpenInvoices">0</strong>
+          </div>
+          <div class="admin-stat">
+            <span>Due Soon</span>
+            <strong id="adminDueSoon">0</strong>
+          </div>
+        </section>
+      </div>
+    </header>
+
+    <main class="dashboard admin-layout">
+      <section class="panel">
+        <div class="panel-head">
+          <div>
+            <p class="section-label">Top Companies</p>
+            <h2>Companies with the most invoices</h2>
+          </div>
+        </div>
+        <div class="company-summary" id="adminCompanySummary">
+          <p class="summary-note">No company activity yet.</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <div>
+            <p class="section-label">Latest Invoices</p>
+            <h2>Recent submissions from users</h2>
+          </div>
+        </div>
+        <div class="company-summary" id="adminRecentInvoices">
+          <p class="summary-note">No invoice activity yet.</p>
+        </div>
+      </section>
+
+      <section class="panel panel-wide">
+        <div class="panel-head">
+          <div>
+            <p class="section-label">Stats Table</p>
+            <h2>Invoice monitoring board</h2>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Invoice ID</th>
+                <th>Company</th>
+                <th>Client</th>
+                <th>Due Date</th>
+                <th>Days Left</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="adminInvoiceRows">
+              <tr>
+                <td colspan="6" class="empty-state-cell">No invoice records available.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StockMaster Invoice Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-shell">
+    <nav class="top-nav">
+      <div class="brand-inline">
+        <img class="brand-logo" src="Logo.png" alt="StockMaster logo">
+        <span class="nav-title">StockMaster</span>
+      </div>
+      <div class="nav-actions">
+        <a class="ghost-action nav-link" href="login.html">User Login</a>
+        <a class="ghost-action nav-link" href="admin/login.html">Admin Login</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="brand-block">
+        <div>
+          <p class="eyebrow">StockMaster / Invoice Tracker</p>
+          <h1>Track multiple clients, multiple companies, and every new invoice in one board.</h1>
+        </div>
+      </div>
+
+      <div class="hero-grid tracker-hero-grid">
+        <section class="hero-card emphasis">
+          <p class="section-label">Invoice Description</p>
+          <p class="tracker-description" id="invoiceDescription">
+            No invoices added yet. Start by entering a company and client to build your invoice history.
+          </p>
+        </section>
+
+        <section class="hero-card stats-card">
+          <p class="section-label">Quick Count</p>
+          <div class="stats-list">
+            <div>
+              <span>Total Invoices</span>
+              <strong id="totalInvoices">0</strong>
+            </div>
+            <div>
+              <span>Companies</span>
+              <strong id="totalCompanies">0</strong>
+            </div>
+            <div>
+              <span>Latest Company</span>
+              <strong id="latestCompany">Waiting</strong>
+            </div>
+          </div>
+        </section>
+      </div>
+    </header>
+
+    <main class="dashboard tracker-layout">
+      <section class="panel">
+        <div class="panel-head">
+          <div>
+            <p class="section-label">Add Invoice</p>
+            <h2>Create another invoice without losing older records</h2>
+          </div>
+          <a class="ghost-action nav-link" href="index.html">Back to Dashboard</a>
+        </div>
+
+        <form class="invoice-form" id="trackerForm">
+          <label>
+            Company
+            <input type="text" id="companyName" placeholder="Enter company name" required>
+          </label>
+          <label>
+            Client Name
+            <input type="text" id="trackerClientName" placeholder="Enter client name" required>
+          </label>
+          <label>
+            Due Date
+            <input type="date" id="trackerDueDate" required>
+          </label>
+          <label>
+            Invoice Note
+            <textarea id="trackerNote" rows="4" placeholder="Description, order details, or payment note"></textarea>
+          </label>
+
+          <div class="button-row">
+            <button type="submit" class="primary-action">Add Invoice</button>
+            <button type="button" class="ghost-action" id="clearInvoices">Clear All</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <div>
+            <p class="section-label">Company Summary</p>
+            <h2>How many invoices each company has taken</h2>
+          </div>
+        </div>
+
+        <div class="company-summary" id="companySummary">
+          <p class="summary-note">No company records yet.</p>
+        </div>
+      </section>
+
+      <section class="panel panel-wide">
+        <div class="panel-head">
+          <div>
+            <p class="section-label">Invoice Records</p>
+            <h2>Client and company tracking table</h2>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Invoice ID</th>
+                <th>Company</th>
+                <th>Client</th>
+                <th>Due Date</th>
+                <th>Description</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="invoiceRows">
+              <tr>
+                <td colspan="6" class="empty-state-cell">No invoices tracked yet.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="tracker.js"></script>
+</body>
+</html>

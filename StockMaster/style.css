@@ -1,0 +1,504 @@
+:root {
+  --bg: #f2f2ee;
+  --surface: #ffffff;
+  --surface-alt: #f7f7f3;
+  --line: #d5d7d1;
+  --ink: #161816;
+  --muted: #5c635d;
+  --accent: #111111;
+  --signal: #d95f1f;
+  --signal-soft: #f3d6c6;
+  --ok: #dfe8dd;
+  --alert: #f4decb;
+  --shadow: 0 18px 48px rgba(20, 24, 22, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  background:
+    linear-gradient(140deg, rgba(17, 17, 17, 0.06), transparent 38%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.025) 0,
+      rgba(0, 0, 0, 0.025) 1px,
+      transparent 1px,
+      transparent 84px
+    ),
+    var(--bg);
+  color: var(--ink);
+  font-family: "Space Grotesk", sans-serif;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.page-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0 40px;
+}
+
+.centered-shell {
+  display: grid;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 22px;
+  margin-bottom: 24px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: var(--shadow);
+}
+
+.brand-inline,
+.nav-actions,
+.centered-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.nav-title {
+  font-family: "IBM Plex Mono", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.86rem;
+}
+
+.hero {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.brand-block,
+.panel-head,
+.button-row,
+.stats-list div,
+.summary-grid div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.brand-block {
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.brand-logo {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  padding: 8px;
+  border: 1px solid var(--ink);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.eyebrow,
+.section-label,
+th,
+.step,
+.status-tag,
+.summary-grid span {
+  font-family: "IBM Plex Mono", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.eyebrow,
+.section-label,
+.summary-grid span {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  max-width: 700px;
+  font-size: clamp(2.2rem, 5vw, 4.6rem);
+  line-height: 0.94;
+  letter-spacing: -0.05em;
+  margin-inline: auto;
+}
+
+h2 {
+  font-size: 1.45rem;
+}
+
+.hero-grid,
+.dashboard,
+.workflow-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.hero-grid {
+  grid-template-columns: 1.3fr 0.9fr;
+}
+
+.dashboard {
+  grid-template-columns: 1.15fr 0.85fr;
+  justify-content: center;
+}
+
+.panel,
+.hero-card {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.hero-card,
+.panel {
+  padding: 24px;
+}
+
+.auth-shell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-card {
+  width: min(560px, 100%);
+  padding: 32px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.auth-title {
+  max-width: 16ch;
+  margin: 14px auto 0;
+  font-size: clamp(1.9rem, 5vw, 3.2rem);
+}
+
+.auth-copy {
+  max-width: 42ch;
+  margin: 14px auto 22px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.auth-card .invoice-form,
+.auth-card .invoice-form label {
+  text-align: left;
+}
+
+.auth-hint {
+  margin-top: 18px;
+  color: var(--muted);
+}
+
+.emphasis {
+  background:
+    linear-gradient(180deg, rgba(217, 95, 31, 0.08), transparent 58%),
+    var(--surface);
+}
+
+.stats-card {
+  background: linear-gradient(180deg, var(--surface-alt), var(--surface));
+}
+
+.stepper {
+  display: grid;
+  gap: 10px;
+  margin: 18px 0 24px;
+}
+
+.step {
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  background: var(--surface-alt);
+  color: var(--muted);
+}
+
+.step.active {
+  border-color: var(--accent);
+  background: #fff;
+  color: var(--ink);
+}
+
+.primary-action,
+.ghost-action,
+.table-action {
+  border: 1px solid var(--accent);
+  cursor: pointer;
+  transition: transform 0.18s ease, background-color 0.18s ease, color 0.18s ease;
+}
+
+.primary-action,
+.table-action {
+  background: var(--accent);
+  color: #fff;
+}
+
+.ghost-action {
+  background: transparent;
+  color: var(--ink);
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.primary-action,
+.ghost-action {
+  padding: 14px 18px;
+}
+
+.table-action {
+  padding: 10px 14px;
+  min-width: 110px;
+}
+
+.primary-action:hover,
+.ghost-action:hover,
+.table-action:hover {
+  transform: translateY(-1px);
+}
+
+.ghost-action:hover {
+  background: var(--surface-alt);
+}
+
+.stats-list {
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.stats-list strong,
+.summary-grid strong {
+  font-size: 1.05rem;
+}
+
+.panel-wide {
+  grid-column: 1 / -1;
+}
+
+.workflow-grid {
+  grid-template-columns: 1.2fr 0.8fr;
+  margin-top: 20px;
+}
+
+.invoice-form {
+  display: grid;
+  gap: 16px;
+}
+
+.invoice-form label {
+  display: grid;
+  gap: 8px;
+  font-size: 0.95rem;
+}
+
+.invoice-form input,
+.invoice-form textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: #fff;
+  padding: 14px 16px;
+  color: var(--ink);
+}
+
+.invoice-form input:focus,
+.invoice-form textarea:focus {
+  outline: 2px solid var(--signal-soft);
+  border-color: var(--signal);
+}
+
+.summary-card {
+  border: 1px solid var(--line);
+  background: var(--surface-alt);
+  padding: 20px;
+  text-align: left;
+}
+
+.summary-grid {
+  display: grid;
+  gap: 14px;
+  margin: 18px 0;
+}
+
+.summary-note {
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.tracker-layout {
+  grid-template-columns: 1fr 0.9fr;
+}
+
+.tracker-hero-grid {
+  grid-template-columns: 1.15fr 0.85fr;
+}
+
+.tracker-description {
+  margin-top: 14px;
+  max-width: 42rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.company-summary {
+  display: grid;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.admin-layout,
+.admin-hero-grid {
+  grid-template-columns: 1fr 1fr;
+}
+
+.admin-stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  text-align: center;
+}
+
+.admin-stat {
+  padding: 18px 14px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.admin-stat span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-family: "IBM Plex Mono", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+}
+
+.admin-stat strong {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+}
+
+.company-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  background: var(--surface-alt);
+}
+
+.empty-state-cell {
+  text-align: center;
+  color: var(--muted);
+  padding: 28px 16px;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  margin-top: 20px;
+  border: 1px solid var(--line);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 640px;
+}
+
+thead {
+  background: #f0f0eb;
+}
+
+th,
+td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+tbody tr {
+  background: #fff;
+}
+
+tbody tr:nth-child(even) {
+  background: #fbfbf8;
+}
+
+.status-tag {
+  display: inline-block;
+  padding: 7px 10px;
+  background: var(--ok);
+  font-size: 0.72rem;
+}
+
+.status-tag.warning {
+  background: #ece6c9;
+}
+
+.status-tag.alert {
+  background: var(--alert);
+}
+
+@media (max-width: 920px) {
+  .hero-grid,
+  .dashboard,
+  .workflow-grid,
+  .tracker-layout,
+  .tracker-hero-grid,
+  .admin-layout,
+  .admin-hero-grid,
+  .admin-stat-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .panel-wide {
+    grid-column: auto;
+  }
+
+  .top-nav,
+  .button-row,
+  .panel-head,
+  .brand-block,
+  .stats-list div,
+  .summary-grid div {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .primary-action,
+  .ghost-action {
+    width: 100%;
+  }
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StockMaster Admin Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="page-shell centered-shell">
+    <div class="auth-shell">
+      <div class="auth-card">
+        <div class="brand-inline centered-brand">
+          <img class="brand-logo" src="../Logo.png" alt="StockMaster logo">
+          <span class="nav-title">StockMaster</span>
+        </div>
+
+        <p class="eyebrow">Admin Login</p>
+        <h1 class="auth-title">Review invoice activity, company counts, and platform stats.</h1>
+        <p class="auth-copy">Admins can inspect invoice totals, due-date pressure, and which companies are using the platform most.</p>
+
+        <form class="invoice-form" id="adminLoginForm">
+          <label>
+            Admin Email
+            <input type="email" id="adminId" placeholder="Enter admin email" required>
+          </label>
+          <label>
+            Password
+            <input type="password" id="adminPassword" placeholder="Enter admin password" required>
+          </label>
+
+          <div class="button-row">
+            <button type="submit" class="primary-action">Login as Admin</button>
+            <a class="ghost-action nav-link" href="../index.html">Back Home</a>
+          </div>
+        </form>
+
+        <p class="auth-hint" id="adminLoginStatus">Use the assigned admin email and password to continue.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="admin-login.js"></script>
+</body>
+</html>

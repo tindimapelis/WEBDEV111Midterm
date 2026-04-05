@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StockMaster Retail Console</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-shell">
+    <nav class="top-nav">
+      <div class="brand-inline">
+        <img class="brand-logo" src="Logo.png" alt="StockMaster logo">
+        <span class="nav-title">StockMaster</span>
+      </div>
+      <div class="nav-actions">
+        <a class="ghost-action nav-link" href="login.html">User Login</a>
+        <a class="ghost-action nav-link" href="admin/login.html">Admin Login</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="brand-block">
+        <div>
+          <p class="eyebrow">StockMaster / Retail Operations</p>
+          <h1>Industrial inventory control with fast invoice handling.</h1>
+        </div>
+      </div>
+
+      <div class="hero-grid">
+        <section class="hero-card emphasis">
+          <p class="section-label">Create Invoice</p>
+          <div class="stepper" aria-label="Invoice flow">
+            <div class="step active">Add Client</div>
+            <div class="step">Set Due Date</div>
+            <div class="step">Generate Link/PDF</div>
+          </div>
+          <div class="button-row">
+            <button class="primary-action" id="startInvoice">Start New Invoice</button>
+            <a class="ghost-action nav-link" href="invoice-tracker.html">Open Tracker</a>
+          </div>
+        </section>
+
+        <section class="hero-card stats-card">
+          <p class="section-label">Modules</p>
+          <div class="stats-list">
+            <div>
+              <span>Stock</span>
+              <strong>1,248 SKUs</strong>
+            </div>
+            <div>
+              <span>Suppliers</span>
+              <strong>38 Active</strong>
+            </div>
+            <div>
+              <span>Orders</span>
+              <strong>16 Pending</strong>
+            </div>
+            <div>
+              <span>Reports</span>
+              <strong>Daily Sync</strong>
+            </div>
+          </div>
+        </section>
+      </div>
+    </header>
+
+    <main class="dashboard">
+      <section class="panel panel-wide">
+        <div class="panel-head">
+          <div>
+            <p class="section-label">Invoice Builder</p>
+            <h2>Linear workflow for quick retail billing</h2>
+          </div>
+          <button class="ghost-action">Export Summary</button>
+        </div>
+
+        <div class="workflow-grid">
+          <form class="invoice-form" id="invoiceForm">
+            <label>
+              Company
+              <input type="text" id="companyName" placeholder="Enter company name" required>
+            </label>
+            <label>
+              Client Name
+              <input type="text" id="clientName" placeholder="Enter company or buyer name" required>
+            </label>
+            <label>
+              Due Date
+              <input type="date" id="dueDate" required>
+            </label>
+            <label>
+              Order Note
+              <textarea id="orderNote" rows="4" placeholder="Short billing note or delivery instruction"></textarea>
+            </label>
+
+            <div class="button-row">
+              <button type="submit" class="primary-action">Add Client</button>
+              <button type="button" class="ghost-action" id="generateOutput">Generate Link / PDF</button>
+            </div>
+          </form>
+
+          <aside class="summary-card">
+            <p class="section-label">Current Draft</p>
+            <div class="summary-grid">
+              <div>
+                <span>Company</span>
+                <strong id="summaryCompany">Waiting for input</strong>
+              </div>
+              <div>
+                <span>Client</span>
+                <strong id="summaryClient">Waiting for input</strong>
+              </div>
+              <div>
+                <span>Due</span>
+                <strong id="summaryDue">Not set</strong>
+              </div>
+              <div>
+                <span>Output</span>
+                <strong id="summaryOutput">Link not generated</strong>
+              </div>
+            </div>
+            <p class="summary-note" id="statusMessage">Use the form to prepare a clean invoice draft.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <div>
+            <p class="section-label">Retail Table</p>
+            <h2>Spreadsheet-style operations board</h2>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>SKU</th>
+                <th>Item</th>
+                <th>Supplier</th>
+                <th>Orders</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="inventoryTable">
+              <tr>
+                <td>SM-1048</td>
+                <td>Thermal Receipt Roll</td>
+                <td>PrimePaper Co.</td>
+                <td>86</td>
+                <td><span class="status-tag">Stable</span></td>
+                <td><button class="table-action">Restock</button></td>
+              </tr>
+              <tr>
+                <td>SM-2021</td>
+                <td>Barcode Scanner</td>
+                <td>North Axis Supply</td>
+                <td>14</td>
+                <td><span class="status-tag warning">Low</span></td>
+                <td><button class="table-action">Reorder</button></td>
+              </tr>
+              <tr>
+                <td>SM-8870</td>
+                <td>Shelf Label Kit</td>
+                <td>Gridline Industrial</td>
+                <td>43</td>
+                <td><span class="status-tag">Stable</span></td>
+                <td><button class="table-action">View</button></td>
+              </tr>
+              <tr>
+                <td>SM-1204</td>
+                <td>POS Terminal Stand</td>
+                <td>Forge Retail Tech</td>
+                <td>9</td>
+                <td><span class="status-tag alert">Attention</span></td>
+                <td><button class="table-action">Audit</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
