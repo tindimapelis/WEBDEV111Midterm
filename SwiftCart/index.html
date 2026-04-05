@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SwiftCart | Browse, Cart, Checkout, Track</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="store-page">
+  <header class="topbar">
+    <div class="utility-bar">
+      <div class="brand-block compact">
+        <span class="eyebrow">SwiftCart</span>
+        <h1>SwiftCart Store</h1>
+      </div>
+      <form class="search-bar" role="search">
+        <input id="search-input" type="search" placeholder="Search SwiftCart products">
+        <button type="button" class="search-button">Search</button>
+      </form>
+      <nav class="top-nav" aria-label="Primary">
+        <a href="#catalog">Catalog</a>
+        <a href="#tracking">Status</a>
+        <a href="userlogin.html">Login</a>
+        <a href="admin/adminlogin.html">Admin</a>
+      </nav>
+    </div>
+    <div class="header-strip">
+      <p>Find products fast, add them to cart, and track your order in one place.</p>
+      <span id="login-state">Login required for checkout</span>
+    </div>
+  </header>
+
+  <main class="store-shell">
+    <section class="catalog-panel">
+      <section class="panel browse-toolbar">
+        <div class="browse-heading">
+          <p class="panel-label">Browse Store</p>
+          <h2>Shop by section</h2>
+        </div>
+        <div class="browse-actions">
+          <button class="menu-chip active" type="button" data-filter="trending">Trending</button>
+          <button class="menu-chip" type="button" data-filter="recommended">Recommended</button>
+          <button class="menu-chip" type="button" data-filter="more">More</button>
+        </div>
+      </section>
+
+      <section class="catalog-grid" id="catalog" aria-label="Product catalog">
+        <article class="product-card" data-name="Pablo" data-category="more">
+          <div class="product-visual-frame">
+            <img class="product-visual" src="product1_pablo.jpg" alt="Pablo product image">
+          </div>
+          <p class="product-type">Featured</p>
+          <h3>Pablo</h3>
+          <div class="product-footer">
+            <strong>$39</strong>
+            <button type="button" class="add-to-cart" data-name="Pablo" data-price="39">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="product-card" data-name="Bartholomew" data-category="more">
+          <div class="product-visual-frame">
+            <img class="product-visual" src="product2_bartholomew.jpg" alt="Bartholomew product image">
+          </div>
+          <p class="product-type">Featured</p>
+          <h3>Bartholomew</h3>
+          <div class="product-footer">
+            <strong>$42</strong>
+            <button type="button" class="add-to-cart" data-name="Bartholomew" data-price="42">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="product-card" data-name="Bobalay" data-category="more">
+          <div class="product-visual-frame">
+            <img class="product-visual" src="product3_bobalay.jpg" alt="Bobalay product image">
+          </div>
+          <p class="product-type">Featured</p>
+          <h3>Bobalay</h3>
+          <div class="product-footer">
+            <strong>$36</strong>
+            <button type="button" class="add-to-cart" data-name="Bobalay" data-price="36">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="product-card" data-name="Boris" data-category="more">
+          <div class="product-visual-frame">
+            <img class="product-visual" src="product4_boris.jpg" alt="Boris product image">
+          </div>
+          <p class="product-type">Featured</p>
+          <h3>Boris</h3>
+          <div class="product-footer">
+            <strong>$45</strong>
+            <button type="button" class="add-to-cart" data-name="Boris" data-price="45">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="product-card" data-name="Mattew" data-category="more">
+          <div class="product-visual-frame">
+            <img class="product-visual" src="product5_mattew.jpg" alt="Mattew product image">
+          </div>
+          <p class="product-type">Featured</p>
+          <h3>Mattew</h3>
+          <div class="product-footer">
+            <strong>$41</strong>
+            <button type="button" class="add-to-cart" data-name="Mattew" data-price="41">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="product-card" data-name="Sofia" data-category="more">
+          <div class="product-visual-frame">
+            <img class="product-visual" src="product6_sofia.jpg" alt="Sofia product image">
+          </div>
+          <p class="product-type">Featured</p>
+          <h3>Sofia</h3>
+          <div class="product-footer">
+            <strong>$44</strong>
+            <button type="button" class="add-to-cart" data-name="Sofia" data-price="44">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="product-card" data-name="Adrian" data-category="recommended more">
+          <div class="product-visual-frame">
+            <img class="product-visual" src="product7_adrian.jpg" alt="Adrian product image">
+          </div>
+          <p class="product-type">Featured</p>
+          <h3>Adrian</h3>
+          <div class="product-footer">
+            <strong>$40</strong>
+            <button type="button" class="add-to-cart" data-name="Adrian" data-price="40">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="product-card" data-name="DoctorSyntax" data-category="trending more">
+          <div class="product-visual-frame">
+            <img class="product-visual" src="product8_doctorsyntax.jpg" alt="DoctorSyntax product image">
+          </div>
+          <p class="product-type">Featured</p>
+          <h3>DoctorSyntax</h3>
+          <div class="product-footer">
+            <strong>$52</strong>
+            <button type="button" class="add-to-cart" data-name="DoctorSyntax" data-price="52">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="product-card" data-name="Flor" data-category="recommended more">
+          <div class="product-visual-frame">
+            <img class="product-visual" src="product9_flor.jpg" alt="Flor product image">
+          </div>
+          <p class="product-type">Featured</p>
+          <h3>Flor</h3>
+          <div class="product-footer">
+            <strong>$38</strong>
+            <button type="button" class="add-to-cart" data-name="Flor" data-price="38">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="product-card" data-name="Kyle" data-category="recommended more">
+          <div class="product-visual-frame">
+            <img class="product-visual" src="product10_kyle.jpg" alt="Kyle product image">
+          </div>
+          <p class="product-type">Featured</p>
+          <h3>Kyle</h3>
+          <div class="product-footer">
+            <strong>$47</strong>
+            <button type="button" class="add-to-cart" data-name="Kyle" data-price="47">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="product-card" data-name="Steven" data-category="recommended more">
+          <div class="product-visual-frame">
+            <img class="product-visual" src="product12_steven.jpg" alt="Steven product image">
+          </div>
+          <p class="product-type">Featured</p>
+          <h3>Steven</h3>
+          <div class="product-footer">
+            <strong>$49</strong>
+            <button type="button" class="add-to-cart" data-name="Steven" data-price="49">Add to Cart</button>
+          </div>
+        </article>
+      </section>
+      <p id="search-empty" class="search-empty" hidden>No products matched your search.</p>
+    </section>
+
+    <aside class="cart-panel">
+      <section class="panel">
+        <div class="section-heading">
+          <div>
+            <p class="panel-label">Cart</p>
+            <h2>Your picks</h2>
+          </div>
+          <span class="status-pill">Active</span>
+        </div>
+        <div id="cart-items" class="cart-items">
+          <p class="empty-state">Your cart is empty. Add something from the catalog.</p>
+        </div>
+        <div id="delivery-summary" class="delivery-summary" hidden>
+          <p class="panel-label">Receipt</p>
+          <div class="delivery-card">
+            <strong id="delivery-name"></strong>
+            <p id="delivery-address"></p>
+            <p id="receipt-total" class="receipt-total"></p>
+          </div>
+        </div>
+        <div class="cart-summary">
+          <div>
+            <span>Items</span>
+            <strong id="cart-count">0</strong>
+          </div>
+          <div>
+            <span>Total</span>
+            <strong id="cart-total">$0</strong>
+          </div>
+        </div>
+        <p id="checkout-note" class="checkout-note">Sign in with the demo shopper account before checking out.</p>
+        <button id="checkout-trigger" type="button" class="primary-action checkout-trigger">Proceed to Checkout</button>
+      </section>
+
+      <section class="panel tracking-panel" id="tracking">
+        <div class="section-heading">
+          <div>
+            <p class="panel-label">Track Live Package</p>
+            <h2>Delivery status</h2>
+          </div>
+          <span id="tracking-badge" class="status-pill muted">Waiting</span>
+        </div>
+        <div class="timeline">
+          <div class="timeline-step active">
+            <strong>Order received</strong>
+            <span>Cart is ready for confirmation.</span>
+          </div>
+          <div id="shipping-step" class="timeline-step">
+            <strong>Shipping locked</strong>
+            <span>Address confirmed and label generated.</span>
+          </div>
+          <div id="route-step" class="timeline-step">
+            <strong>In transit</strong>
+            <span>Package is moving between hubs.</span>
+          </div>
+          <div id="delivery-step" class="timeline-step">
+            <strong>Out for delivery</strong>
+            <span>Courier is headed to your address.</span>
+          </div>
+        </div>
+        <button id="advance-tracking" type="button" class="secondary-action">Advance Status</button>
+      </section>
+    </aside>
+  </main>
+
+  <div id="checkout-modal" class="modal-overlay" hidden>
+    <section class="modal-card" aria-labelledby="checkout-modal-title" aria-modal="true" role="dialog">
+      <div class="section-heading">
+        <div>
+          <p class="panel-label">Checkout</p>
+          <h2 id="checkout-modal-title">Delivery details</h2>
+        </div>
+        <button id="checkout-close" type="button" class="modal-close" aria-label="Close checkout">&times;</button>
+      </div>
+
+      <form id="shipping-form" class="shipping-form">
+        <label>
+          Full Name
+          <input type="text" id="fullName" placeholder="Alex Morgan" required>
+        </label>
+        <label>
+          Address
+          <input type="text" id="address" placeholder="123 Market Street" required>
+        </label>
+        <label>
+          City
+          <input type="text" id="city" placeholder="Cebu City" required>
+        </label>
+        <label>
+          Postal Code
+          <input type="text" id="postalCode" placeholder="6000" required>
+        </label>
+        <button type="submit" class="primary-action">Confirm Shipping</button>
+      </form>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

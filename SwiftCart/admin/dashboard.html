@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SwiftCart | Admin Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body class="store-page admin-page">
+  <header class="topbar">
+    <div class="utility-bar">
+      <div class="brand-block compact">
+        <span class="eyebrow">SwiftCart</span>
+        <h1>Admin Dashboard</h1>
+      </div>
+      <div class="admin-summary-bar">
+        <span id="admin-access-state">Admin session active</span>
+      </div>
+      <nav class="top-nav" aria-label="Admin Primary">
+        <a href="../index.html">Store</a>
+        <a href="adminlogin.html">Admin Login</a>
+      </nav>
+    </div>
+    <div class="header-strip">
+      <p>Monitor customer order progress, shipping details, and live status from one place.</p>
+      <span>Back office view</span>
+    </div>
+  </header>
+
+  <main class="admin-shell">
+    <section class="panel admin-hero">
+      <div>
+        <p class="panel-label">Order Snapshot</p>
+        <h2>Current store status</h2>
+      </div>
+      <div class="admin-metrics">
+        <div class="admin-metric-card">
+          <span>Items in latest cart</span>
+          <strong id="admin-item-count">0</strong>
+        </div>
+        <div class="admin-metric-card">
+          <span>Latest receipt total</span>
+          <strong id="admin-total">$0</strong>
+        </div>
+        <div class="admin-metric-card">
+          <span>Tracking stage</span>
+          <strong id="admin-tracking-status">Waiting</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="admin-grid">
+      <section class="panel">
+        <p class="panel-label">Customer</p>
+        <div class="admin-detail-card">
+          <strong id="admin-customer-name">No customer yet</strong>
+          <p id="admin-customer-address">No checkout has been submitted.</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="panel-label">Receipt</p>
+        <div class="admin-detail-card">
+          <strong>Latest items</strong>
+          <div id="admin-item-list" class="admin-item-list">
+            <p class="empty-state">No purchased items recorded yet.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="panel-label">Pipeline Status</p>
+        <div class="timeline admin-timeline">
+          <div class="timeline-step active">
+            <strong>Order received</strong>
+            <span>Cart has active items.</span>
+          </div>
+          <div id="admin-shipping-step" class="timeline-step">
+            <strong>Shipping locked</strong>
+            <span>Customer address confirmed.</span>
+          </div>
+          <div id="admin-route-step" class="timeline-step">
+            <strong>In transit</strong>
+            <span>Package is moving through hubs.</span>
+          </div>
+          <div id="admin-delivery-step" class="timeline-step">
+            <strong>Out for delivery</strong>
+            <span>Courier is heading to the destination.</span>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="../script.js"></script>
+</body>
+</html>
