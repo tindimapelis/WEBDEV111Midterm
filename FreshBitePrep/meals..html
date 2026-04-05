@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en" data-page="meals..html">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Weekly Meals • Fresh Bite Prep</title>
+    <meta
+      name="description"
+      content="Explore Fresh Bite Prep's weekly rotating meals and build your order."
+    />
+    <link rel="icon" href="logo.png" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="Fresh Bite Prep home">
+          <img src="logo.png" alt="Fresh Bite Prep logo" />
+          <span class="name">
+            <strong>Fresh Bite Prep</strong>
+            <span>Weekly meals • Diet plans • Billing</span>
+          </span>
+        </a>
+
+        <nav class="nav" data-site-nav aria-label="Primary">
+          <a href="meals..html">Weekly Meals</a>
+          <a href="dietplan.html">Diet Plan</a>
+          <a href="billing.html">Billing</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+
+        <div class="actions">
+          <a class="btn" href="login.html">Login</a>
+          <button class="btn menu-btn" type="button" data-menu-button aria-expanded="false" aria-label="Open menu">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="page-hero">
+        <div class="container">
+          <h1>Weekly Meals</h1>
+          <p>Mix and match meals for the week. Build a lineup you’ll actually stick to.</p>
+          <div style="margin-top: 14px; display: flex; gap: 10px; flex-wrap: wrap">
+            <span class="chip">High-protein</span>
+            <span class="chip">Balanced</span>
+            <span class="chip">Vegetarian</span>
+            <span class="chip">Low-carb</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="padding-top: 22px">
+        <div class="container">
+          <div class="grid cols-3">
+            <article class="card">
+              <h3>Lean Chicken Bowl</h3>
+              <p>520 kcal • 42g protein • Brown rice • Veg</p>
+              <div style="margin-top: 14px">
+                <a class="btn primary" href="billing.html">Add to order</a>
+              </div>
+            </article>
+            <article class="card">
+              <h3>Teriyaki Beef & Veg</h3>
+              <p>610 kcal • 38g protein • Sweet soy glaze</p>
+              <div style="margin-top: 14px">
+                <a class="btn primary" href="billing.html">Add to order</a>
+              </div>
+            </article>
+            <article class="card">
+              <h3>Salmon & Greens</h3>
+              <p>480 kcal • 35g protein • Lemon herb</p>
+              <div style="margin-top: 14px">
+                <a class="btn primary" href="billing.html">Add to order</a>
+              </div>
+            </article>
+            <article class="card">
+              <h3>Plant Power Wrap</h3>
+              <p>430 kcal • 18g protein • Chickpeas • Crunch veg</p>
+              <div style="margin-top: 14px">
+                <a class="btn primary" href="billing.html">Add to order</a>
+              </div>
+            </article>
+            <article class="card">
+              <h3>Turkey Chili</h3>
+              <p>560 kcal • 40g protein • Beans • Mild spice</p>
+              <div style="margin-top: 14px">
+                <a class="btn primary" href="billing.html">Add to order</a>
+              </div>
+            </article>
+            <article class="card">
+              <h3>Tofu Stir Fry</h3>
+              <p>470 kcal • 22g protein • Sesame ginger</p>
+              <div style="margin-top: 14px">
+                <a class="btn primary" href="billing.html">Add to order</a>
+              </div>
+            </article>
+          </div>
+
+          <div class="card" style="margin-top: 18px">
+            <h3 style="margin-bottom: 8px">Want a customized menu?</h3>
+            <p class="help" style="margin: 0">
+              Tell us your allergies, preferences, and goals—we’ll help you choose meals that fit.
+            </p>
+            <div style="margin-top: 14px; display: flex; gap: 12px; flex-wrap: wrap">
+              <a class="btn primary" href="dietplan.html">Choose a diet plan</a>
+              <a class="btn" href="contact.html">Message us</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div>
+          <strong style="color: var(--text)">Fresh Bite Prep</strong>
+          <div style="margin-top: 6px">Fresh meals, made simple.</div>
+        </div>
+        <div>
+          <div style="color: var(--text); margin-bottom: 8px">Quick links</div>
+          <div style="display: grid; gap: 6px">
+            <a href="index.html">Home</a>
+            <a href="dietplan.html">Diet Plan</a>
+            <a href="billing.html">Billing</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en" data-page="index.html">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fresh Bite Prep</title>
+    <meta
+      name="description"
+      content="Fresh, chef-prepared weekly meals and personalized diet plans ready when you are."
+    />
+    <link rel="icon" href="logo.png" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="Fresh Bite Prep home">
+          <img src="logo.png" alt="Fresh Bite Prep logo" />
+          <span class="name">
+            <strong>Fresh Bite Prep</strong>
+            <span>Weekly meals • Diet plans • Billing</span>
+          </span>
+        </a>
+
+        <nav class="nav" data-site-nav aria-label="Primary">
+          <a href="meals..html">Weekly Meals</a>
+          <a href="dietplan.html">Diet Plan</a>
+          <a href="billing.html">Billing</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+
+        <div class="actions">
+          <a class="btn" href="login.html">Login</a>
+          <button class="btn menu-btn" type="button" data-menu-button aria-expanded="false" aria-label="Open menu">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <div class="container" style="padding: 28px 0 0">
+        <section class="hero" aria-label="Above the fold" data-hero-carousel>
+          <div class="hero-media">
+            <img src="above.png" alt="Fresh Bite Prep featured meal banner" />
+          </div>
+          <div class="hero-content">
+            <div class="hero-copy">
+              <span class="chip" data-hero-chip>New week, new menu</span>
+              <h1 data-hero-title>Fresh meals that fit your goals.</h1>
+              <p data-hero-text>
+                Choose from balanced weekly meals, then pair them with a diet plan tailored to your lifestyle.
+                Simple ordering, clear billing, and food you will look forward to.
+              </p>
+              <div class="cta">
+                <a class="btn primary" href="meals..html" data-hero-primary>Browse Weekly Meals</a>
+                <a class="btn" href="dietplan.html" data-hero-secondary>Build Your Diet Plan</a>
+              </div>
+              <div class="hero-controls" aria-label="Hero carousel controls">
+                <button class="hero-arrow" type="button" data-hero-prev aria-label="Previous slide">&lsaquo;</button>
+                <div class="hero-dots" role="tablist" aria-label="Hero highlights">
+                  <button class="hero-dot" type="button" data-hero-dot="0" aria-label="Show slide 1"></button>
+                  <button class="hero-dot" type="button" data-hero-dot="1" aria-label="Show slide 2"></button>
+                  <button class="hero-dot" type="button" data-hero-dot="2" aria-label="Show slide 3"></button>
+                </div>
+                <button class="hero-arrow" type="button" data-hero-next aria-label="Next slide">&rsaquo;</button>
+              </div>
+            </div>
+
+            <aside class="hero-card" aria-label="Highlights">
+              <h3 data-hero-panel-title>What you get</h3>
+              <ul data-hero-list>
+                <li>Weekly rotating menu with clear macros</li>
+                <li>Diet plan options for common goals</li>
+                <li>Simple billing and order history</li>
+                <li>Support whenever you need it</li>
+              </ul>
+            </aside>
+          </div>
+        </section>
+      </div>
+
+      <section class="section">
+        <div class="container">
+          <h2>How it works</h2>
+          <p class="sub">Pick meals for the week, choose a diet plan, then manage everything in one place.</p>
+          <div class="grid cols-3">
+            <div class="card">
+              <h3>1) Pick your meals</h3>
+              <p>Browse the weekly selection and add meals you love.</p>
+            </div>
+            <div class="card">
+              <h3>2) Choose a plan</h3>
+              <p>Select a diet plan to match your routine and goals.</p>
+            </div>
+            <div class="card">
+              <h3>3) Track and manage</h3>
+              <p>Review billing, update preferences, and get help fast.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2>This week's favorites</h2>
+          <p class="sub">A quick peek at what's popular. See the full list on Weekly Meals.</p>
+          <div class="grid cols-3">
+            <div class="card">
+              <h3>Lean Chicken Bowl</h3>
+              <p>Grilled chicken, brown rice, veggies, light sauce.</p>
+            </div>
+            <div class="card">
+              <h3>Salmon and Greens</h3>
+              <p>Roasted salmon with seasonal greens and lemon.</p>
+            </div>
+            <div class="card">
+              <h3>Plant Power Wrap</h3>
+              <p>Chickpeas, crunchy veg, and a herby dressing.</p>
+            </div>
+          </div>
+          <div style="margin-top: 16px; display: flex; gap: 12px; flex-wrap: wrap">
+            <a class="btn primary" href="meals..html">See Weekly Meals</a>
+            <a class="btn" href="contact.html">Ask a question</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div>
+          <strong style="color: var(--text)">Fresh Bite Prep</strong>
+          <div style="margin-top: 6px">Fresh meals, made simple.</div>
+        </div>
+        <div>
+          <div style="color: var(--text); margin-bottom: 8px">Quick links</div>
+          <div style="display: grid; gap: 6px">
+            <a href="meals..html">Weekly Meals</a>
+            <a href="dietplan.html">Diet Plan</a>
+            <a href="billing.html">Billing</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

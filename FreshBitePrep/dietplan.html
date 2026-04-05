@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en" data-page="dietplan.html">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Diet Plan • Fresh Bite Prep</title>
+    <meta
+      name="description"
+      content="Choose a diet plan and preferences that match your goals."
+    />
+    <link rel="icon" href="logo.png" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="Fresh Bite Prep home">
+          <img src="logo.png" alt="Fresh Bite Prep logo" />
+          <span class="name">
+            <strong>Fresh Bite Prep</strong>
+            <span>Weekly meals • Diet plans • Billing</span>
+          </span>
+        </a>
+
+        <nav class="nav" data-site-nav aria-label="Primary">
+          <a href="meals..html">Weekly Meals</a>
+          <a href="dietplan.html">Diet Plan</a>
+          <a href="billing.html">Billing</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+
+        <div class="actions">
+          <a class="btn" href="login.html">Login</a>
+          <button class="btn menu-btn" type="button" data-menu-button aria-expanded="false" aria-label="Open menu">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="page-hero">
+        <div class="container">
+          <h1>Diet Plan</h1>
+          <p>Choose a goal and set your preferences. We’ll help match meals to your routine.</p>
+        </div>
+      </section>
+
+      <section class="section" style="padding-top: 22px">
+        <div class="container">
+          <h2>Pick your goal</h2>
+          <p class="sub">Start with a plan, then fine-tune by selecting your preferred meals each week.</p>
+
+          <div class="grid cols-3">
+            <div class="card">
+              <h3>Fat Loss</h3>
+              <p>Lower-calorie meals with high-protein options to keep you full.</p>
+            </div>
+            <div class="card">
+              <h3>Lean Muscle</h3>
+              <p>More protein and balanced carbs to support training days.</p>
+            </div>
+            <div class="card">
+              <h3>Maintenance</h3>
+              <p>Simple balanced meals that fit an everyday routine.</p>
+            </div>
+          </div>
+
+          <div class="grid cols-2" style="margin-top: 18px">
+            <div class="card">
+              <h3>Preferences</h3>
+              <form class="form" action="#" method="post">
+                <div class="field">
+                  <label for="diet">Diet type</label>
+                  <select id="diet" name="diet">
+                    <option>Balanced</option>
+                    <option>High-protein</option>
+                    <option>Low-carb</option>
+                    <option>Vegetarian</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="allergies">Allergies / avoid</label>
+                  <input id="allergies" name="allergies" placeholder="e.g., peanuts, dairy, seafood" />
+                </div>
+                <div class="field">
+                  <label for="notes">Notes</label>
+                  <textarea id="notes" name="notes" placeholder="Any extra details we should know?"></textarea>
+                </div>
+                <div style="display: flex; gap: 12px; flex-wrap: wrap">
+                  <a class="btn primary" href="meals..html">Continue to meals</a>
+                  <a class="btn" href="contact.html">Ask for help</a>
+                </div>
+              </form>
+            </div>
+
+            <div class="card">
+              <h3>Plan tips</h3>
+              <p class="help" style="margin: 0">
+                Want this to match your exact macros? Add your goal and any restrictions, then we’ll suggest meals that work.
+              </p>
+              <div style="margin-top: 14px; display: grid; gap: 10px">
+                <div class="chip">Protein first</div>
+                <div class="chip">Fiber for fullness</div>
+                <div class="chip">Consistent schedule</div>
+              </div>
+              <div style="margin-top: 16px">
+                <a class="btn primary" href="billing.html">View pricing</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div>
+          <strong style="color: var(--text)">Fresh Bite Prep</strong>
+          <div style="margin-top: 6px">Fresh meals, made simple.</div>
+        </div>
+        <div>
+          <div style="color: var(--text); margin-bottom: 8px">Quick links</div>
+          <div style="display: grid; gap: 6px">
+            <a href="index.html">Home</a>
+            <a href="meals..html">Weekly Meals</a>
+            <a href="billing.html">Billing</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

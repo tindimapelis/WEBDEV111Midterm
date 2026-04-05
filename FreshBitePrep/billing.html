@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en" data-page="billing.html">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Billing • Fresh Bite Prep</title>
+    <meta
+      name="description"
+      content="Review pricing and manage billing for your Fresh Bite Prep orders."
+    />
+    <link rel="icon" href="logo.png" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="Fresh Bite Prep home">
+          <img src="logo.png" alt="Fresh Bite Prep logo" />
+          <span class="name">
+            <strong>Fresh Bite Prep</strong>
+            <span>Weekly meals • Diet plans • Billing</span>
+          </span>
+        </a>
+
+        <nav class="nav" data-site-nav aria-label="Primary">
+          <a href="meals..html">Weekly Meals</a>
+          <a href="dietplan.html">Diet Plan</a>
+          <a href="billing.html">Billing</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+
+        <div class="actions">
+          <a class="btn" href="login.html">Login</a>
+          <button class="btn menu-btn" type="button" data-menu-button aria-expanded="false" aria-label="Open menu">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="page-hero">
+        <div class="container">
+          <h1>Billing</h1>
+          <p>Choose a plan based on how many meals you want each week.</p>
+        </div>
+      </section>
+
+      <section class="section" style="padding-top: 22px">
+        <div class="container">
+          <h2>Plans</h2>
+          <p class="sub">Choose a plan based on how many meals you want per week.</p>
+          <div class="grid cols-3">
+            <div class="card">
+              <h3>Starter</h3>
+              <p class="help" style="margin: 6px 0 0">6 meals / week</p>
+              <p style="margin: 14px 0 0; font-size: 1.7rem; font-weight: 800; color: var(--text)">
+                $49
+                <span style="font-size: 0.95rem; font-weight: 600; color: var(--muted)">/ week</span>
+              </p>
+              <div style="margin-top: 14px">
+                <a class="btn primary" href="contact.html">Choose Starter</a>
+              </div>
+            </div>
+            <div class="card" style="border-color: rgba(34, 197, 94, 0.25)">
+              <h3>Most Popular</h3>
+              <p class="help" style="margin: 6px 0 0">10 meals / week</p>
+              <p style="margin: 14px 0 0; font-size: 1.7rem; font-weight: 800; color: var(--text)">
+                $79
+                <span style="font-size: 0.95rem; font-weight: 600; color: var(--muted)">/ week</span>
+              </p>
+              <div style="margin-top: 14px">
+                <a class="btn primary" href="contact.html">Choose Popular</a>
+              </div>
+            </div>
+            <div class="card">
+              <h3>Family</h3>
+              <p class="help" style="margin: 6px 0 0">14 meals / week</p>
+              <p style="margin: 14px 0 0; font-size: 1.7rem; font-weight: 800; color: var(--text)">
+                $109
+                <span style="font-size: 0.95rem; font-weight: 600; color: var(--muted)">/ week</span>
+              </p>
+              <div style="margin-top: 14px">
+                <a class="btn primary" href="contact.html">Choose Family</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid cols-2" style="margin-top: 18px">
+            <div class="card">
+              <h3>Order summary (example)</h3>
+              <p class="help" style="margin: 0 0 12px">A quick example of what your weekly total could look like.</p>
+              <div class="card" style="background: rgba(255, 255, 255, 0.04); box-shadow: none">
+                <div style="display: grid; gap: 10px">
+                  <div style="display: flex; justify-content: space-between; gap: 12px">
+                    <span>Meals (10)</span><span>$79.00</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; gap: 12px">
+                    <span>Delivery</span><span>$0.00</span>
+                  </div>
+                  <div style="height: 1px; background: rgba(255, 255, 255, 0.12)"></div>
+                  <div style="display: flex; justify-content: space-between; gap: 12px; font-weight: 800; color: var(--text)">
+                    <span>Total</span><span>$79.00</span>
+                  </div>
+                </div>
+              </div>
+              <div style="margin-top: 14px; display: flex; gap: 12px; flex-wrap: wrap">
+                <a class="btn primary" href="contact.html">Proceed</a>
+                <a class="btn" href="meals..html">Edit meals</a>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3>Billing details</h3>
+              <form class="form" action="#" method="post">
+                <div class="field">
+                  <label for="fullname">Full name</label>
+                  <input id="fullname" name="fullname" placeholder="Your name" autocomplete="name" />
+                </div>
+                <div class="field">
+                  <label for="email">Email</label>
+                  <input id="email" name="email" placeholder="you@email.com" autocomplete="email" />
+                </div>
+                <div class="field">
+                  <label for="address">Address</label>
+                  <input id="address" name="address" placeholder="Street, city" autocomplete="street-address" />
+                </div>
+                <p class="help" style="margin: 0">
+                  After you submit your details, we’ll confirm your plan and send payment instructions.
+                </p>
+                <div style="display: flex; gap: 12px; flex-wrap: wrap">
+                  <a class="btn primary" href="contact.html">Contact to pay</a>
+                  <a class="btn" href="login.html">Sign in</a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div>
+          <strong style="color: var(--text)">Fresh Bite Prep</strong>
+          <div style="margin-top: 6px">Fresh meals, made simple.</div>
+        </div>
+        <div>
+          <div style="color: var(--text); margin-bottom: 8px">Quick links</div>
+          <div style="display: grid; gap: 6px">
+            <a href="index.html">Home</a>
+            <a href="meals..html">Weekly Meals</a>
+            <a href="dietplan.html">Diet Plan</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

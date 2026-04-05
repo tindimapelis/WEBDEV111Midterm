@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en" data-page="contact.html">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact • Fresh Bite Prep</title>
+    <meta
+      name="description"
+      content="Get in touch with Fresh Bite Prep for orders, menu questions, or support."
+    />
+    <link rel="icon" href="logo.png" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="Fresh Bite Prep home">
+          <img src="logo.png" alt="Fresh Bite Prep logo" />
+          <span class="name">
+            <strong>Fresh Bite Prep</strong>
+            <span>Weekly meals • Diet plans • Billing</span>
+          </span>
+        </a>
+
+        <nav class="nav" data-site-nav aria-label="Primary">
+          <a href="meals..html">Weekly Meals</a>
+          <a href="dietplan.html">Diet Plan</a>
+          <a href="billing.html">Billing</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+
+        <div class="actions">
+          <a class="btn" href="login.html">Login</a>
+          <button class="btn menu-btn" type="button" data-menu-button aria-expanded="false" aria-label="Open menu">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="page-hero">
+        <div class="container">
+          <h1>Contact</h1>
+          <p>Questions about the weekly menu, allergies, delivery, or billing? Send a message and we’ll get back to you.</p>
+        </div>
+      </section>
+
+      <section class="section" style="padding-top: 22px">
+        <div class="container">
+          <div class="grid cols-2">
+            <div class="card">
+              <h3>Send a message</h3>
+              <form class="form" action="#" method="post">
+                <div class="field">
+                  <label for="name">Name</label>
+                  <input id="name" name="name" placeholder="Your name" autocomplete="name" />
+                </div>
+                <div class="field">
+                  <label for="email">Email</label>
+                  <input id="email" name="email" placeholder="you@email.com" autocomplete="email" />
+                </div>
+                <div class="field">
+                  <label for="topic">Topic</label>
+                  <select id="topic" name="topic">
+                    <option>Weekly meals</option>
+                    <option>Diet plan</option>
+                    <option>Billing</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="message">Message</label>
+                  <textarea id="message" name="message" placeholder="How can we help?"></textarea>
+                </div>
+                <div style="display: flex; gap: 12px; flex-wrap: wrap">
+                  <button class="btn primary" type="submit">Send</button>
+                  <a class="btn" href="meals..html">Browse meals</a>
+                </div>
+                <p class="help" style="margin: 0">
+                  We typically reply within 24 hours (Mon to Sat). If your request is urgent, please call during business hours.
+                </p>
+              </form>
+            </div>
+
+            <div class="card">
+              <h3>Quick info</h3>
+              <p class="help" style="margin: 0 0 12px">Here’s how to reach us.</p>
+              <div class="card" style="background: rgba(255, 255, 255, 0.04); box-shadow: none">
+                <div style="display: grid; gap: 10px">
+                  <div><span style="color: var(--muted)">Email:</span> <strong style="color: var(--text)">support@freshbiteprep.com</strong></div>
+                  <div><span style="color: var(--muted)">Phone:</span> <strong style="color: var(--text)">(000) 000-0000</strong></div>
+                  <div><span style="color: var(--muted)">Hours:</span> <strong style="color: var(--text)">Mon–Sat, 9am–6pm</strong></div>
+                </div>
+              </div>
+              <div style="margin-top: 14px; display: flex; gap: 12px; flex-wrap: wrap">
+                <a class="btn primary" href="billing.html">View billing</a>
+                <a class="btn" href="dietplan.html">Diet plan</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div>
+          <strong style="color: var(--text)">Fresh Bite Prep</strong>
+          <div style="margin-top: 6px">Fresh meals, made simple.</div>
+        </div>
+        <div>
+          <div style="color: var(--text); margin-bottom: 8px">Quick links</div>
+          <div style="display: grid; gap: 6px">
+            <a href="index.html">Home</a>
+            <a href="meals..html">Weekly Meals</a>
+            <a href="dietplan.html">Diet Plan</a>
+            <a href="billing.html">Billing</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
