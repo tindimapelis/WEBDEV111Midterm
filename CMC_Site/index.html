@@ -39,30 +39,102 @@
         </p>
       </section>
 
-      <section class="content-grid">
-        <article class="content-card">
-          <h2>Realm Banners</h2>
-          <ul>
-            <li>Sinag Realm Page</li>
-            <li>Himig Realm Page</li>
-            <li>Likha Realm Page</li>
-            <li>Laraw Realm Page</li>
-          </ul>
-        </article>
-        <article class="content-card">
-          <h2>Announcement Section</h2>
-          <ul>
-            <li>Announcement of Major Event (CMC)</li>
-            <li>On-going Events</li>
-            <li>Upcoming Events</li>
-          </ul>
-        </article>
-        <article class="content-card">
-          <h2>Monthly Art Showcase</h2>
-          <ul>
-            <li>Featured Art of Each Guild (Top 3)</li>
-          </ul>
-        </article>
+      <section class="guild-feature" aria-labelledby="home-guild-feature-title">
+        <p class="eyebrow guild-feature-eyebrow" id="home-guild-feature-title">See what guild suits you</p>
+        <a class="guild-banner guild-banner-centered" href="mini-games.html#guild-quiz">
+          <div class="guild-banner-track" aria-hidden="true">
+            <span class="guild-banner-line"></span>
+          </div>
+          <div class="guild-badges">
+            <article class="guild-badge guild-badge-teal">
+              <span class="guild-badge-crest">
+                <img class="guild-logo guild-logo-mono" src="SINAG_white.png" alt="Sinag guild logo" />
+                <img class="guild-logo guild-logo-color" src="SINAG.png" alt="" aria-hidden="true" />
+              </span>
+              <h2>Sinag</h2>
+              <p>20%</p>
+            </article>
+            <article class="guild-badge guild-badge-cobalt">
+              <span class="guild-badge-crest">
+                <img class="guild-logo guild-logo-mono" src="LIKHA_white.png" alt="Likha guild logo" />
+                <img class="guild-logo guild-logo-color" src="LIKHA.png" alt="" aria-hidden="true" />
+              </span>
+              <h2>Likha</h2>
+              <p>24%</p>
+            </article>
+            <article class="guild-badge guild-badge-crimson">
+              <span class="guild-badge-crest">
+                <img class="guild-logo guild-logo-mono" src="LARAW_white.png" alt="Laraw guild logo" />
+                <img class="guild-logo guild-logo-color" src="LARAW.png" alt="" aria-hidden="true" />
+              </span>
+              <h2>Laraw</h2>
+              <p>37%</p>
+            </article>
+            <article class="guild-badge guild-badge-gold">
+              <span class="guild-badge-crest">
+                <img class="guild-logo guild-logo-mono" src="HIMIG_white.png" alt="Himig guild logo" />
+                <img class="guild-logo guild-logo-color" src="HIMIG.png" alt="" aria-hidden="true" />
+              </span>
+              <h2>Himig</h2>
+              <p>19%</p>
+            </article>
+          </div>
+        </a>
+      </section>
+
+      <section class="home-section" aria-labelledby="announcements-title">
+        <div class="section-band">
+          <h2 id="announcements-title">Announcements</h2>
+        </div>
+        <div class="announcement-layout">
+          <article class="announcement-poster-card">
+            <p class="announcement-card-label">Featured Poster</p>
+            <div class="wireframe-poster">
+              <span>Poster / event visual</span>
+            </div>
+          </article>
+          <div class="announcement-main">
+            <article class="announcement-story">
+              <p class="announcement-card-label">Title of Event</p>
+              <h3>Creative Minds Guild Festival</h3>
+              <p>
+                Description and details about ongoing or future events can go here, including
+                schedules, featured activities, and important updates for members.
+              </p>
+            </article>
+            <div class="announcement-gallery" aria-label="More event previews">
+              <article class="announcement-thumb">
+                <span>Preview 01</span>
+              </article>
+              <article class="announcement-thumb">
+                <span>Preview 02</span>
+              </article>
+              <article class="announcement-thumb">
+                <span>Preview 03</span>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="home-section" aria-labelledby="monthly-art-title">
+        <div class="section-band">
+          <h2 id="monthly-art-title">Top 3 Arts Of The Month</h2>
+        </div>
+        <div class="art-carousel-shell">
+          <p class="announcement-card-label art-carousel-label">Carousel</p>
+          <div class="art-carousel">
+            <button class="carousel-arrow carousel-arrow-left" type="button" aria-label="Previous art">
+              &larr;
+            </button>
+            <div class="art-carousel-stage">
+              <p>Featured guild art spotlight</p>
+            </div>
+            <button class="carousel-arrow carousel-arrow-right" type="button" aria-label="Next art">
+              &rarr;
+            </button>
+          </div>
+        </div>
       </section>
     </main>
   </body>
