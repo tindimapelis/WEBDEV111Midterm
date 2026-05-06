@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en" data-page="admin/moderation.html">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CMC Site - Admin Moderation</title>
+    <link rel="icon" href="../logo.jpg" />
+    <link rel="stylesheet" href="../style.css" />
+    <script defer src="../script.js"></script>
+  </head>
+  <body class="admin-dashboard-body">
+    <main class="admin-dashboard-shell">
+      <aside class="admin-sidebar" aria-label="Admin navigation">
+        <a class="admin-sidebar-brand" href="../index.html"><img src="../logo.jpg" alt="CMC logo" /><div><strong>CMC Console</strong><span>Admin View</span></div></a>
+        <nav class="admin-sidebar-nav"><p>Navigation</p><a href="index.html">Dashboard</a><a href="analytics.html">Analytics</a><a href="management.html">Management</a></nav>
+        <div class="admin-sidebar-meta"><p>Workspace</p><a href="../index.html">Main Site</a><a href="../account.html">Accounts Page</a></div>
+      </aside>
+      <section class="admin-workspace">
+        <header class="admin-toolbar"><div class="admin-toolbar-copy"><p>Control Layer</p><h1>Moderation</h1></div><div class="admin-toolbar-actions"><div class="admin-account-menu"><button class="admin-account-trigger" type="button" aria-label="Open account menu" aria-haspopup="true" aria-expanded="false"><img src="../ACCOUNT_ICON.png" alt="" aria-hidden="true" /></button><div class="admin-account-panel"><div class="admin-account-summary"><img src="../ACCOUNT_ICON.png" alt="Administrator account" /><div><strong>CMC Admin</strong><span>Operations Manager</span></div></div><a class="admin-account-link" href="../account.html">Log Out</a></div></div></div></header>
+        <section class="admin-feature-grid" aria-label="Moderation queue">
+          <article class="admin-feature-card">
+            <div class="admin-feature-head"><p class="announcement-card-label">Realm Queue</p><h2>Pending Reviews</h2></div>
+            <div class="admin-realm-list"><div><span>Sinag</span><strong>12 items</strong></div><div><span>Himig</span><strong>08 items</strong></div><div><span>Likha</span><strong>15 items</strong></div><div><span>Laraw</span><strong>10 items</strong></div></div>
+            <div class="admin-actions"><button type="button">Open Moderation Queue</button></div>
+          </article>
+          <article class="admin-panel-card">
+            <p class="announcement-card-label">Review Mix</p><h2>Queue Composition</h2>
+            <ul class="admin-task-list"><li><span>17</span> Member works</li><li><span>11</span> Comments</li><li><span>17</span> Guild event submissions</li></ul>
+          </article>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>

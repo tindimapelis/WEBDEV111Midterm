@@ -1,0 +1,892 @@
+<!doctype html>
+<html lang="en" data-page="mini-games.html">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CMC Site - Guild Sorting Quiz</title>
+    <link rel="icon" href="logo.jpg" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+    <style>
+      .quiz-page-shell {
+        display: grid;
+        gap: 1.6rem;
+      }
+
+      .quiz-hero {
+        display: grid;
+        gap: 1rem;
+        background:
+          radial-gradient(circle at 16% 20%, rgba(201, 106, 83, 0.14), transparent 24%),
+          radial-gradient(circle at 82% 16%, rgba(243, 201, 119, 0.12), transparent 26%),
+          linear-gradient(145deg, rgba(59, 13, 18, 0.96), rgba(16, 8, 12, 0.98));
+      }
+
+      .quiz-back-link {
+        width: fit-content;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        padding: 0.72rem 1rem;
+        border: 1px solid rgba(255, 228, 160, 0.18);
+        border-radius: 999px;
+        color: rgba(255, 244, 218, 0.88);
+        text-decoration: none;
+        background: rgba(255, 255, 255, 0.04);
+        transition:
+          transform 180ms ease,
+          border-color 180ms ease,
+          background 180ms ease,
+          box-shadow 180ms ease;
+      }
+
+      .quiz-back-link:hover,
+      .quiz-back-link:focus-visible {
+        transform: translateY(-2px);
+        border-color: rgba(255, 228, 160, 0.38);
+        background: rgba(255, 255, 255, 0.07);
+        box-shadow: 0 0 18px rgba(201, 106, 83, 0.12);
+        outline: none;
+      }
+
+      .quiz-hero h1 {
+        margin: 0;
+        font-size: clamp(2.4rem, 5vw, 4.2rem);
+        line-height: 0.96;
+      }
+
+      .quiz-hero .lead {
+        max-width: 42rem;
+      }
+
+      .quiz-shell {
+        --quiz-accent: #c96a53;
+        --quiz-accent-soft: rgba(201, 106, 83, 0.18);
+        --quiz-accent-deep: rgba(92, 29, 27, 0.92);
+        --quiz-highlight: #f6df9a;
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.88fr);
+        gap: 1.25rem;
+        align-items: start;
+      }
+
+      .quiz-panel,
+      .quiz-sidebar-card {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(255, 228, 160, 0.14);
+        border-radius: 28px;
+        background:
+          radial-gradient(circle at top left, rgba(201, 106, 83, 0.12), transparent 24%),
+          linear-gradient(180deg, rgba(48, 13, 19, 0.96), rgba(11, 7, 11, 0.98));
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.04),
+          0 24px 48px rgba(0, 0, 0, 0.28);
+      }
+
+      .quiz-panel::before,
+      .quiz-sidebar-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background:
+          linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.04) 36%, transparent 100%);
+      }
+
+      .quiz-panel > *,
+      .quiz-sidebar-card > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .quiz-panel {
+        padding: 1.5rem;
+      }
+
+      .quiz-panel-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 1.1rem;
+      }
+
+      .quiz-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        padding: 0.7rem 1rem;
+        border: 1px solid rgba(255, 228, 160, 0.14);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.05);
+        color: rgba(255, 243, 219, 0.76);
+        font-size: 0.88rem;
+        letter-spacing: 0.04em;
+      }
+
+      .quiz-progress {
+        display: grid;
+        gap: 0.65rem;
+        margin-bottom: 1.45rem;
+      }
+
+      .quiz-progress-meta {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        color: rgba(255, 243, 219, 0.78);
+        font-size: 0.95rem;
+      }
+
+      .quiz-progress-bar {
+        height: 0.9rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+        overflow: hidden;
+        box-shadow: inset 0 0 0 1px rgba(255, 228, 160, 0.08);
+      }
+
+      .quiz-progress-fill {
+        width: 0;
+        height: 100%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, var(--quiz-accent), var(--quiz-highlight));
+        box-shadow: 0 0 20px var(--quiz-accent-soft);
+        transition: width 320ms ease, background 320ms ease, box-shadow 320ms ease;
+      }
+
+      .quiz-question-card,
+      .quiz-result-card {
+        display: grid;
+        gap: 1.05rem;
+        animation: quizRise 420ms ease;
+      }
+
+      .quiz-question-card.is-exiting {
+        animation: quizFade 220ms ease forwards;
+      }
+
+      .quiz-question-number {
+        margin: 0;
+        color: var(--quiz-highlight);
+        font-size: 0.84rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .quiz-question-card h2,
+      .quiz-result-card h2 {
+        margin: 0;
+        font-size: clamp(1.8rem, 3.7vw, 3rem);
+        line-height: 1.06;
+      }
+
+      .quiz-question-subtext,
+      .quiz-sidebar-card p,
+      .quiz-answer-desc,
+      .quiz-footer-note,
+      .quiz-score-points {
+        color: rgba(255, 243, 219, 0.74);
+      }
+
+      .quiz-answers {
+        display: grid;
+        gap: 0.85rem;
+      }
+
+      .quiz-answer-btn,
+      .quiz-restart-btn {
+        width: 100%;
+        text-align: left;
+        padding: 1rem 1.05rem;
+        border: 1px solid rgba(255, 228, 160, 0.14);
+        border-radius: 22px;
+        color: #fff7e7;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.025));
+        cursor: pointer;
+        transition:
+          transform 180ms ease,
+          border-color 180ms ease,
+          background 180ms ease,
+          box-shadow 180ms ease;
+      }
+
+      .quiz-answer-btn:hover,
+      .quiz-answer-btn:focus-visible,
+      .quiz-restart-btn:hover,
+      .quiz-restart-btn:focus-visible {
+        transform: translateY(-3px);
+        border-color: color-mix(in srgb, var(--quiz-accent) 44%, rgba(255, 228, 160, 0.34));
+        background:
+          linear-gradient(180deg, color-mix(in srgb, var(--quiz-accent) 12%, rgba(255, 255, 255, 0.08)), rgba(255, 255, 255, 0.035));
+        box-shadow:
+          0 16px 28px rgba(0, 0, 0, 0.22),
+          0 0 24px color-mix(in srgb, var(--quiz-accent) 20%, transparent);
+        outline: none;
+      }
+
+      .quiz-answer-title {
+        display: block;
+        font-size: 1rem;
+        font-weight: 700;
+      }
+
+      .quiz-answer-desc {
+        display: block;
+        margin-top: 0.35rem;
+        line-height: 1.55;
+      }
+
+      .quiz-sidebar {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .quiz-sidebar-card {
+        padding: 1.2rem;
+      }
+
+      .quiz-sidebar-card h3 {
+        margin: 0 0 0.9rem;
+        font-size: 1.05rem;
+      }
+
+      .quiz-guild-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.8rem;
+      }
+
+      .quiz-guild-card {
+        display: grid;
+        gap: 0.55rem;
+        min-height: 10rem;
+        padding: 1rem;
+        border: 1px solid rgba(255, 228, 160, 0.12);
+        border-radius: 22px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.025));
+      }
+
+      .quiz-guild-card img {
+        width: 3.25rem;
+        height: 3.25rem;
+        object-fit: contain;
+        filter:
+          brightness(1.12)
+          contrast(1.08)
+          drop-shadow(0 0 10px rgba(255, 255, 255, 0.24));
+      }
+
+      .quiz-guild-card strong {
+        font-size: 0.98rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .quiz-score-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 0.8rem;
+      }
+
+      .quiz-score-item {
+        display: grid;
+        gap: 0.45rem;
+      }
+
+      .quiz-score-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.75rem;
+        align-items: center;
+      }
+
+      .quiz-score-track {
+        height: 0.56rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+        overflow: hidden;
+      }
+
+      .quiz-score-bar {
+        height: 100%;
+        width: 0;
+        border-radius: inherit;
+        transition: width 320ms ease;
+      }
+
+      .quiz-result-card {
+        display: none;
+      }
+
+      .quiz-result-card.active {
+        display: grid;
+      }
+
+      .quiz-result-badge,
+      .quiz-result-traits span {
+        display: inline-flex;
+        width: fit-content;
+        padding: 0.68rem 0.95rem;
+        border-radius: 999px;
+        border: 1px solid color-mix(in srgb, var(--quiz-accent) 44%, rgba(255, 228, 160, 0.24));
+        background: color-mix(in srgb, var(--quiz-accent-deep) 84%, rgba(255, 255, 255, 0.04));
+        color: #fff7e7;
+        box-shadow: 0 0 20px color-mix(in srgb, var(--quiz-accent) 18%, transparent);
+      }
+
+      .quiz-result-badge {
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+      }
+
+      .quiz-result-header {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 1rem;
+        align-items: center;
+      }
+
+      .quiz-result-logo {
+        width: 4.6rem;
+        height: 4.6rem;
+        object-fit: contain;
+        padding: 0.7rem;
+        border-radius: 1.25rem;
+        border: 1px solid color-mix(in srgb, var(--quiz-accent) 42%, rgba(255, 255, 255, 0.08));
+        background:
+          radial-gradient(circle at 50% 38%, rgba(255, 255, 255, 0.14), transparent 58%),
+          color-mix(in srgb, var(--quiz-accent-deep) 82%, rgba(255, 255, 255, 0.05));
+        box-shadow:
+          0 0 24px color-mix(in srgb, var(--quiz-accent) 20%, transparent),
+          inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      }
+
+      .quiz-result-copy p {
+        margin-top: 0.5rem;
+      }
+
+      .quiz-result-traits {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.7rem;
+      }
+
+      .quiz-restart-btn {
+        width: fit-content;
+        min-width: 12rem;
+        text-align: center;
+        font-weight: 700;
+      }
+
+      @keyframes quizRise {
+        from {
+          opacity: 0;
+          transform: translateY(14px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes quizFade {
+        to {
+          opacity: 0;
+          transform: translateX(-18px);
+        }
+      }
+
+      @media (max-width: 980px) {
+        .quiz-shell {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .quiz-panel-top,
+        .quiz-progress-meta,
+        .quiz-score-head,
+        .quiz-result-header {
+          grid-template-columns: 1fr;
+          display: grid;
+        }
+
+        .quiz-guild-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .quiz-panel,
+        .quiz-sidebar-card {
+          padding: 1rem;
+          border-radius: 24px;
+        }
+
+        .quiz-restart-btn {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body class="page-enter">
+    <header class="top-shell">
+      <div class="top-rule"></div>
+      <div class="brand-bar">
+        <a class="brand-mark" href="index.html" aria-label="Creative Minds Consortium home">
+          <img src="logo.jpg" alt="CMC logo" />
+          <span>CMC</span>
+        </a>
+        <a class="signup-btn" href="account.html" aria-label="Open login page">
+          <img src="ACCOUNT_ICON.png" alt="Account" />
+        </a>
+      </div>
+      <nav class="main-nav" aria-label="Primary">
+        <div class="nav-dropdown">
+          <a class="nav-dropdown-trigger" href="index.html">Home</a>
+          <div class="nav-dropdown-menu">
+            <a href="sinag.html">Sinag</a>
+            <a href="likha.html">Likha</a>
+            <a href="laraw.html">Laraw</a>
+            <a href="himig.html">Himig</a>
+          </div>
+        </div>
+        <a href="about.html">About</a>
+        <a href="mini-games.html">Mini Games</a>
+        <a href="merch-store.html">Merch</a>
+        <div class="nav-dropdown">
+          <a class="nav-dropdown-trigger" href="ongoing-events.html">Events</a>
+          <div class="nav-dropdown-menu">
+            <a href="ongoing-events.html">Ongoing</a>
+            <a href="past-events.html">Past</a>
+          </div>
+        </div>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main class="page-shell quiz-page-shell">
+      <section class="hero-panel quiz-hero">
+        <a class="quiz-back-link" href="mini-games.html">Back to Mini Games</a>
+        <p class="eyebrow">Creative Guild Initiative</p>
+        <h1>Guild Sorting Quiz</h1>
+        <p class="lead">
+          Step into the moonlit chamber and follow your instincts. Ten questions will trace your
+          creative path and reveal the banner whose color answers you best.
+        </p>
+      </section>
+
+      <section class="quiz-shell">
+        <div class="quiz-panel">
+          <div class="quiz-panel-top">
+            <span class="quiz-pill">Arcane alignment ritual</span>
+            <span class="quiz-pill" id="questionCounter">Question 1 of 10</span>
+          </div>
+
+          <div class="quiz-progress">
+            <div class="quiz-progress-meta">
+              <span id="progressLabel">The lantern begins to read your creative pulse</span>
+              <span id="progressPercent">10%</span>
+            </div>
+            <div class="quiz-progress-bar" aria-hidden="true">
+              <div class="quiz-progress-fill" id="progressFill"></div>
+            </div>
+          </div>
+
+          <section class="quiz-question-card" id="questionCard" aria-live="polite">
+            <p class="quiz-question-number" id="questionNumber">Question 1</p>
+            <h2 id="questionText"></h2>
+            <p class="quiz-question-subtext" id="questionSubtext"></p>
+            <div class="quiz-answers" id="answersContainer"></div>
+          </section>
+
+          <section class="quiz-result-card" id="resultScreen" aria-live="polite">
+            <span class="quiz-result-badge">Guild revealed</span>
+            <div class="quiz-result-header">
+              <img class="quiz-result-logo" id="resultLogo" src="HIMIG.png" alt="Guild logo" />
+              <div class="quiz-result-copy">
+                <h2 id="resultTitle"></h2>
+                <p id="resultDescription"></p>
+              </div>
+            </div>
+            <div class="quiz-result-traits" id="resultTraits"></div>
+            <button class="quiz-restart-btn" id="restartBtn" type="button">Take the quiz again</button>
+            <p class="quiz-footer-note">Your live score bars remain visible so you can compare every banner.</p>
+          </section>
+        </div>
+
+        <aside class="quiz-sidebar">
+          <section class="quiz-sidebar-card">
+            <h3>The Four Banners</h3>
+            <div class="quiz-guild-grid">
+              <article class="quiz-guild-card">
+                <img src="SINAG.png" alt="Sinag guild logo" />
+                <strong>SINAG</strong>
+                <p>Performance, storytelling, and stagefire presence.</p>
+              </article>
+              <article class="quiz-guild-card">
+                <img src="LIKHA.png" alt="Likha guild logo" />
+                <strong>LIKHA</strong>
+                <p>Design, invention, experimentation, and crafted worlds.</p>
+              </article>
+              <article class="quiz-guild-card">
+                <img src="LARAW.png" alt="Laraw guild logo" />
+                <strong>LARAW</strong>
+                <p>Visual framing, atmosphere, observation, and image-making.</p>
+              </article>
+              <article class="quiz-guild-card">
+                <img src="HIMIG.png" alt="Himig guild logo" />
+                <strong>HIMIG</strong>
+                <p>Rhythm, melody, soundscapes, and emotional resonance.</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="quiz-sidebar-card">
+            <h3>Live Alignment</h3>
+            <ul class="quiz-score-list" id="scoreList"></ul>
+          </section>
+
+          <section class="quiz-sidebar-card">
+            <h3>How the ritual works</h3>
+            <p>
+              Every answer strengthens one or more guilds. The banner with the highest score claims
+              the result, and ties favor the guild your most recent answer empowered.
+            </p>
+          </section>
+        </aside>
+      </section>
+    </main>
+
+    <script>
+      const guilds = {
+        HIMIG: {
+          title: "HIMIG",
+          description:
+            "You belong to the Guild of Music and Sound. You translate feeling into rhythm, atmosphere, and resonance. Your creativity moves like an echo that changes the room before anyone names it.",
+          traits: ["Rhythmic", "Atmospheric", "Emotion-led", "Resonant"],
+          accent: "#7db4ff",
+          accentSoft: "rgba(125, 180, 255, 0.18)",
+          accentDeep: "rgba(25, 43, 101, 0.92)",
+          highlight: "#bfe8ff",
+          logo: "HIMIG.png"
+        },
+        SINAG: {
+          title: "SINAG",
+          description:
+            "You belong to the Guild of Performance and Storytelling. You thrive in presence, movement, and dramatic energy. Your work shines brightest when people feel pulled directly into the scene.",
+          traits: ["Expressive", "Dramatic", "Magnetic", "Narrative-driven"],
+          accent: "#bfd55a",
+          accentSoft: "rgba(191, 213, 90, 0.18)",
+          accentDeep: "rgba(74, 92, 18, 0.92)",
+          highlight: "#eef8ab",
+          logo: "SINAG.png"
+        },
+        LIKHA: {
+          title: "LIKHA",
+          description:
+            "You belong to the Guild of Creation and Design. You see possibility in every unfinished thought and every blank surface. Your instinct is to shape, invent, and build until the idea becomes real.",
+          traits: ["Inventive", "Bold", "Playful", "Visionary"],
+          accent: "#f29a4a",
+          accentSoft: "rgba(242, 154, 74, 0.18)",
+          accentDeep: "rgba(109, 42, 14, 0.92)",
+          highlight: "#ffd9a9",
+          logo: "LIKHA.png"
+        },
+        LARAW: {
+          title: "LARAW",
+          description:
+            "You belong to the Guild of Vision and Photography. You notice light, framing, mood, and the quiet details others miss. Your creativity lives in observation and in preserving fleeting beauty.",
+          traits: ["Observant", "Cinematic", "Composed", "Reflective"],
+          accent: "#2f8c83",
+          accentSoft: "rgba(47, 140, 131, 0.2)",
+          accentDeep: "rgba(13, 53, 52, 0.92)",
+          highlight: "#8cd6cd",
+          logo: "LARAW.png"
+        }
+      };
+
+      const questions = [
+        {
+          text: "A new creative project opens before you. What pulls you in first?",
+          subtext: "Choose the instinct that feels most natural when inspiration first hits.",
+          answers: [
+            { title: "I hear a mood or melody forming immediately.", desc: "Sound gives the idea its pulse.", points: { HIMIG: 2, SINAG: 1 } },
+            { title: "I imagine the audience and how the story lands.", desc: "The emotional performance comes first.", points: { SINAG: 2, HIMIG: 1 } },
+            { title: "I start sketching concepts, layouts, or objects.", desc: "Making turns the spark into structure.", points: { LIKHA: 2, LARAW: 1 } },
+            { title: "I picture lighting, angle, and visual atmosphere.", desc: "The scene appears in frames.", points: { LARAW: 2, LIKHA: 1 } }
+          ]
+        },
+        {
+          text: "Which workspace feels most like home?",
+          subtext: "Think about the environment where your creativity feels unlocked.",
+          answers: [
+            { title: "A room full of speakers, instruments, and layered playlists.", desc: "Every corner hums with possibility.", points: { HIMIG: 2 } },
+            { title: "A rehearsal floor with scripts, props, and bright stage lights.", desc: "Energy builds where stories move.", points: { SINAG: 2 } },
+            { title: "A colorful studio with tools, samples, and half-finished prototypes.", desc: "Experimentation is everywhere.", points: { LIKHA: 2 } },
+            { title: "A quiet editing nook beside a camera bag and a wall of prints.", desc: "Mood and composition guide the day.", points: { LARAW: 2 } }
+          ]
+        },
+        {
+          text: "When people remember your work, what do you hope stays with them?",
+          subtext: "Pick the impact that matters most to you.",
+          answers: [
+            { title: "The feeling they carried because of the sound.", desc: "Emotion lingers in echoes.", points: { HIMIG: 2, SINAG: 1 } },
+            { title: "The story or performance they could not stop replaying.", desc: "Presence leaves a mark.", points: { SINAG: 2 } },
+            { title: "The originality of the concept or design.", desc: "They remember the making.", points: { LIKHA: 2 } },
+            { title: "A vivid image or scene frozen in their mind.", desc: "They keep seeing the frame.", points: { LARAW: 2, SINAG: 1 } }
+          ]
+        },
+        {
+          text: "A creative block hits. How do you reset?",
+          subtext: "Your recovery ritual says a lot about your process.",
+          answers: [
+            { title: "I listen closely until the right rhythm shows up.", desc: "Sound helps the fog clear.", points: { HIMIG: 2 } },
+            { title: "I act it out, talk it through, or perform the problem.", desc: "Embodiment brings insight.", points: { SINAG: 2, LIKHA: 1 } },
+            { title: "I make messy drafts until something clicks.", desc: "Momentum beats hesitation.", points: { LIKHA: 2 } },
+            { title: "I step back, observe quietly, and study details.", desc: "The answer often lives in perspective.", points: { LARAW: 2, HIMIG: 1 } }
+          ]
+        },
+        {
+          text: "Which assignment sounds the most exciting?",
+          subtext: "Imagine you can only choose one for the week.",
+          answers: [
+            { title: "Designing a signature soundtrack for an event.", desc: "You set the emotional frequency.", points: { HIMIG: 2 } },
+            { title: "Directing a short live performance piece.", desc: "You guide story through people and pace.", points: { SINAG: 2 } },
+            { title: "Building the visual identity for a new campaign.", desc: "You shape the whole creative language.", points: { LIKHA: 2, LARAW: 1 } },
+            { title: "Creating a photo essay from one meaningful location.", desc: "You tell truth through images.", points: { LARAW: 2, SINAG: 1 } }
+          ]
+        },
+        {
+          text: "What kind of detail do you notice before others do?",
+          subtext: "Your attention often reveals your guild.",
+          answers: [
+            { title: "Tiny changes in tone, pacing, or harmony.", desc: "You hear the texture of emotion.", points: { HIMIG: 2 } },
+            { title: "How someone delivers a line or holds a pause.", desc: "Expression changes everything.", points: { SINAG: 2 } },
+            { title: "How form, color, and structure can be improved.", desc: "Possibility jumps out at you.", points: { LIKHA: 2 } },
+            { title: "How light falls, where shadows gather, and what belongs in frame.", desc: "The scene composes itself in your mind.", points: { LARAW: 2 } }
+          ]
+        },
+        {
+          text: "Your creative process is usually best described as...",
+          subtext: "Choose the path that sounds the most like your natural rhythm.",
+          answers: [
+            { title: "Layering feelings until they become sound.", desc: "You build from mood to movement.", points: { HIMIG: 2, LARAW: 1 } },
+            { title: "Shaping moments that people can feel in real time.", desc: "Connection happens live.", points: { SINAG: 2 } },
+            { title: "Testing, iterating, and inventing as you go.", desc: "Creation grows through exploration.", points: { LIKHA: 2 } },
+            { title: "Watching first, then capturing the exact instant that matters.", desc: "Patience sharpens vision.", points: { LARAW: 2 } }
+          ]
+        },
+        {
+          text: "Which compliment would feel most rewarding?",
+          subtext: "This one gets to the heart of what you value.",
+          answers: [
+            { title: "That sound was unforgettable.", desc: "Your work resonated deeply.", points: { HIMIG: 2 } },
+            { title: "You made me feel like I was inside the story.", desc: "Your storytelling transported them.", points: { SINAG: 2 } },
+            { title: "How did you even come up with that idea?", desc: "Your originality stood out.", points: { LIKHA: 2 } },
+            { title: "That image says so much without words.", desc: "Your visual language spoke clearly.", points: { LARAW: 2 } }
+          ]
+        },
+        {
+          text: "In a group project, what role do you naturally take?",
+          subtext: "Think less about job titles and more about instinct.",
+          answers: [
+            { title: "Mood-setter through sound, timing, or atmosphere.", desc: "You shape the emotional undertone.", points: { HIMIG: 2, SINAG: 1 } },
+            { title: "Performer, host, narrator, or scene-builder.", desc: "You keep people engaged and present.", points: { SINAG: 2 } },
+            { title: "Concept architect and hands-on maker.", desc: "You turn ideas into real forms.", points: { LIKHA: 2 } },
+            { title: "Documentarian and visual curator.", desc: "You preserve meaning through images.", points: { LARAW: 2 } }
+          ]
+        },
+        {
+          text: "Choose the closing line that feels most like your creative identity.",
+          subtext: "This final answer often seals the guild you are leaning toward.",
+          answers: [
+            { title: "I want my art to be heard in the heart before it is understood.", desc: "Feeling arrives first.", points: { HIMIG: 2 } },
+            { title: "I want my art to ignite a room and hold every eye.", desc: "Presence is part of the craft.", points: { SINAG: 2 } },
+            { title: "I want my art to turn imagination into something people can touch or use.", desc: "Ideas deserve form.", points: { LIKHA: 2 } },
+            { title: "I want my art to preserve beauty people almost missed.", desc: "You reveal what slips away.", points: { LARAW: 2 } }
+          ]
+        }
+      ];
+
+      const state = {
+        index: 0,
+        scores: {
+          HIMIG: 0,
+          SINAG: 0,
+          LIKHA: 0,
+          LARAW: 0
+        },
+        lastBoostedGuild: null
+      };
+
+      const quizShell = document.querySelector(".quiz-shell");
+      const questionCard = document.getElementById("questionCard");
+      const questionNumber = document.getElementById("questionNumber");
+      const questionText = document.getElementById("questionText");
+      const questionSubtext = document.getElementById("questionSubtext");
+      const answersContainer = document.getElementById("answersContainer");
+      const questionCounter = document.getElementById("questionCounter");
+      const progressLabel = document.getElementById("progressLabel");
+      const progressPercent = document.getElementById("progressPercent");
+      const progressFill = document.getElementById("progressFill");
+      const scoreList = document.getElementById("scoreList");
+      const resultScreen = document.getElementById("resultScreen");
+      const resultTitle = document.getElementById("resultTitle");
+      const resultDescription = document.getElementById("resultDescription");
+      const resultTraits = document.getElementById("resultTraits");
+      const resultLogo = document.getElementById("resultLogo");
+      const restartBtn = document.getElementById("restartBtn");
+
+      function applyGuildTheme(guild) {
+        if (!quizShell || !guild) {
+          return;
+        }
+
+        quizShell.style.setProperty("--quiz-accent", guild.accent);
+        quizShell.style.setProperty("--quiz-accent-soft", guild.accentSoft);
+        quizShell.style.setProperty("--quiz-accent-deep", guild.accentDeep);
+        quizShell.style.setProperty("--quiz-highlight", guild.highlight);
+      }
+
+      function renderScores() {
+        const maxPossible = questions.length * 2;
+        scoreList.innerHTML = Object.entries(guilds)
+          .map(([key, guild]) => {
+            const value = state.scores[key];
+            const width = (value / maxPossible) * 100;
+
+            return `
+              <li class="quiz-score-item">
+                <div class="quiz-score-head">
+                  <span>${guild.title}</span>
+                  <span class="quiz-score-points">${value} pts</span>
+                </div>
+                <div class="quiz-score-track" aria-hidden="true">
+                  <div class="quiz-score-bar" style="width: ${width}%; background: linear-gradient(90deg, ${guild.accent}, ${guild.highlight}); box-shadow: 0 0 16px ${guild.accentSoft};"></div>
+                </div>
+              </li>
+            `;
+          })
+          .join("");
+      }
+
+      function updateProgress() {
+        const current = state.index + 1;
+        const percent = Math.round((current / questions.length) * 100);
+        questionCounter.textContent = `Question ${current} of ${questions.length}`;
+        progressLabel.textContent = `You are ${current} steps into the sorting ritual`;
+        progressPercent.textContent = `${percent}%`;
+        progressFill.style.width = `${percent}%`;
+      }
+
+      function renderQuestion() {
+        const question = questions[state.index];
+        questionCard.classList.remove("is-exiting");
+        questionCard.style.display = "grid";
+        resultScreen.classList.remove("active");
+
+        questionNumber.textContent = `Question ${state.index + 1}`;
+        questionText.textContent = question.text;
+        questionSubtext.textContent = question.subtext;
+        answersContainer.innerHTML = "";
+
+        question.answers.forEach((answer) => {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = "quiz-answer-btn";
+          button.innerHTML = `
+            <span class="quiz-answer-title">${answer.title}</span>
+            <span class="quiz-answer-desc">${answer.desc}</span>
+          `;
+          button.addEventListener("click", () => handleAnswer(answer.points));
+          answersContainer.appendChild(button);
+        });
+
+        applyGuildTheme({
+          accent: "#c96a53",
+          accentSoft: "rgba(201, 106, 83, 0.18)",
+          accentDeep: "rgba(92, 29, 27, 0.92)",
+          highlight: "#f6df9a"
+        });
+        updateProgress();
+        renderScores();
+      }
+
+      function handleAnswer(points) {
+        questionCard.classList.add("is-exiting");
+
+        Object.entries(points).forEach(([guild, value]) => {
+          state.scores[guild] += value;
+          state.lastBoostedGuild = guild;
+        });
+
+        renderScores();
+
+        window.setTimeout(() => {
+          state.index += 1;
+          if (state.index < questions.length) {
+            renderQuestion();
+          } else {
+            showResult();
+          }
+        }, 220);
+      }
+
+      function getWinningGuild() {
+        const sorted = Object.entries(state.scores).sort((a, b) => b[1] - a[1]);
+        const [topGuild, topScore] = sorted[0];
+        const tiedGuilds = sorted.filter(([, score]) => score === topScore).map(([guild]) => guild);
+
+        if (tiedGuilds.length === 1) {
+          return topGuild;
+        }
+
+        if (state.lastBoostedGuild && tiedGuilds.includes(state.lastBoostedGuild)) {
+          return state.lastBoostedGuild;
+        }
+
+        return tiedGuilds[0];
+      }
+
+      function showResult() {
+        const winningKey = getWinningGuild();
+        const guild = guilds[winningKey];
+
+        applyGuildTheme(guild);
+        questionCard.style.display = "none";
+        resultScreen.classList.add("active");
+        resultTitle.textContent = guild.title;
+        resultDescription.textContent = guild.description;
+        resultLogo.src = guild.logo;
+        resultLogo.alt = `${guild.title} guild logo`;
+        resultTraits.innerHTML = guild.traits.map((trait) => `<span>${trait}</span>`).join("");
+
+        questionCounter.textContent = "Sorting complete";
+        progressLabel.textContent = "Your creative banner has been revealed";
+        progressPercent.textContent = "100%";
+        progressFill.style.width = "100%";
+      }
+
+      function resetQuiz() {
+        state.index = 0;
+        state.lastBoostedGuild = null;
+        Object.keys(state.scores).forEach((guild) => {
+          state.scores[guild] = 0;
+        });
+
+        renderQuestion();
+      }
+
+      restartBtn.addEventListener("click", resetQuiz);
+
+      renderQuestion();
+    </script>
+  </body>
+</html>

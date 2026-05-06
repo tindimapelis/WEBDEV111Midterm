@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en" data-page="admin/analytics.html">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CMC Site - Admin Analytics</title>
+    <link rel="icon" href="../logo.jpg" />
+    <link rel="stylesheet" href="../style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+    <script defer src="../script.js"></script>
+  </head>
+  <body class="admin-dashboard-body page-enter">
+    <main class="admin-dashboard-shell">
+      <aside class="admin-sidebar" aria-label="Admin navigation">
+        <a class="admin-sidebar-brand" href="../index.html">
+          <img src="../logo.jpg" alt="CMC logo" />
+          <div>
+            <strong>CMC Console</strong>
+            <span>Admin View</span>
+          </div>
+        </a>
+        <nav class="admin-sidebar-nav">
+          <p>Navigation</p>
+          <a href="index.html">Dashboard</a>
+          <a class="is-current" href="analytics.html">Analytics</a>
+          <a href="management.html">Management</a>
+        </nav>
+        <div class="admin-sidebar-meta">
+          <p>Workspace</p>
+          <a href="../index.html">Main Site</a>
+          <a href="../account.html">Accounts Page</a>
+        </div>
+      </aside>
+
+      <section class="admin-workspace">
+        <header class="admin-toolbar">
+          <div class="admin-toolbar-copy">
+            <p>Control Layer</p>
+            <h1>Analytics</h1>
+          </div>
+          <div class="admin-toolbar-actions">
+            <div class="admin-account-menu">
+              <button class="admin-account-trigger" type="button" aria-label="Open account menu" aria-haspopup="true" aria-expanded="false">
+                <img src="../ACCOUNT_ICON.png" alt="" aria-hidden="true" />
+              </button>
+              <div class="admin-account-panel">
+                <div class="admin-account-summary">
+                  <img src="../ACCOUNT_ICON.png" alt="Administrator account" />
+                  <div>
+                    <strong>CMC Admin</strong>
+                    <span>Operations Manager</span>
+                  </div>
+                </div>
+                <a class="admin-account-link" href="../account.html">Log Out</a>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <section class="admin-dashboard-grid" aria-label="Admin analytics highlights">
+          <article class="admin-metric-card">
+            <p class="announcement-card-label">Current Snapshot</p>
+            <h2>At a Glance</h2>
+            <div class="admin-metric-row">
+              <div>
+                <strong>524</strong>
+                <span>Total users</span>
+              </div>
+              <div>
+                <strong>P84.6K</strong>
+                <span>Merch revenue</span>
+              </div>
+              <div>
+                <strong>21.3K</strong>
+                <span>Monthly visits</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="admin-panel-card">
+            <p class="announcement-card-label">Reading the Board</p>
+            <h2>Focus Notes</h2>
+            <ul class="admin-task-list">
+              <li><span>01</span> Likha and Sinag continue to lead guild participation.</li>
+              <li><span>02</span> Merch conversions rise strongest near event weeks.</li>
+              <li><span>03</span> Weekend traffic remains steady but Friday peaks highest.</li>
+              <li><span>04</span> Event engagement trends upward when guild content is featured.</li>
+            </ul>
+          </article>
+        </section>
+
+        <section class="admin-chart-grid" aria-label="Admin analytics charts">
+          <article class="admin-analytics-card admin-chart-card admin-chart-card-wide">
+            <div class="admin-chart-head">
+              <div>
+                <p class="announcement-card-label">Users</p>
+                <h2>Total Users Growth</h2>
+              </div>
+              <span class="admin-chart-note">Past 6 months</span>
+            </div>
+            <div class="admin-chart-canvas-wrap">
+              <canvas id="adminUsersChart"></canvas>
+            </div>
+            <div class="admin-chart-metrics">
+              <div><strong>524</strong><span>Current total</span></div>
+              <div><strong>+18%</strong><span>Growth rate</span></div>
+              <div><strong>87</strong><span>New this month</span></div>
+            </div>
+          </article>
+
+          <article class="admin-analytics-card admin-chart-card">
+            <div class="admin-chart-head">
+              <div>
+                <p class="announcement-card-label">Guilds</p>
+                <h2>Guild Member Count</h2>
+              </div>
+              <span class="admin-chart-note">Active member distribution</span>
+            </div>
+            <div class="admin-chart-canvas-wrap">
+              <canvas id="adminGuildChart"></canvas>
+            </div>
+          </article>
+
+          <article class="admin-analytics-card admin-chart-card">
+            <div class="admin-chart-head">
+              <div>
+                <p class="announcement-card-label">Merch</p>
+                <h2>Merchandise Sales</h2>
+              </div>
+              <span class="admin-chart-note">Quarterly sales</span>
+            </div>
+            <div class="admin-chart-canvas-wrap">
+              <canvas id="adminMerchChart"></canvas>
+            </div>
+          </article>
+
+          <article class="admin-analytics-card admin-chart-card">
+            <div class="admin-chart-head">
+              <div>
+                <p class="announcement-card-label">Traffic</p>
+                <h2>Website Visits</h2>
+              </div>
+              <span class="admin-chart-note">Weekly pattern</span>
+            </div>
+            <div class="admin-chart-canvas-wrap">
+              <canvas id="adminVisitsChart"></canvas>
+            </div>
+          </article>
+
+          <article class="admin-analytics-card admin-chart-card">
+            <div class="admin-chart-head">
+              <div>
+                <p class="announcement-card-label">Events</p>
+                <h2>Event Engagement</h2>
+              </div>
+              <span class="admin-chart-note">Recent campaigns</span>
+            </div>
+            <div class="admin-chart-canvas-wrap">
+              <canvas id="adminEventChart"></canvas>
+            </div>
+          </article>
+        </section>
+      </section>
+    </main>
+
+    <script>
+      const adminChartPalette = {
+        gold: "#f6df9a",
+        ember: "#c96a53",
+        sinag: "#f0de65",
+        likha: "#f29a4a",
+        laraw: "#66d5c9",
+        himig: "#7db4ff",
+        grid: "rgba(255, 228, 160, 0.08)",
+        ticks: "rgba(255, 245, 217, 0.72)"
+      };
+
+      const adminChartDefaults = {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            labels: {
+              color: adminChartPalette.ticks,
+              boxWidth: 12,
+              usePointStyle: true
+            }
+          }
+        },
+        scales: {
+          x: {
+            ticks: { color: adminChartPalette.ticks },
+            grid: { color: adminChartPalette.grid }
+          },
+          y: {
+            ticks: { color: adminChartPalette.ticks },
+            grid: { color: adminChartPalette.grid }
+          }
+        }
+      };
+
+      if (window.Chart) {
+        new Chart(document.getElementById("adminUsersChart"), {
+          type: "line",
+          data: {
+            labels: ["December", "January", "February", "March", "April", "May"],
+            datasets: [
+              {
+                label: "Users",
+                data: [312, 338, 366, 421, 472, 524],
+                borderColor: adminChartPalette.gold,
+                backgroundColor: "rgba(246, 223, 154, 0.16)",
+                tension: 0.35,
+                fill: true,
+                pointRadius: 4,
+                pointHoverRadius: 5,
+                pointBackgroundColor: adminChartPalette.gold
+              }
+            ]
+          },
+          options: adminChartDefaults
+        });
+
+        new Chart(document.getElementById("adminGuildChart"), {
+          type: "doughnut",
+          data: {
+            labels: ["Sinag", "Likha", "Laraw", "Himig"],
+            datasets: [
+              {
+                data: [146, 158, 112, 108],
+                backgroundColor: [
+                  adminChartPalette.sinag,
+                  adminChartPalette.likha,
+                  adminChartPalette.laraw,
+                  adminChartPalette.himig
+                ],
+                borderColor: "#090708",
+                borderWidth: 3
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: "bottom",
+                labels: {
+                  color: adminChartPalette.ticks,
+                  boxWidth: 12,
+                  usePointStyle: true
+                }
+              }
+            }
+          }
+        });
+
+        new Chart(document.getElementById("adminMerchChart"), {
+          type: "bar",
+          data: {
+            labels: ["Org Shirt", "Lanyard", "Pins", "Stickers"],
+            datasets: [
+              {
+                label: "Sales",
+                data: [96, 142, 38, 54],
+                backgroundColor: [
+                  adminChartPalette.ember,
+                  adminChartPalette.gold,
+                  adminChartPalette.likha,
+                  adminChartPalette.laraw
+                ],
+                borderRadius: 14
+              }
+            ]
+          },
+          options: adminChartDefaults
+        });
+
+        new Chart(document.getElementById("adminVisitsChart"), {
+          type: "bar",
+          data: {
+            labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+            datasets: [
+              {
+                label: "Visits",
+                data: [2400, 2860, 2710, 3190, 3580, 2540, 2980],
+                backgroundColor: adminChartPalette.himig,
+                borderRadius: 14
+              }
+            ]
+          },
+          options: adminChartDefaults
+        });
+
+        new Chart(document.getElementById("adminEventChart"), {
+          type: "radar",
+          data: {
+            labels: ["Marahuyo", "Guild Jam", "Showcase", "Open Mic", "Workshop"],
+            datasets: [
+              {
+                label: "Engagement",
+                data: [78, 64, 86, 71, 75],
+                borderColor: adminChartPalette.laraw,
+                backgroundColor: "rgba(102, 213, 201, 0.18)",
+                pointBackgroundColor: adminChartPalette.gold
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                labels: {
+                  color: adminChartPalette.ticks
+                }
+              }
+            },
+            scales: {
+              r: {
+                angleLines: { color: adminChartPalette.grid },
+                grid: { color: adminChartPalette.grid },
+                pointLabels: { color: adminChartPalette.ticks },
+                ticks: {
+                  color: adminChartPalette.ticks,
+                  backdropColor: "transparent"
+                }
+              }
+            }
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en" data-page="superadmin/analytics.html">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CMC Site - Super Admin Analytics</title>
+    <link rel="icon" href="../logo.jpg" />
+    <link rel="stylesheet" href="../style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+    <script defer src="../script.js"></script>
+  </head>
+  <body class="admin-dashboard-body page-enter">
+    <main class="admin-dashboard-shell superadmin-dashboard-shell">
+      <aside class="admin-sidebar superadmin-sidebar" aria-label="Super admin navigation">
+        <a class="admin-sidebar-brand" href="../index.html">
+          <img src="../logo.jpg" alt="CMC logo" />
+          <div>
+            <strong>CMC Console</strong>
+            <span>Super Admin View</span>
+          </div>
+        </a>
+        <nav class="admin-sidebar-nav">
+          <p>System Control</p>
+          <a href="index.html">Dashboard</a>
+          <a class="is-current" href="analytics.html">Analytics</a>
+          <a href="management.html">Management</a>
+          <a href="user-management.html">User Management</a>
+          <a href="site-management.html">Site Management</a>
+        </nav>
+        <div class="admin-sidebar-meta">
+          <p>Workspace</p>
+          <a href="../index.html">Main Site</a>
+          <a href="../account.html">Accounts Page</a>
+        </div>
+      </aside>
+
+      <section class="admin-workspace">
+        <header class="admin-toolbar superadmin-toolbar">
+          <div class="admin-toolbar-copy">
+            <p>System Layer</p>
+            <h1>Analytics</h1>
+          </div>
+          <div class="admin-toolbar-actions">
+            <div class="admin-account-menu">
+              <button class="admin-account-trigger" type="button" aria-label="Open account menu" aria-haspopup="true" aria-expanded="false">
+                <img src="../ACCOUNT_ICON.png" alt="" aria-hidden="true" />
+              </button>
+              <div class="admin-account-panel">
+                <div class="admin-account-summary">
+                  <img src="../ACCOUNT_ICON.png" alt="Super administrator account" />
+                  <div>
+                    <strong>CMC Super Admin</strong>
+                    <span>System Governance</span>
+                  </div>
+                </div>
+                <a class="admin-account-link" href="../account.html">Log Out</a>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <section class="admin-dashboard-grid" aria-label="Super admin analytics highlights">
+          <article class="admin-metric-card superadmin-highlight-card">
+            <p class="announcement-card-label">Network Snapshot</p>
+            <h2>Global Totals</h2>
+            <div class="admin-metric-row">
+              <div>
+                <strong>814</strong>
+                <span>Total users</span>
+              </div>
+              <div>
+                <strong>P128.4K</strong>
+                <span>Merch revenue</span>
+              </div>
+              <div>
+                <strong>34.8K</strong>
+                <span>Monthly visits</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="admin-panel-card">
+            <p class="announcement-card-label">Governance Signals</p>
+            <h2>What Stands Out</h2>
+            <ul class="admin-task-list">
+              <li><span>01</span> Member growth remains strongest after event-heavy months.</li>
+              <li><span>02</span> Merch momentum is led by lanyards and organization shirts.</li>
+              <li><span>03</span> Laraw and Likha pages hold the longest average session time.</li>
+              <li><span>04</span> Event engagement spikes when pre-launch promos run across guild pages.</li>
+            </ul>
+          </article>
+        </section>
+
+        <section class="admin-chart-grid" aria-label="Super admin analytics charts">
+          <article class="admin-analytics-card admin-chart-card admin-chart-card-wide">
+            <div class="admin-chart-head">
+              <div>
+                <p class="announcement-card-label">Users</p>
+                <h2>Total Users</h2>
+              </div>
+              <span class="admin-chart-note">Rolling annual growth</span>
+            </div>
+            <div class="admin-chart-canvas-wrap">
+              <canvas id="superUsersChart"></canvas>
+            </div>
+            <div class="admin-chart-metrics">
+              <div><strong>814</strong><span>Total accounts</span></div>
+              <div><strong>+24%</strong><span>Yearly increase</span></div>
+              <div><strong>126</strong><span>New this quarter</span></div>
+            </div>
+          </article>
+
+          <article class="admin-analytics-card admin-chart-card">
+            <div class="admin-chart-head">
+              <div>
+                <p class="announcement-card-label">Guilds</p>
+                <h2>Guild Member Count</h2>
+              </div>
+              <span class="admin-chart-note">Active roster share</span>
+            </div>
+            <div class="admin-chart-canvas-wrap">
+              <canvas id="superGuildChart"></canvas>
+            </div>
+          </article>
+
+          <article class="admin-analytics-card admin-chart-card">
+            <div class="admin-chart-head">
+              <div>
+                <p class="announcement-card-label">Merch</p>
+                <h2>Merchandise Sales</h2>
+              </div>
+              <span class="admin-chart-note">By month</span>
+            </div>
+            <div class="admin-chart-canvas-wrap">
+              <canvas id="superMerchChart"></canvas>
+            </div>
+          </article>
+
+          <article class="admin-analytics-card admin-chart-card">
+            <div class="admin-chart-head">
+              <div>
+                <p class="announcement-card-label">Traffic</p>
+                <h2>Website Visits</h2>
+              </div>
+              <span class="admin-chart-note">Cross-site activity</span>
+            </div>
+            <div class="admin-chart-canvas-wrap">
+              <canvas id="superVisitsChart"></canvas>
+            </div>
+          </article>
+
+          <article class="admin-analytics-card admin-chart-card">
+            <div class="admin-chart-head">
+              <div>
+                <p class="announcement-card-label">Events</p>
+                <h2>Event Engagement</h2>
+              </div>
+              <span class="admin-chart-note">Campaign completion rate</span>
+            </div>
+            <div class="admin-chart-canvas-wrap">
+              <canvas id="superEventChart"></canvas>
+            </div>
+          </article>
+        </section>
+      </section>
+    </main>
+
+    <script>
+      const superChartPalette = {
+        gold: "#f6df9a",
+        ember: "#c96a53",
+        sinag: "#f0de65",
+        likha: "#f29a4a",
+        laraw: "#66d5c9",
+        himig: "#7db4ff",
+        grid: "rgba(255, 228, 160, 0.08)",
+        ticks: "rgba(255, 245, 217, 0.72)"
+      };
+
+      const superChartDefaults = {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            labels: {
+              color: superChartPalette.ticks,
+              boxWidth: 12,
+              usePointStyle: true
+            }
+          }
+        },
+        scales: {
+          x: {
+            ticks: { color: superChartPalette.ticks },
+            grid: { color: superChartPalette.grid }
+          },
+          y: {
+            ticks: { color: superChartPalette.ticks },
+            grid: { color: superChartPalette.grid }
+          }
+        }
+      };
+
+      if (window.Chart) {
+        new Chart(document.getElementById("superUsersChart"), {
+          type: "line",
+          data: {
+            labels: ["Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May"],
+            datasets: [
+              {
+                label: "Users",
+                data: [422, 446, 468, 492, 518, 545, 583, 629, 688, 734, 772, 814],
+                borderColor: superChartPalette.gold,
+                backgroundColor: "rgba(246, 223, 154, 0.14)",
+                tension: 0.34,
+                fill: true,
+                pointRadius: 3.5,
+                pointBackgroundColor: superChartPalette.gold
+              }
+            ]
+          },
+          options: superChartDefaults
+        });
+
+        new Chart(document.getElementById("superGuildChart"), {
+          type: "polarArea",
+          data: {
+            labels: ["Sinag", "Likha", "Laraw", "Himig"],
+            datasets: [
+              {
+                data: [214, 236, 182, 182],
+                backgroundColor: [
+                  "rgba(240, 222, 101, 0.72)",
+                  "rgba(242, 154, 74, 0.72)",
+                  "rgba(102, 213, 201, 0.72)",
+                  "rgba(125, 180, 255, 0.72)"
+                ],
+                borderColor: "#090708",
+                borderWidth: 2
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: "bottom",
+                labels: { color: superChartPalette.ticks, usePointStyle: true }
+              }
+            },
+            scales: {
+              r: {
+                grid: { color: superChartPalette.grid },
+                angleLines: { color: superChartPalette.grid },
+                ticks: { color: superChartPalette.ticks, backdropColor: "transparent" }
+              }
+            }
+          }
+        });
+
+        new Chart(document.getElementById("superMerchChart"), {
+          type: "bar",
+          data: {
+            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+            datasets: [
+              {
+                label: "Sales (PHP x1000)",
+                data: [14, 17, 22, 19, 26, 30],
+                backgroundColor: [
+                  superChartPalette.ember,
+                  superChartPalette.sinag,
+                  superChartPalette.likha,
+                  superChartPalette.gold,
+                  superChartPalette.laraw,
+                  superChartPalette.himig
+                ],
+                borderRadius: 14
+              }
+            ]
+          },
+          options: superChartDefaults
+        });
+
+        new Chart(document.getElementById("superVisitsChart"), {
+          type: "line",
+          data: {
+            labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+            datasets: [
+              {
+                label: "Visits",
+                data: [4100, 4520, 4380, 4890, 5260, 3840, 4210],
+                borderColor: superChartPalette.himig,
+                backgroundColor: "rgba(125, 180, 255, 0.12)",
+                fill: true,
+                tension: 0.32,
+                pointRadius: 3.5
+              }
+            ]
+          },
+          options: superChartDefaults
+        });
+
+        new Chart(document.getElementById("superEventChart"), {
+          type: "radar",
+          data: {
+            labels: ["Showcase", "Guild Jam", "Open Mic", "Workshop", "Concert Night"],
+            datasets: [
+              {
+                label: "Engagement",
+                data: [88, 76, 72, 81, 90],
+                borderColor: superChartPalette.laraw,
+                backgroundColor: "rgba(102, 213, 201, 0.18)",
+                pointBackgroundColor: superChartPalette.gold
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                labels: { color: superChartPalette.ticks }
+              }
+            },
+            scales: {
+              r: {
+                angleLines: { color: superChartPalette.grid },
+                grid: { color: superChartPalette.grid },
+                pointLabels: { color: superChartPalette.ticks },
+                ticks: { color: superChartPalette.ticks, backdropColor: "transparent" }
+              }
+            }
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

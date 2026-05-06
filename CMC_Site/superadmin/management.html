@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en" data-page="superadmin/management.html">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CMC Site - Super Admin Management</title>
+    <link rel="icon" href="../logo.jpg" />
+    <link rel="stylesheet" href="../style.css" />
+    <script defer src="../script.js"></script>
+  </head>
+  <body class="admin-dashboard-body page-enter">
+    <main class="admin-dashboard-shell superadmin-dashboard-shell">
+      <aside class="admin-sidebar superadmin-sidebar" aria-label="Super admin navigation">
+        <a class="admin-sidebar-brand" href="../index.html">
+          <img src="../logo.jpg" alt="CMC logo" />
+          <div>
+            <strong>CMC Console</strong>
+            <span>Super Admin View</span>
+          </div>
+        </a>
+        <nav class="admin-sidebar-nav">
+          <p>System Control</p>
+          <a href="index.html">Dashboard</a>
+          <a href="analytics.html">Analytics</a>
+          <a class="is-current" href="management.html">Management</a>
+          <a href="user-management.html">User Management</a>
+          <a href="site-management.html">Site Management</a>
+        </nav>
+        <div class="admin-sidebar-meta">
+          <p>Workspace</p>
+          <a href="../index.html">Main Site</a>
+          <a href="../account.html">Accounts Page</a>
+        </div>
+      </aside>
+
+      <section class="admin-workspace">
+        <header class="admin-toolbar superadmin-toolbar">
+          <div class="admin-toolbar-copy">
+            <p>System Layer</p>
+            <h1>Management</h1>
+          </div>
+          <div class="admin-toolbar-actions">
+            <div class="admin-account-menu">
+              <button class="admin-account-trigger" type="button" aria-label="Open account menu" aria-haspopup="true" aria-expanded="false">
+                <img src="../ACCOUNT_ICON.png" alt="" aria-hidden="true" />
+              </button>
+              <div class="admin-account-panel">
+                <div class="admin-account-summary">
+                  <img src="../ACCOUNT_ICON.png" alt="Super administrator account" />
+                  <div>
+                    <strong>CMC Super Admin</strong>
+                    <span>System Governance</span>
+                  </div>
+                </div>
+                <a class="admin-account-link" href="../account.html">Log Out</a>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <section class="admin-feature-grid" aria-label="Super admin management hub">
+          <article class="admin-feature-card admin-feature-card-wide" data-merch-management>
+            <div class="admin-feature-head">
+              <p class="announcement-card-label">Commerce Records</p>
+              <h2>Merch Activity and Delivery Emails</h2>
+            </div>
+            <div class="admin-order-summary">
+              <div><strong data-merch-order-count>0</strong><span>Cart actions logged</span></div>
+              <div><strong data-merch-email-count>0</strong><span>Delivery emails collected</span></div>
+              <div><strong data-merch-revenue-total>P0</strong><span>Tracked cart value</span></div>
+            </div>
+            <div class="admin-view-branch-row">
+              <article class="admin-panel-card">
+                <div class="admin-feature-head">
+                  <p class="announcement-card-label">Cart Feed</p>
+                  <h2>Recent Cart Activity</h2>
+                </div>
+                <div class="admin-inquiry-list" data-merch-activity-list></div>
+              </article>
+              <article class="admin-panel-card">
+                <div class="admin-feature-head">
+                  <p class="announcement-card-label">Delivery Updates</p>
+                  <h2>Email Collection</h2>
+                </div>
+                <div class="admin-inquiry-list" data-merch-email-list></div>
+              </article>
+            </div>
+          </article>
+
+          <article class="admin-feature-card">
+            <div class="admin-feature-head">
+              <p class="announcement-card-label">Full Access</p>
+              <h2>Inherited Admin Capabilities</h2>
+            </div>
+            <p>Review the broader permissions and inherited tools available to the super admin role.</p>
+            <div class="admin-actions">
+              <a class="admin-toolbar-link" href="full-access.html">Open Full Access</a>
+            </div>
+          </article>
+
+          <article class="admin-feature-card">
+            <div class="admin-feature-head">
+              <p class="announcement-card-label">Registration</p>
+              <h2>Enrollment Oversight</h2>
+            </div>
+            <p>Monitor sign-up flow quality, registration logs, and enrollment status across forms.</p>
+            <div class="admin-actions">
+              <a class="admin-toolbar-link" href="registration.html">Open Registration</a>
+            </div>
+          </article>
+
+          <article class="admin-feature-card">
+            <div class="admin-feature-head">
+              <p class="announcement-card-label">Mini-Games</p>
+              <h2>Interactive Systems</h2>
+            </div>
+            <p>Guide quiz and game content releases, updates, and maintenance priorities.</p>
+            <div class="admin-actions">
+              <a class="admin-toolbar-link" href="minigames.html">Open Mini-Games</a>
+            </div>
+          </article>
+
+          <article class="admin-feature-card">
+            <div class="admin-feature-head">
+              <p class="announcement-card-label">Security</p>
+              <h2>Audit and Integrity Review</h2>
+            </div>
+            <p>Inspect sensitive actions, review logs, and protect the platform’s structure.</p>
+            <div class="admin-actions">
+              <a class="admin-toolbar-link" href="security.html">Open Security</a>
+            </div>
+          </article>
+
+          <article class="admin-feature-card">
+            <div class="admin-feature-head">
+              <p class="announcement-card-label">Strategy</p>
+              <h2>Mission and Policy Alignment</h2>
+            </div>
+            <p>Review long-range messaging, structural decisions, and high-level planning work.</p>
+            <div class="admin-actions">
+              <a class="admin-toolbar-link" href="strategy.html">Open Strategy</a>
+            </div>
+          </article>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>
