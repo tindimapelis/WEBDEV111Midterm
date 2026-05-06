@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en" data-page="staff-login.html">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CMC Site - Staff Login</title>
+    <link rel="icon" href="logo.jpg" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body class="page-enter">
+    <main class="login-screen-shell">
+      <p class="login-screen-label">Account</p>
+
+      <section class="login-stage-frame">
+        <div class="login-card-wrap login-card-wrap-single">
+          <article class="login-panel login-panel-staff login-panel-centered" id="admin">
+            <a class="login-back-link" href="index.html" aria-label="Back to home">&#8249; Back</a>
+            <img class="login-floating-logo" src="logo.jpg" alt="CMC logo" />
+            <div class="login-title-stack">
+              <p>Staff Access</p>
+              <div class="login-divider-heading">
+                <span></span>
+                <h1>Login</h1>
+                <span></span>
+              </div>
+            </div>
+            <form class="account-form login-form" action="#" method="get" data-account-form="staff">
+              <label>
+                <span>Staff ID or Email</span>
+                <input type="text" name="staff-login" placeholder="Enter admin credentials" autocomplete="username" />
+              </label>
+              <label>
+                <span>Password</span>
+                <div class="login-password-field">
+                  <input type="password" name="staff-password" placeholder="Enter secure password" autocomplete="current-password" />
+                  <button type="button" class="login-visibility-toggle" data-password-toggle aria-label="Show password">◌</button>
+                </div>
+              </label>
+              <label>
+                <span>Access Role</span>
+                <select name="staff-role">
+                  <option>Admin</option>
+                  <option>Super Admin</option>
+                </select>
+              </label>
+              <div class="account-form-row login-form-row">
+                <a href="#">Forgot password?</a>
+              </div>
+              <p class="account-auth-message" data-auth-message="staff" aria-live="polite"></p>
+              <div class="account-actions">
+                <button type="submit" data-staff-submit>Sign In</button>
+              </div>
+            </form>
+          </article>
+        </div>
+      </section>
+
+      <section class="account-demo-card login-demo-card" id="super-admin" aria-labelledby="staff-demo-title">
+        <p class="announcement-card-label">Demo Accounts</p>
+        <h2 id="staff-demo-title">Staff Demo Credentials</h2>
+        <div class="account-demo-grid">
+          <article>
+            <h3>Admin Demo</h3>
+            <p><strong>Username:</strong> admin</p>
+            <p><strong>Password:</strong> 1234</p>
+            <div class="account-demo-actions">
+              <button class="account-demo-fill" type="button" data-demo-fill="admin">Use Admin Demo</button>
+            </div>
+          </article>
+          <article>
+            <h3>Super Admin Demo</h3>
+            <p><strong>Username:</strong> superadmin</p>
+            <p><strong>Password:</strong> 1234</p>
+            <div class="account-demo-actions">
+              <button class="account-demo-fill" type="button" data-demo-fill="superadmin">Use Super Admin Demo</button>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

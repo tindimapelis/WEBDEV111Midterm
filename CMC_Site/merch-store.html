@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en" data-page="merch-store.html">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CMC Site - Merch</title>
+    <link rel="icon" href="logo.jpg" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body class="page-enter">
+    <header class="top-shell">
+      <div class="top-rule"></div>
+      <div class="brand-bar">
+        <a class="brand-mark" href="index.html" aria-label="Creative Minds Consortium home">
+          <img src="logo.jpg" alt="CMC logo" />
+          <span>CMC</span>
+        </a>
+        <a class="signup-btn" href="account.html" aria-label="Open login page">
+          <img src="ACCOUNT_ICON.png" alt="Account" />
+        </a>
+      </div>
+      <nav class="main-nav" aria-label="Primary">
+        <div class="nav-dropdown">
+          <a class="nav-dropdown-trigger" href="index.html">Home</a>
+          <div class="nav-dropdown-menu">
+            <a href="sinag.html">Sinag</a>
+            <a href="likha.html">Likha</a>
+            <a href="laraw.html">Laraw</a>
+            <a href="himig.html">Himig</a>
+          </div>
+        </div>
+        <a href="about.html">About</a>
+        <a href="mini-games.html">Mini Games</a>
+        <a href="merch-store.html">Merch</a>
+        <div class="nav-dropdown">
+          <a class="nav-dropdown-trigger" href="ongoing-events.html">Events</a>
+          <div class="nav-dropdown-menu">
+            <a href="ongoing-events.html">Ongoing</a>
+            <a href="past-events.html">Past</a>
+          </div>
+        </div>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main class="page-shell merch-page-shell">
+      <section class="hero-panel merch-hero">
+        <div class="merch-hero-copy">
+          <p class="eyebrow">Organization Merch</p>
+          <h1>Merch</h1>
+          <p class="lead">
+            Browse the latest CMC drop and open any item for a fuller product view before adding
+            it to your cart.
+          </p>
+        </div>
+        <div class="merch-hero-actions">
+          <button class="merch-cart-trigger" type="button" aria-haspopup="dialog" aria-controls="merch-cart-modal" aria-label="View cart">
+            <img src="CART_white.png" alt="" aria-hidden="true" />
+            <span class="merch-cart-count" data-cart-count>0</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="merch-catalog-shell" aria-labelledby="merch-catalog-title">
+        <div class="merch-section-head">
+          <p class="announcement-card-label">Main Collection</p>
+          <h2 id="merch-catalog-title">Merch Catalog</h2>
+        </div>
+
+        <div class="merch-catalog-grid">
+          <article
+            class="merch-catalog-card"
+            tabindex="0"
+            data-product-name="CMC Org Shirt"
+            data-product-price="699"
+            data-product-display-price="P699"
+            data-product-image="ORG_shirt_merch.png"
+            data-product-color="Red"
+            data-product-colors="Red,Black"
+            data-product-color-images="Red:ORG_shirt_merch.png|Black:org_shirt_blackversion.png"
+            data-product-description="Official CMC organization shirt for members and supporters. Production follows the current merch batch schedule."
+            data-product-option-label="Size"
+            data-product-sizes="XS,S,M,L,XL,XXL"
+            data-product-status=""
+          >
+            <div class="merch-catalog-image">
+              <img src="ORG_shirt_merch.png" alt="CMC organization shirt" />
+            </div>
+            <div class="merch-catalog-meta">
+              <h3>CMC Org Shirt</h3>
+              <p>P259</p>
+            </div>
+            <div class="merch-catalog-swatches" aria-hidden="true">
+              <span class="merch-swatch merch-swatch-red"></span>
+              <span class="merch-swatch merch-swatch-black"></span>
+            </div>
+          </article>
+
+          <article
+            class="merch-catalog-card"
+            tabindex="0"
+            data-product-name="CMC Lanyard"
+            data-product-price="149"
+            data-product-display-price="P149"
+            data-product-image="CMC_lanyard.png"
+            data-product-color="None"
+            data-product-colors=""
+            data-product-description="Guild lanyards for everyday ID use or event wear. Choose the guild version that fits your banner."
+            data-product-option-label="Variation"
+            data-product-sizes="CMC,Sinag,Likha,Laraw,Himig"
+            data-product-variation-images="CMC:CMC_lanyard.png|Sinag:SINAG_lanyard.png|Likha:LIKHA_lanyard.png|Laraw:LARAW_lanyard.png|Himig:HIMIG_lanyard.png"
+            data-product-status=""
+          >
+            <div class="merch-catalog-image">
+              <img src="CMC_lanyard.png" alt="CMC lanyard" />
+            </div>
+            <div class="merch-catalog-meta">
+              <h3>CMC Lanyard</h3>
+              <p>P75</p>
+            </div>
+            <div class="merch-catalog-swatches" aria-hidden="true">
+              <span class="merch-swatch merch-swatch-brown"></span>
+              <span class="merch-swatch merch-swatch-blue"></span>
+              <span class="merch-swatch merch-swatch-pink"></span>
+              <span class="merch-swatch merch-swatch-cream"></span>
+              <span class="merch-swatch merch-swatch-grey"></span>
+            </div>
+          </article>
+
+          <article
+            class="merch-catalog-card"
+            tabindex="0"
+            data-product-name="CMC Pins"
+            data-product-price="0"
+            data-product-display-price="Work in Progress"
+            data-product-image="unaivailable_product.png"
+            data-product-color="Coming Soon"
+            data-product-colors=""
+            data-product-description="Pin designs are still being finalized. More details and previews will be added once production is ready."
+            data-product-option-label="Status"
+            data-product-sizes="Work in Progress"
+            data-product-status="Work in Progress"
+          >
+            <div class="merch-catalog-image">
+              <img src="unaivailable_product.png" alt="CMC pins unavailable placeholder" />
+            </div>
+            <div class="merch-catalog-meta">
+              <h3>CMC Pins</h3>
+              <p>Work in Progress</p>
+            </div>
+          </article>
+
+          <article
+            class="merch-catalog-card"
+            tabindex="0"
+            data-product-name="CMC Stickers"
+            data-product-price="0"
+            data-product-display-price="Work in Progress"
+            data-product-image="unaivailable_product.png"
+            data-product-color="Coming Soon"
+            data-product-colors=""
+            data-product-description="Sticker packs are also in progress. Expect more magical add-ons and smaller merch items soon."
+            data-product-option-label="Status"
+            data-product-sizes="Work in Progress"
+            data-product-status="Work in Progress"
+          >
+            <div class="merch-catalog-image">
+              <img src="unaivailable_product.png" alt="CMC stickers unavailable placeholder" />
+            </div>
+            <div class="merch-catalog-meta">
+              <h3>CMC Stickers</h3>
+              <p>Work in Progress</p>
+            </div>
+          </article>
+        </div>
+
+        <p class="merch-coming-soon-note">More products coming soon, stay tuned.</p>
+      </section>
+
+      <div class="merch-cart-modal" id="merch-cart-modal" hidden>
+        <div class="merch-cart-dialog" role="dialog" aria-modal="true" aria-labelledby="merch-cart-title">
+          <div class="merch-cart-header">
+            <div class="merch-cart-brand">
+              <img src="logo.jpg" alt="Temporary CMC cart logo" />
+              <div>
+                <p class="announcement-card-label">Your Cart</p>
+                <h2 id="merch-cart-title">CMC Store Cart</h2>
+              </div>
+            </div>
+            <button class="merch-cart-close" type="button" aria-label="Close cart">Close</button>
+          </div>
+          <div class="merch-cart-body">
+            <ul class="merch-cart-list" data-cart-list>
+              <li class="merch-cart-empty">No items yet.</li>
+            </ul>
+            <div class="merch-cart-summary">
+              <span>Total</span>
+              <strong data-cart-total>P0</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="merch-product-modal" hidden>
+        <div class="merch-product-dialog" role="dialog" aria-modal="true" aria-labelledby="merch-product-title">
+          <button class="merch-product-close" type="button" aria-label="Close product view">Close</button>
+          <div class="merch-product-detail">
+            <div class="merch-product-detail-image">
+              <img src="logo.jpg" alt="Selected merch item preview" data-product-modal-image />
+            </div>
+            <div class="merch-product-detail-copy">
+              <h2 id="merch-product-title" data-product-modal-title>CMC Org Shirt</h2>
+              <p class="merch-product-shipping" data-product-modal-description>
+                Items will be shipped within 4-5 weeks.
+              </p>
+              <p class="merch-product-price" data-product-modal-price>P699</p>
+              <p class="merch-product-note">
+                Pay over time for orders over <strong>P1,500</strong> with your preferred payment option.
+              </p>
+
+              <div class="merch-product-option-group">
+                <p>Color: <span data-product-modal-color>Black</span></p>
+                <div class="merch-product-option-row" data-product-modal-colors></div>
+              </div>
+
+              <div class="merch-product-option-group">
+                <p data-product-modal-option-label>Size</p>
+                <div class="merch-product-size-grid" data-product-modal-sizes></div>
+              </div>
+
+              <div class="merch-product-option-group">
+                <p>Quantity</p>
+                <div class="merch-quantity-control">
+                  <button class="merch-quantity-button" type="button" data-qty-change="-1">-</button>
+                  <span data-product-modal-qty>1</span>
+                  <button class="merch-quantity-button" type="button" data-qty-change="1">+</button>
+                </div>
+              </div>
+
+              <div class="merch-product-actions">
+                <button class="merch-detail-cart-button" type="button" data-product-modal-add>Add to cart</button>
+                <button class="merch-detail-shop-button" type="button" data-open-cart>Buy with cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

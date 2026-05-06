@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en" data-page="mini-games.html">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CMC Site - Mini Games</title>
+    <link rel="icon" href="logo.jpg" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body class="page-enter">
+    <header class="top-shell">
+      <div class="top-rule"></div>
+      <div class="brand-bar">
+        <a class="brand-mark" href="index.html" aria-label="Creative Minds Consortium home">
+          <img src="logo.jpg" alt="CMC logo" />
+          <span>CMC</span>
+        </a>
+        <a class="signup-btn" href="account.html" aria-label="Open login page">
+          <img src="ACCOUNT_ICON.png" alt="Account" />
+        </a>
+      </div>
+      <nav class="main-nav" aria-label="Primary">
+        <div class="nav-dropdown">
+          <a class="nav-dropdown-trigger" href="index.html">Home</a>
+          <div class="nav-dropdown-menu">
+            <a href="sinag.html">Sinag</a>
+            <a href="likha.html">Likha</a>
+            <a href="laraw.html">Laraw</a>
+            <a href="himig.html">Himig</a>
+          </div>
+        </div>
+        <a href="about.html">About</a>
+        <a href="mini-games.html">Mini Games</a>
+        <a href="merch-store.html">Merch</a>
+        <div class="nav-dropdown">
+          <a class="nav-dropdown-trigger" href="ongoing-events.html">Events</a>
+          <div class="nav-dropdown-menu">
+            <a href="ongoing-events.html">Ongoing</a>
+            <a href="past-events.html">Past</a>
+          </div>
+        </div>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main class="page-shell mini-games-page-shell">
+      <section class="hero-panel mini-games-hero">
+        <p class="eyebrow">Mini Games</p>
+        <h1>Arcane Challenges For Creative Minds</h1>
+        <p class="lead">
+          Step into a small chamber of guild-inspired games designed to test instinct, memory, and
+          your creative affinity within the consortium.
+        </p>
+      </section>
+
+      <section class="content-grid mini-games-grid" aria-label="Mini games collection">
+        <article class="content-card mini-game-card">
+          <p class="announcement-card-label">First Game</p>
+          <h2>Which CMC Guild Are You?</h2>
+          <p>
+            Discover whether your creative path leans toward performance, design, visual capture,
+            or music through the official guild sorting quiz.
+          </p>
+          <div class="mini-game-preview-grid" aria-hidden="true">
+            <span>Sinag</span>
+            <span>Likha</span>
+            <span>Laraw</span>
+            <span>Himig</span>
+          </div>
+          <a class="theme-button mini-game-button" href="guild-sorting-quiz.html">Take the Quiz</a>
+        </article>
+
+        <article class="content-card mini-game-card" id="guild-match-board">
+          <p class="announcement-card-label">Second Game</p>
+          <h2>CMC Guild Match</h2>
+          <p>
+            Flip each card and match every guild with its creative field. Clear all four pairs to
+            complete the chamber.
+          </p>
+          <a class="theme-button mini-game-button mini-game-button-secondary" href="#guild-match-board">Start Matching</a>
+          <div class="guild-match-grid" data-guild-match>
+            <button class="guild-match-card" type="button" data-match-card="sinag" data-match-group="sinag">
+              <span class="guild-match-front">?</span>
+              <span class="guild-match-back">SINAG</span>
+            </button>
+            <button class="guild-match-card" type="button" data-match-card="story" data-match-group="sinag">
+              <span class="guild-match-front">?</span>
+              <span class="guild-match-back">Performance &amp; Storytelling</span>
+            </button>
+            <button class="guild-match-card" type="button" data-match-card="likha" data-match-group="likha">
+              <span class="guild-match-front">?</span>
+              <span class="guild-match-back">LIKHA</span>
+            </button>
+            <button class="guild-match-card" type="button" data-match-card="design" data-match-group="likha">
+              <span class="guild-match-front">?</span>
+              <span class="guild-match-back">Creation &amp; Design</span>
+            </button>
+            <button class="guild-match-card" type="button" data-match-card="laraw" data-match-group="laraw">
+              <span class="guild-match-front">?</span>
+              <span class="guild-match-back">LARAW</span>
+            </button>
+            <button class="guild-match-card" type="button" data-match-card="visual" data-match-group="laraw">
+              <span class="guild-match-front">?</span>
+              <span class="guild-match-back">Photography &amp; Visual</span>
+            </button>
+            <button class="guild-match-card" type="button" data-match-card="himig" data-match-group="himig">
+              <span class="guild-match-front">?</span>
+              <span class="guild-match-back">HIMIG</span>
+            </button>
+            <button class="guild-match-card" type="button" data-match-card="sound" data-match-group="himig">
+              <span class="guild-match-front">?</span>
+              <span class="guild-match-back">Music &amp; Sound</span>
+            </button>
+          </div>
+          <p class="guild-match-status" data-guild-match-status>Find all four matching pairs.</p>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
